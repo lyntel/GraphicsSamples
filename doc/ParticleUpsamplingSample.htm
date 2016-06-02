@@ -1,0 +1,326 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+	<title>Particle Upsampling Sample</title>
+	<meta name="description" content="Particle Upsampling Sample" />
+	
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row" id="subprojcontent">
+<div class="col-md-8">
+	<div class="page-header">
+		<h1>Particle Upsampling Sample</h1>
+	</div>
+
+	<div class="row">
+		
+			<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Performance&nbsp;</span>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+			</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min PC GPU:</b>
+			<span class="subprojmetagpu">GeForce Fermi-class</span>
+		</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min Tegra Device:</b>
+			<span class="subprojmetagpu">Tegra 4</span>
+		</div>
+		
+	</div>
+	
+	<div class="row">
+		<h3>Description</h3>
+		<p>The Particle Upsampling sample uses a combination of rendering techniques to simulate a cloud of particles casting shadows on a model and a floor object.  The particles are rendered into a lower-resolution offscreen surface, and then up-sampled to the screen to lower the cost of the high depth complexity.</p>
+			
+		<a data-colorbox="true" href="images/particleupsampling-screenshot.jpg"><img class="subprojscreen" src="images/particleupsampling-screenshot.jpg" width="400" alt="Screenshot" /></a>
+		
+	</div>
+	
+	
+	<div class="row">
+		<h3>APIs Used</h3>
+		<ul>
+		
+		  <li class="odd">GL_OES_depth_texture/GL_ARB_depth_texture</li>
+		
+		  <li class="even">GL_OES_texture_half_float</li>
+		
+		  <li class="odd">GL_NV_framebuffer_blit</li>
+		
+		  <li class="even">GL_NV_texture_border_clamp</li>
+		
+		</ul>
+	</div>
+	
+
+	
+	
+	
+	
+	<div class="row">
+		<h3>Shared User Interface</h3>
+		<p>The Graphics samples all share a common app framework and certain user interface elements, centered around the "Tweakbar" panel on the left side of the screen which lets you interactively control certain variables in each sample.</p>
+		<p>To show and hide the Tweakbar, simply click or touch the triangular button positioned in the top-left of the view.</p>
+		<div class="subprojmetadata">
+			<p>Other controls are listed below.</p>
+			
+		<table class="table table-striped small subprojcontrolstable" id="sharedcontrolstable">
+		
+		<tr>
+			<th class="subprojcontrolsdevice">Device</th>
+			<th class="subprojcontrolsinput">Input</th>
+			<th class="subprojcontrolsresult">Result</th>
+		</tr>
+	
+		
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">touch</td>
+				
+				<td>1-Finger Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>2-Finger Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>2-Finger Pinch</td> <td>Scale the view</td>
+			</tr>
+			
+		
+			
+			<tr class="even">
+				
+				<td class="subprojcontrolsdevicekind">mouse</td>
+				
+				<td>Left-Button Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Right-Button Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Middle-Click Drag</td> <td>Scale the view (up:out, down:in)</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">keyboard</td>
+				
+				<td>Escape</td> <td>Quit the application</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Tab</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">gamepad</td>
+				
+				<td>Start</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Right ThumbStick</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Left ThumbStick</td> <td>Move forward/backward, Slide left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Left/Right Triggers</td> <td>Move up/down</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>A</td> <td>Show TweakBar, Toggle Focused Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>B</td> <td>Close Focused UI, Hide TweakBar</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>DPAD Up/Down</td> <td>Move Focus to Prev/Next Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>DPAD Left/Right</td> <td>Decrease/Increase Focused Item</td>
+			</tr>
+			
+		
+		</table>
+	
+		</div>
+	</div>
+	
+		
+	
+
+		
+	<div class="row" id="subprojfulldoc">
+		<h3>Technical Details</h3>
+		<div id="detaileddoc">
+<p>The Particle Upsampling sample uses a combination of rendering techniques to simulate a cloud of particles casting shadows on a model and a floor object.  The particles are rendered into a lower-resolution offscreen surface, and then up-sampled to the screen to lower the cost of the high depth complexity.</p>
+<p>The sample makes use of the following techniques:</p>
+<ul>
+	<li>Half-resolution off-screen scene rendering with full-resolution UI rendering</li>
+	<li>Reduced-resolution particle rendering with cross-bilateral upsampling</li>
+	<li>Soft particle rendering using hardware-depth fetches</li>
+	<li>Particle shadows using half-angle slicing [Ikits et al. 2004]</li>
+	<li>Depth-prepass rendering to reduce overdraw</li>
+</ul>
+<p>This sample uses the following extensions, to enable functionalities that may not be available in base OpenGL or GLES:</p>
+<ul>
+	<li><code>GL_OES_depth_texture</code> (or <code>GL_ARB_depth_texture</code>) is used to access the raw values of the 16-bit hardware depth buffer, for rendering soft particles (performing a soft depth test in the particle's fragment shader), and for upsampling the particle with a depth-aware filter.</li>
+	<li><code>GL_OES_texture_half_float</code> is used to optionally render the particles to FP16 color buffers (instead of 8-bit-per-channel by default), for both the light buffer pass and the eye-rendering pass. Using FP16 precision for the particle blending reduces quantization artifacts which are especially noticeable when moving the camera.</li>
+	<li><code>GL_EXT_framebuffer_blit</code> is used to perform a bilinear upsampling of the half-resolution final scene colors to the screen resolution, as well as optionally to perform a point-filtered downsampling of the scene depths to the particle's resolution.</li>
+	<li><code>GL_ARB_texture_border_clamp</code> is used for the light-buffer fetches in the opaqueColor fragment shader, to get the pixels outside the light buffer to be fully lit.</li>
+</ul>
+<h4>Rendering Process</h4>
+<p>The high-level rendering loop is in SceneRendering.cpp, in SceneRenderer::renderFrame().</p>
+<ol>
+	<li><p>The particles are depth-sorted along the half-angle vector (midway between the light direction and the view direction). This is done using a CPU radix sort. In this SDK sample, the particle's vertices are assumed to be static and are placed in a static Vertex Buffer Object. The depth-sorted particle indices are placed in a dynamic Element Buffer Object and updated every frame, using a double-buffering scheme to avoid blocking the rendering thread when updating the buffer.</p></li>
+	<li><p>A reduced-resolution depth buffer is generated, storing the depths of the opaque geometry in the scene for the particles to be depth-tested against later on.</p>
+	<p>Note: If "Z Pre-Pass" is enabled, the opaque geometry is first drawn to a full-resolution depth buffer (depth pre-pass) and then downsampled to reduced resolution. Otherwise, if "Z Pre-Pass" is disabled, the opaque geometry is directly drawn to the reduced-resolution depth buffer.</p></li>
+	<li><p>The sorted particles are rendered in batches either front-to-back or back-to-front depending on the relative orientations of the view vector and the light vector. For each batch, the particles of this batch are first blended to the light buffer and then blended to the reduced-resolution output buffer, fetching the light buffer. The precision of these 2 buffers can be toggled between 8-bit and 16-bit per channel using the "Use FP16" button in the GUI.</p></li>
+	<li><p>The opaque geometry is drawn in full-resolution to the full-resolution scene color buffer, fetching the light buffer to receive shadows from the particles. If "Z Pre-Pass" is enabled, then the full-resolution depth buffer from step 2 is used to speed up this pass.</p></li>
+	<li><p>Finally, the scene color buffer is upsampled to the display resolution with a simple bilinear texture fetch.</p></li>
+</ol>
+
+<h4>Acknowledgments</h4>
+<p>This SDK sample is essentially a port of Simon Green's <a href="http://www.youtube.com/watch?v=dX8KeqYLY10">OpenCL "smokeParticles" demo</a> with a static particle system.</p>
+
+</div>
+	</div>
+	
+
+	
+	<div class="row" id="subprojseealso">
+		<h3>See Also</h3>
+		<ul>
+		
+		  <li class="odd">
+		  <!-- tbd file static refs will need to turn into an nvidia.com relative URL... -->
+		  <span class="subprojseeone">
+		  
+		  [Ikits et al. 2004]  Milan Ikits, Joe Kniss, Aaron Lefohn , Charles Hansen. &#39;Volume Rendering Techniques&#39;. GPU Gems. 2004.
+		  
+		  </span></li>
+		
+		  <li class="even">
+		  <!-- tbd file static refs will need to turn into an nvidia.com relative URL... -->
+		  <span class="subprojseeone">
+		  <a href="http://http.developer.nvidia.com/GPUGems3/gpugems3_ch23.html">
+		  [Cantlay 2008] Iain Cantlay. &#39;High-Speed, Off-Screen Particles&#39;. GPU Gems 3. 2008.
+		  </a>
+		  </span></li>
+		
+		</ul>
+	</div>
+		
+	
+</div>
+</div>
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>

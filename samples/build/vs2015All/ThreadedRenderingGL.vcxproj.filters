@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<Filter Include="src">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="..\..\es3aep-kepler\ThreadedRenderingGL\BindlessTextureHelper.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es3aep-kepler\ThreadedRenderingGL\NvInstancedModelExtGL.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es3aep-kepler\ThreadedRenderingGL\NvMultiDrawModelSet.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es3aep-kepler\ThreadedRenderingGL\NvSharedVBOGL_MappedSubRanges.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es3aep-kepler\ThreadedRenderingGL\NvSharedVBOGL_Orphaning.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es3aep-kepler\ThreadedRenderingGL\NvSharedVBOGL_Pooled.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es3aep-kepler\ThreadedRenderingGL\School.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es3aep-kepler\ThreadedRenderingGL\ThreadedRenderingGL.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es3aep-kepler\ThreadedRenderingGL\VertexFormatBinder.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClInclude Include="..\..\es3aep-kepler\ThreadedRenderingGL\BindlessTextureHelper.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\ThreadedRenderingGL\NvInstancedModelExtGL.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\ThreadedRenderingGL\NvMultiDrawModelSet.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\ThreadedRenderingGL\NvSharedVBOGL.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\ThreadedRenderingGL\NvSharedVBOGL_MappedSubRanges.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\ThreadedRenderingGL\NvSharedVBOGL_Orphaning.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\ThreadedRenderingGL\NvSharedVBOGL_Pooled.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\ThreadedRenderingGL\School.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\ThreadedRenderingGL\SchoolStateManager.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\ThreadedRenderingGL\ThreadedRenderingGL.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\ThreadedRenderingGL\VertexFormatBinder.h">
+			<Filter>src</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<Filter Include="glsl_shaders">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<AndroidBuild Include="..\..\es3aep-kepler\ThreadedRenderingGL\assets\src_shaders\groundplane_FS.glsl">
+			<Filter>glsl_shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\ThreadedRenderingGL\assets\src_shaders\groundplane_VS.glsl">
+			<Filter>glsl_shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\ThreadedRenderingGL\assets\src_shaders\skyboxcolor_FS.glsl">
+			<Filter>glsl_shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\ThreadedRenderingGL\assets\src_shaders\skyboxcolor_VS.glsl">
+			<Filter>glsl_shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\ThreadedRenderingGL\assets\src_shaders\staticfishMDI_FS.glsl">
+			<Filter>glsl_shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\ThreadedRenderingGL\assets\src_shaders\staticfishMDI_VS.glsl">
+			<Filter>glsl_shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\ThreadedRenderingGL\assets\src_shaders\staticfish_FS.glsl">
+			<Filter>glsl_shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\ThreadedRenderingGL\assets\src_shaders\staticfish_VS.glsl">
+			<Filter>glsl_shaders</Filter>
+		</AndroidBuild>
+	</ItemGroup>
+</Project>

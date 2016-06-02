@@ -1,0 +1,281 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+	<title>Mercury Sample</title>
+	<meta name="description" content="Mercury Sample" />
+	
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row" id="subprojcontent">
+<div class="col-md-8">
+	<div class="page-header">
+		<h1>Mercury Sample</h1>
+	</div>
+
+	<div class="row">
+		
+			<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+			</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min PC GPU:</b>
+			<span class="subprojmetagpu">GeForce Kepler-class</span>
+		</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min Tegra Device:</b>
+			<span class="subprojmetagpu">Tegra K1</span>
+		</div>
+		
+	</div>
+	
+	<div class="row">
+		<h3>Description</h3>
+		<p>This sample demonstrates how to use compute shaders to generate and render particle-based implicit surfaces.</p>
+			
+		<a data-colorbox="true" href="images/mercury-screenshot.png"><img class="subprojscreen" src="images/mercury-screenshot.png" width="400" alt="Screenshot" /></a>
+		
+	</div>
+	
+	
+	<div class="row">
+		<h3>APIs Used</h3>
+		<ul>
+		
+		  <li class="odd">OpenGL ES 3.1</li>
+		
+		</ul>
+	</div>
+	
+
+	
+	
+	
+	
+	<div class="row">
+		<h3>Shared User Interface</h3>
+		<p>The Graphics samples all share a common app framework and certain user interface elements, centered around the "Tweakbar" panel on the left side of the screen which lets you interactively control certain variables in each sample.</p>
+		<p>To show and hide the Tweakbar, simply click or touch the triangular button positioned in the top-left of the view.</p>
+		<div class="subprojmetadata">
+			<p>Other controls are listed below.</p>
+			
+		<table class="table table-striped small subprojcontrolstable" id="sharedcontrolstable">
+		
+		<tr>
+			<th class="subprojcontrolsdevice">Device</th>
+			<th class="subprojcontrolsinput">Input</th>
+			<th class="subprojcontrolsresult">Result</th>
+		</tr>
+	
+		
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">touch</td>
+				
+				<td>1-Finger Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>2-Finger Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>2-Finger Pinch</td> <td>Scale the view</td>
+			</tr>
+			
+		
+			
+			<tr class="even">
+				
+				<td class="subprojcontrolsdevicekind">mouse</td>
+				
+				<td>Left-Button Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Right-Button Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Middle-Click Drag</td> <td>Scale the view (up:out, down:in)</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">keyboard</td>
+				
+				<td>Escape</td> <td>Quit the application</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Tab</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">gamepad</td>
+				
+				<td>Start</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Right ThumbStick</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Left ThumbStick</td> <td>Move forward/backward, Slide left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Left/Right Triggers</td> <td>Move up/down</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>A</td> <td>Show TweakBar, Toggle Focused Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>B</td> <td>Close Focused UI, Hide TweakBar</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>DPAD Up/Down</td> <td>Move Focus to Prev/Next Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>DPAD Left/Right</td> <td>Decrease/Increase Focused Item</td>
+			</tr>
+			
+		
+		</table>
+	
+		</div>
+	</div>
+	
+		
+	
+
+		
+	<div class="row" id="subprojfulldoc">
+		<h3>Technical Details</h3>
+		<div id="detaileddoc">
+<h4>Introduction</h4>
+<p>The Mercury sample has an implementation of <a href="https://en.wikipedia.org/wiki/Metaballs">3D metaballs</a> using the <a href="https://en.wikipedia.org/wiki/Marching_cubes">Marching Cubes</a> algorithm with a physics driven particle system that drives the metaballs. The data-set is manipulated using a compute shader and another compute shader is used to calculate isovalues used by the Marching Cubes algorithm.</p>
+
+<h4>Particle Field</h4>
+
+<p>The particles themselves are updated using a fluid simulation compute shader.</p>
+
+<p>The 3D sampled potential field is generated from the particles via a compute shader (iterating/summing over all particles per sample), stored in a shader storage buffer</p>
+
+<h4>Triangle Generator</h4>
+
+<p>The generation of triangles for the algorithm is done in a geometry shader that uses a triangle topology table.</p>
+    
+<h4>Shading</h4>
+<p>The sample also uses a deferred shading making use of a gbuffer with multiple attachments for albedo, normals, world space coordinates, etc. Currently the deferred path is not making full use of these attachments for post effects but these will be added in a future release.</p>
+
+</div>
+	</div>
+	
+
+		
+	
+</div>
+</div>
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>

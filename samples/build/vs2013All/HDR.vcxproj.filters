@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<Filter Include="src">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="..\..\es3aep-kepler\HDR\BlurShaderGenerator.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es3aep-kepler\HDR\FileLoader.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es3aep-kepler\HDR\HDR.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es3aep-kepler\HDR\HDRImages.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es3aep-kepler\HDR\RenderTexture.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es3aep-kepler\HDR\rgbe.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es3aep-kepler\HDR\ShaderObject.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es3aep-kepler\HDR\VertexBufferObject.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClInclude Include="..\..\es3aep-kepler\HDR\AppExtensions.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\HDR\BlurShaderGenerator.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\HDR\ColorModulation.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\HDR\CubeData.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\HDR\FileLoader.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\HDR\HDR.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\HDR\HDRImages.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\HDR\RenderTexture.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\HDR\rgbe.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\HDR\ShaderDeclaration.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\HDR\ShaderObject.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\HDR\VertexBufferObject.h">
+			<Filter>src</Filter>
+		</ClInclude>
+	</ItemGroup>
+</Project>

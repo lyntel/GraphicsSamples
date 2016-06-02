@@ -1,0 +1,398 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+	<title>Threaded Rendering GL Sample</title>
+	<meta name="description" content="Threaded Rendering GL Sample" />
+	
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row" id="subprojcontent">
+<div class="col-md-8">
+	<div class="page-header">
+		<h1>Threaded Rendering GL Sample</h1>
+	</div>
+
+	<div class="row">
+		
+			<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Performance&nbsp;</span>
+			
+			</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min PC GPU:</b>
+			<span class="subprojmetagpu">GeForce Kepler-class</span>
+		</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min Tegra Device:</b>
+			<span class="subprojmetagpu">Tegra K1</span>
+		</div>
+		
+	</div>
+	
+	<div class="row">
+		<h3>Description</h3>
+		<p>This sample demonstrates how to use threading to render efficiently in extended OpenGL.</p>
+			
+		<a data-colorbox="true" href="images/threadedrenderinggl-screenshot.png"><img class="subprojscreen" src="images/threadedrenderinggl-screenshot.png" width="400" alt="Screenshot" /></a>
+		
+	</div>
+	
+	
+	<div class="row">
+		<h3>APIs Used</h3>
+		<ul>
+		
+		  <li class="odd">OpenGL ES 3.1AEP</li>
+		
+		</ul>
+	</div>
+	
+
+	
+	
+	
+	
+	<div class="row">
+		<h3>Shared User Interface</h3>
+		<p>The Graphics samples all share a common app framework and certain user interface elements, centered around the "Tweakbar" panel on the left side of the screen which lets you interactively control certain variables in each sample.</p>
+		<p>To show and hide the Tweakbar, simply click or touch the triangular button positioned in the top-left of the view.</p>
+		<div class="subprojmetadata">
+			<p>Other controls are listed below.</p>
+			
+		<table class="table table-striped small subprojcontrolstable" id="sharedcontrolstable">
+		
+		<tr>
+			<th class="subprojcontrolsdevice">Device</th>
+			<th class="subprojcontrolsinput">Input</th>
+			<th class="subprojcontrolsresult">Result</th>
+		</tr>
+	
+		
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">touch</td>
+				
+				<td>1-Finger Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>2-Finger Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>2-Finger Pinch</td> <td>Scale the view</td>
+			</tr>
+			
+		
+			
+			<tr class="even">
+				
+				<td class="subprojcontrolsdevicekind">mouse</td>
+				
+				<td>Left-Button Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Right-Button Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Middle-Click Drag</td> <td>Scale the view (up:out, down:in)</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">keyboard</td>
+				
+				<td>Escape</td> <td>Quit the application</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Tab</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">gamepad</td>
+				
+				<td>Start</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Right ThumbStick</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Left ThumbStick</td> <td>Move forward/backward, Slide left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Left/Right Triggers</td> <td>Move up/down</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>A</td> <td>Show TweakBar, Toggle Focused Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>B</td> <td>Close Focused UI, Hide TweakBar</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>DPAD Up/Down</td> <td>Move Focus to Prev/Next Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>DPAD Left/Right</td> <td>Decrease/Increase Focused Item</td>
+			</tr>
+			
+		
+		</table>
+	
+		</div>
+	</div>
+	
+		
+	
+	<div class="row">
+		<div class="subprojmetadata">
+			<h3>App-Specific Controls</h3>
+			 <p>This sample has the following app-specific controls:</p>
+			 
+		<table class="table table-striped small subprojcontrolstable" id="appcontrolstable">
+		
+		<tr>
+			<th class="subprojcontrolsdevice">Device</th>
+			<th class="subprojcontrolsinput">Input</th>
+			<th class="subprojcontrolsresult">Result</th>
+		</tr>
+	
+		
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">keyboard</td>
+				
+				<td>P</td> <td>Pause Animation</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>R</td> <td>Use Avoidance</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>F</td> <td>Fish Fireworks</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>X</td> <td>Fishsplosion</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>C</td> <td>Cycle Stats</td>
+			</tr>
+			
+		
+			
+			<tr class="even">
+				
+				<td class="subprojcontrolsdevicekind">gamepad</td>
+				
+				<td>Y</td> <td>Fish Fireworks</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Left Shoulder</td> <td>Cycle Stats</td>
+			</tr>
+			
+		
+		</table>
+	
+		</div>	
+	</div>	
+	
+
+		
+	<div class="row" id="subprojfulldoc">
+		<h3>Technical Details</h3>
+		<div id="detaileddoc">
+
+<h4>ThreadedRenderingGL</h4>
+
+<p>This sample renders thousands of swimming fish, of several varieties, flocking together in schools.  In order to efficiently render such a large number of meshes, it implements several different techniques to reduce drawing overhead, as well as offload work to multiple threads.</p>
+
+<h4>Overview</h4>
+
+<p>Each school has a single fish mesh and renders a user-selectable number of instances of that mesh.  The school maintains a flocking simulation for all of its fish that is updated every frame.  The work of updating the flocking simulation is performed on a thread and is isolated such that each school may be updated simultaneously on separate threads with no synchronization between them.  The user is able to change the number of threads used at runtime to see how the number of threads affects the performance of the sample.  </p>
+<p>The sample implements several different methods of managing the Vertex Buffer Objects (VBOs) used for rendering.  Each of these methods has their benefits/drawbacks and some allow more of the preparation for rendering to be done in the schools' update thread, reducing the workload on the main thread.</p>
+<p>Additionally, the sample implements several techniques to reduce driver overhead related to draw calls.  These techniques are collectively referred to as "Approaching Zero Driver Overhead" or AZDO.</p>
+<h5>Vertex Buffer Management</h5>
+This sample utilizes "hardware instancing" to render each school's fish.  Using this method, there is one VBO that contains the vertices for the actual mesh object and a second VBO that contains an array of per-fish "instance" data.  This instance data must be updated each frame for each fish.  This sample uses three primary methods of managing the VBOs used to hold this instance data for the schools and their fish.
+<ul>
+    <li>VBO Orphaning
+        <ul>
+            <li>New storage space is requested for the VBO each frame and the previous frame's storage is "orphaned", allowing GL to reclaim it after it has finished using it to render.  This is the simplest technique to implement and requires no synchronization, but is the least efficient.
+            </li>
+        </ul>
+    </li>
+    <li>Mapped Sub Ranges
+        <ul>
+            <li>A VBO is reserved with a size equal to the required size of the instance data multiplied by a number of frames.  The VBO is then treated like a ring buffer and a sub-range of the VBO is mapped each frame to be used as the instance data VBO for that frame.  Once each sub-range has been used, sub-ranges will need to be re-used and each subsequent frame must wait for any rendering that uses its associated sub-range to complete before it can begin filling in the instance data for the new frame.
+            </li>
+        </ul>
+    </li>
+    <li>Pooled
+        <ul>
+            <li>A large VBO is created from which each school receives a sub-range to treat as its instance data VBO.  This entire VBO can be mapped once at the beginning of the frame and unmapped after all schools have completed their updating of their instance data.  This greatly reduces the number of mappings (and the associated overhead) required each frame.  Also, since the mapping occurs outside of the schools' threaded updates, they can directly update the instance data within their update, offloading that work from the main thread.  Note that the large Pool VBO can, itself, use either the orphaning or mapped sub-range technique for its own strategy.
+            </li>
+        </ul>
+    </li>
+</ul>
+<h5>GLES vs. GL-AZDO</h5>
+This sample supports rendering paths in both Open GLES 3 as well as Open GL with AZDO.  All of the above techniques are applicable to both paths.  In addition, the AZDO path takes advantage of the following techniques to reduce driver overhead
+<ul>
+    <li>Persistent Mapped Buffers
+        <ul>
+            <li>Normally you must Unmap a buffer that you have Mapped before you may use it to draw with.  This feature allows a buffer to be used while it is still mapped, meaning that we can Map it once when it is created, update it and render with it each frame, and the Unmap it when we are completely finished with it.
+            </li>
+            <li>This is a core feature of Open GL 4.4 and available through either the extensions ARB_buffer_storage and EXT_buffer_storage in prior versions.
+            </li>
+        </ul>
+    </li>
+    <li>Bindless Textures
+        <ul>
+            <li>This feature allows handles to textures to be passed to shaders directly without having to bind them to texture units.  These texture handles may be stored directly in Uniform Buffer Objects, allowing shaders to directly sample from them and using different textures within a single draw call based on other criteria.
+            </li>
+            <li>Bindless Textures are available through the NV_bindless_texture and ARB_bindless_texture extensions.
+            </li>
+        </ul>
+    </li>
+    <li>Multi Draw Indirect
+        <ul>
+            <li>This technique allows you to replace multiple draw calls with a single draw call by combining multiple meshes' worth of vertices, indices and instance data into one buffer of each type.  You then build up an array of structures that describe the draw commands to be executed using those buffers and submit the whole thing as a single draw call, greatly reducing the driver overhead.
+            </li>
+            <li>Multi Draw Indirect is available as a core feature of Open GL 4.3 and later, or through the ARB_multi_draw_indirect  and EXT_multi_draw_indirect extensions in prior versions.
+            </li>
+        </ul>
+    </li>
+</ul>
+</div>
+	</div>
+	
+
+		
+	
+</div>
+</div>
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>

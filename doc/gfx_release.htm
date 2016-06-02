@@ -1,0 +1,232 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+	<title>NVIDIA GameWorks OpenGL Samples Release Notes</title>
+	<meta name="description" content="NVIDIA GameWorks OpenGL Samples Release Notes" />
+
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row">
+ <div class="col-md-8">
+	<div class="page-header">
+		<h1>NVIDIA GameWorks Graphics Samples Release Notes</h1>
+	</div>
+   <h3>Release 3.0 (June 2016):</h3>
+   <p>Release 3.0 is a Major release, changing the name of the pack to reflect that Vulkan samples now live side by side in the same framework as the OpenGL Samples.</p>
+   <ul>
+     <li>
+       <b>Tested Platforms:</b> The samples in this pack have been tested on:  NVIDIA GTX980 (Windows), NVIDIA 840M (Windows), NVIDIA SHIELD Tablet K1 (Android), NVIDIA SHIELD Android TV (Android), AMD R390 (Windows).
+     </li>
+     <li>
+       <b>Vulkan Support:</b> The framework has been rearchitected and now supports both OpenGL and Vulkan.  Samples can be either Vulkan samples or OpenGL samples, and on NVIDIA devices, it is even possible to mix the two in a single sample (See ThreadedRenderingVk for an example).  Vulkan is supported on Windows and Android.
+     </li>
+     <li>
+       <b>New Vulkan Sample:</b> ThreadedRenderingVk, also known as the "Fish Sample" shows how to render an enormous number of objects from multiple threads using Vulkan.  On NVIDIA devices, this can also be compared to OpenGL rendering.
+     </li>
+     <li>
+       <b>New Vulkan Sample:</b> SkinningVk shows the basics of rendering skinned objects and safely updating uniform buffers on Vulkan.
+     </li>
+     <li>
+       <b>New Vulkan Sample:</b> ModelTestVk shows the basics of rendering rigid objects with multiple materials on Vulkan.
+     </li>
+     <li>
+       <b>New Vulkan Sample:</b> HelloVulkan shows the basics of rendering a triangle on Vulkan.
+     </li>
+     <li>
+       <b>New OpenGL Sample:</b> ThreadedRenderingGL shows how to use GL extenstions referred to as AZDO (Approaching Zero Driver Overhead) to render large numbers of objects efficiently.
+     </li>
+     <li>
+       <b>New OpenGL Sample:</b> CubemapRendering shows how to use GL extenstions on NVIDIA Maxwell hardware to render cubemaps quickly in a single pass.
+     </li>
+     <li>
+       <b>New OpenGL Sample:</b> Mercury shows how to use GL and compute to render point-based implicit surfaces.
+     </li>
+     <li>
+       <b>New OpenGL Sample:</b> DeferredShadingMSAA shows how to render with antialiasing when the rendering pipeline uses deferred shading.
+     </li>
+     <li>
+       <b>New Feature:</b> Windows (x86 and x64) and Android targets are all built from a single Visual Studio project now.  There is no need to switch projects to switch platforms.
+     </li>
+     <li>
+       <b>Known Limitation:</b> This initial release of the 3.0 samples only supports Windows as a development host.  Android is supported as a target, but must be built from Windows for this release.  No Linux host or target support is included in this release.
+     </li>
+     <li>
+       <b>Known Bug:</b> The Mercury sample crashes the AMD R390 driver when rendering the first frame.
+     </li>
+     <li>
+       <b>Known Bug:</b> On VS2015, loading the solution for the first time can lead to "The 'VSPackage' package did not load correctly." errors.  These can be ignored or the solution reloaded and the project should load correctly.
+     </li>
+     <li>
+       <b>Known Bug:</b> The TextureArrayTerrain sample may crash if the user attempts to exit within one second of launching.  This is due to incorrect shutdown of the temporary threads used to initialize the terrain.
+     </li>
+   </ul>       
+<h1>Old Samples Pack: NVIDIA GameWorks OpenGL Samples Release Notes</h1>
+   <h3>Release 2.11 (March 2015):</h3>
+   <p>Release 2.11 is a Major release, focusing on Android TV support and Path Rendering samples.</p>
+   <ul>
+     <li>
+       <b>Android TV Support:</b> The samples now support Android TV, including the use of controller to activate and navigate the tweak bar.  The "A" button will open the tweak bar and the "B" button will close it.  DPAD navigates and A/B select and step back.
+     </li>
+     <li>
+       <b>New Sample:</b> Cursive ES demonstrates the use of GPU path rendering to draw a freeform stroke font, animating as if it is being written on screen.
+     </li>
+     <li>
+       <b>New Sample:</b> Shaped Text ES render uses GPU path rendering to draw more advanced fonts.
+     </li>
+     <li>
+       <b>New Sample:</b> Text Wheel ES shows how to use freeform rotations of fonts rendered with GPU paths.
+     </li>
+     <li>
+       <b>New Sample:</b> Tiger 3D ES renders both path elements and 3D elements in the same scene, including depth buffering   .
+     </li>
+     <li>
+       <b>New Sample:</b> Tiger Warp ES shows how objects drawn using path rendering can have general projective transformations applied to them.
+     </li>
+     <li>
+       <b>Known Bug:</b> Compute Particles and Weighted Blended OIT have incorrect controller step sizes on their sliders.  Thus, controller UI for these sliders is not working.
+     </li>
+     <li>
+       <b>Known Bug:</b> Compute Water Surface "steals" the A button, and the app does not deploy the tweak bar.  Thus, controller UI for the tweak bar is not working.
+     </li>
+     <li>
+       <b>Known Bug:</b> Tiger 3D ES and Tiger Warp ES do not have full controls available via the controller.
+     </li>
+   </ul>       
+
+   <h3>Release 2.0 (Sept 2014):</h3>
+   <p>Release 2.0 is a Major release, focusing on GeForce Maxwell-level GPU features.</p>
+   <ul>
+     <li>
+       <b>Layout Change:</b> The samples are now grouped by common feature set.  Currently, this means that the samples are grouped by GPU level and API.
+     </li>
+     <li>
+       <b>New Sample:</b> Blended AA shows how to use Target-independent Rendering (TIR) to lower the memory requirements for antialising.
+     </li>
+     <li>
+       <b>New Sample:</b> Cascaded Shadow Mapping shows how to use Viewport Multicasting and Fast Geometry Shaders to optimize the performance of Cascaded Shadow Mapping.
+     </li>
+     <li>
+       <b>New Sample:</b> Conservative Rasterization Sample demonstrates the basics of hardware-based Conservative Rasterization, a method of ensuring that every pixel touched by geometry is shaded, independent of sample coverage.
+     </li>
+     <li>
+       <b>New Sample:</b> Normal Blended Decal Sample demonstrates the use of Pixel Shader Interlock (PSI) to implement fast, safe custom blending.
+     </li>
+     <li>
+       <b>New Sample:</b> Weighted Blended OIT Sample demonstrates fast Order-Independent Transparency (OIT) via the methods based on a modified blending equation.
+     </li>
+     <li>
+       <b>New API:</b> The app framework now supports three redraw modes: Unbounded (the previous method), VSYNC (apps are given draw calls on each VSYNC or compositor redraw; optional) and on-demand (only when the app requests).
+     </li>
+     <li>
+       <b>New API:</b> Wrappers are now provided to make it easier for apps to compile against OpenGL ES 3.1 AEP.
+     </li>
+     <li>
+       <b>New API:</b> Applications can now request MSAA support in their configuration callback.
+     </li>
+     <li>
+       <b>Bug Fix:</b> OpenGL extension-string checking is now more robust.
+     </li>
+   </ul>       
+   <h3>Release 1.2 (June 2014):</h3>
+   <p>Release 1.2 is a feature release with no known "breaking" changes.</p>
+   <ul>
+     <li>
+       <b>New Platform:</b> Linux for Tegra (a full Ubuntu desktop on Tegra platforms) support has been added for all samples.  The samples now run on NVIDIA Jetson TK1.
+     </li>
+     <li>
+       <b>New Sample:</b> Compute Particles shows how to use Compute Shaders and buffer interop to use the GPU to animate and render particles without CPU involvement.
+     </li>
+     <li>
+       <b>New Sample:</b> Compute Water Surface shows how to use Compute Shaders to generate a dynamic water surface with ripples and reflections.
+     </li>
+     <li>
+       <b>New Sample:</b> FXAA demonstrates a simple, high-performance and easy-to-integrate antialiasing method as a 2D post-process.
+     </li>
+     <li>
+       <b>New Sample:</b> HDR demonstrates tonemapping, cinematic flares and refraction.
+     </li>
+     <li>
+       <b>New Sample:</b> Multi Draw Indirect demonstrates OpenGL performance features known as Approaching Zero Driver Overhead ("AZDO").
+     </li>
+     <li>
+       <b>New Sample:</b> Optimization App demonstrates CPU and GPU timers for app-level profiling as well as switchable, basic optimization techniques.
+     </li>
+     <li>
+       <b>New Sample:</b> Soft Shadows demonstrates multiple projected texture methods, including multi-sampled penumbrae.
+     </li>
+     <li>
+       <b>New API:</b> The app framework now includes a function to query whether a GL context is bound, NvPlatformContext::isContextBound().
+     </li>
+   </ul>
+   
+     <h3>Release 1.01 (May 2014):</h3>
+   Release 1.01 is (as its version implies) a bugfix release with no known "breaking" changes.
+	<ul>
+		<li>OpenGL ES3.1 contexts are now supported.  There is also a default ES3.1 context version object: NvGfxAPIVersionES3_1.</li>
+    <li>Some bugs in the EGL setup code and the image-loading code that caused ES3.1 contexts not to work are now fixed.  All samples that can support ES2 or ES3 now work if the app requests ES3.1 as well.</li>
+    <li>The min-API and missing extension error dialogs now include more descriptive strings to explain to the user what was found and what is needed.</li>
+    <li>The image loader now auto-expands DXT textures to RGBA on systems without DXT support.</li>
+    <li>The UI system now handles window resize correctly on platforms with windowed mode.</li>
+    <li>Android's NDK r9d is now the default NDK version when building Android apps from Linux host.</li>
+    <li>NvGLSLProgram::bindTexture2D was not setting the texture on the correct (passed in) texture unit.  This has been fixed.</li>
+    <li>Log-based framerate printing has been disabled by default, since it is printed to the screen.</li>
+    <li>A typo in the default window size on Win32 has been fixed (window size is now 1280 pixels wide instead of 1270).</li>
+    <li>The period (.) key is now mapped on Linux and Win32 platforms.</li>
+  </ul>
+   
+   <h3>Release 1.0 (March 2014):</h3>
+   Release 1.0 is the first version of the new samples pack.
+
+ </div> <!--col-md-8-->
+ <div class="col-md-4"></div>
+</div> <!--row-->
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>

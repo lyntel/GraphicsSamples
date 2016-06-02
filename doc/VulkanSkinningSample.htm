@@ -1,0 +1,367 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+	<title>Vulkan Skinning Sample</title>
+	<meta name="description" content="Vulkan Skinning Sample" />
+	
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row" id="subprojcontent">
+<div class="col-md-8">
+	<div class="page-header">
+		<h1>Vulkan Skinning Sample</h1>
+	</div>
+
+	<div class="row">
+		
+			<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Vulkan&nbsp;</span>
+			
+			</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min PC GPU:</b>
+			<span class="subprojmetagpu">GeForce Kepler-class</span>
+		</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min Tegra Device:</b>
+			<span class="subprojmetagpu">Tegra K1</span>
+		</div>
+		
+	</div>
+	
+	<div class="row">
+		<h3>Description</h3>
+		<p>This sample demonstrates how to render skinned meshes in Vulkan using both one or two bones in a vertex shader. Skinning allows organic shapes (such as humans) to deform nicely around joints as they bend. Without skinning, joints have a rigid appearance that is more similar to a mechanical joint like you would see in a robot.</p>
+			
+		<a data-colorbox="true" href="images/skinningvk-screenshot.png"><img class="subprojscreen" src="images/skinningvk-screenshot.png" width="400" alt="Screenshot" /></a>
+		
+	</div>
+	
+	
+	<div class="row">
+		<h3>APIs Used</h3>
+		<ul>
+		
+		  <li class="odd">Vulkan 1.0</li>
+		
+		</ul>
+	</div>
+	
+
+	
+	
+	
+	
+	<div class="row">
+		<h3>Shared User Interface</h3>
+		<p>The Graphics samples all share a common app framework and certain user interface elements, centered around the "Tweakbar" panel on the left side of the screen which lets you interactively control certain variables in each sample.</p>
+		<p>To show and hide the Tweakbar, simply click or touch the triangular button positioned in the top-left of the view.</p>
+		<div class="subprojmetadata">
+			<p>Other controls are listed below.</p>
+			
+		<table class="table table-striped small subprojcontrolstable" id="sharedcontrolstable">
+		
+		<tr>
+			<th class="subprojcontrolsdevice">Device</th>
+			<th class="subprojcontrolsinput">Input</th>
+			<th class="subprojcontrolsresult">Result</th>
+		</tr>
+	
+		
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">touch</td>
+				
+				<td>1-Finger Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>2-Finger Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>2-Finger Pinch</td> <td>Scale the view</td>
+			</tr>
+			
+		
+			
+			<tr class="even">
+				
+				<td class="subprojcontrolsdevicekind">mouse</td>
+				
+				<td>Left-Button Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Right-Button Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Middle-Click Drag</td> <td>Scale the view (up:out, down:in)</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">keyboard</td>
+				
+				<td>Escape</td> <td>Quit the application</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Tab</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">gamepad</td>
+				
+				<td>Start</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Right ThumbStick</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Left ThumbStick</td> <td>Move forward/backward, Slide left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Left/Right Triggers</td> <td>Move up/down</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>A</td> <td>Show TweakBar, Toggle Focused Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>B</td> <td>Close Focused UI, Hide TweakBar</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>DPAD Up/Down</td> <td>Move Focus to Prev/Next Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>DPAD Left/Right</td> <td>Decrease/Increase Focused Item</td>
+			</tr>
+			
+		
+		</table>
+	
+		</div>
+	</div>
+	
+		
+	
+	<div class="row">
+		<div class="subprojmetadata">
+			<h3>App-Specific Controls</h3>
+			 <p>This sample has the following app-specific controls:</p>
+			 
+		<table class="table table-striped small subprojcontrolstable" id="appcontrolstable">
+		
+		<tr>
+			<th class="subprojcontrolsdevice">Device</th>
+			<th class="subprojcontrolsinput">Input</th>
+			<th class="subprojcontrolsresult">Result</th>
+		</tr>
+	
+		
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">keyboard</td>
+				
+				<td>M</td> <td>Cycle Rendering Mode</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>B</td> <td>Toggle Single Bone Skinning</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>[ and ]</td> <td>Adjust Animation Speed Slower/Faster</td>
+			</tr>
+			
+		
+			
+			<tr class="even">
+				
+				<td class="subprojcontrolsdevicekind">gamepad</td>
+				
+				<td>Y</td> <td>Cycle Rendering Mode</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>X</td> <td>Toggle Single Bone Skinning</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Left/Right Shoulder Buttons</td> <td>Adjust Animation Speed Slower/Faster</td>
+			</tr>
+			
+		
+		</table>
+	
+		</div>	
+	</div>	
+	
+
+		
+	<div class="row" id="subprojfulldoc">
+		<h3>Technical Details</h3>
+		<div id="detaileddoc">
+<h4>Vulkan Skinning methods</h4>
+
+    <p>The main idea of this sample is to show how to use multi-buffered uniform buffer objects in Vulkan to implement safe animation.  Since Vulkan, when used correctly, will have more than one frame in flight at a time, it is important to buffer resources to avoid read/write conflicts between the CPU and GPU.</p>
+
+    <p>The sample also shows how to set up DescriptorSets in Vulkan and use them for rendering and animations.</p>
+<ol>
+	<li>Two bone skinning<ul>
+		<li>Each vertex is affected by one or two bones. The amount of the skinning effect is scaled by the weights for each bone.</li>
+	</ul></li>
+	<li>One bone skinning<ul>
+		<li>Each vertex is affected by only a single bone. This doesn't lend itself to a very high quality result.</li>
+	</ul></li>
+</ol>
+<h4>Adjustable Options</h4>
+The TweakBar features the following options you can adjust:
+<ul>
+<li>Render Mode radio buttons
+	<ul><li>This allows you to cycle between:
+		<ul>
+			<li>Rendering the diffuse color for the mesh</li>
+			<li>Rendering the normal for the mesh</li>
+			<li>Rendering a visualization of the bone weights</li>
+		</ul></li>
+	</ul>
+</li>
+<li>Single Bone Skinning checkbox
+	<ul><li>This allows to switch between Two Bone Skinning and One Bone Skinning.</li></ul>
+</li>
+<li>Animation Speed slider
+	<ul><li>This allows you to speed up, slow down, and stop the animation.</li></ul>
+</li>
+</ul>
+
+<h4>Conclusion</h4>
+<p>Skinning is a good way to improve the quality of animated, organic meshes at a reasonable vertex shader cost.</p>
+
+</div>
+	</div>
+	
+
+		
+	
+</div>
+</div>
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>

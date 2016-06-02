@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<Filter Include="src">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="..\..\es2-aurora\TextureArrayTerrain\TerrainGenerator.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es2-aurora\TextureArrayTerrain\TerrainSim.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es2-aurora\TextureArrayTerrain\TerrainSimRenderer.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es2-aurora\TextureArrayTerrain\TerrainSimThread.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es2-aurora\TextureArrayTerrain\TextureArrayTerrain.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClInclude Include="..\..\es2-aurora\TextureArrayTerrain\Array2D.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es2-aurora\TextureArrayTerrain\IBOBuild.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es2-aurora\TextureArrayTerrain\RidgedMultiFractal.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es2-aurora\TextureArrayTerrain\TerrainGenerator.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es2-aurora\TextureArrayTerrain\TerrainSim.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es2-aurora\TextureArrayTerrain\TerrainSimRenderer.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es2-aurora\TextureArrayTerrain\TerrainSimThread.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es2-aurora\TextureArrayTerrain\TextureArrayTerrain.h">
+			<Filter>src</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<Filter Include="shaders">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<AndroidBuild Include="..\..\es2-aurora\TextureArrayTerrain\assets\shaders\skybox.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\TextureArrayTerrain\assets\shaders\terrain.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\TextureArrayTerrain\assets\shaders\terrain_es2.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\TextureArrayTerrain\assets\shaders\terrain_es3.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\TextureArrayTerrain\assets\shaders\skybox.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\TextureArrayTerrain\assets\shaders\terrain.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\TextureArrayTerrain\assets\shaders\terrain_es3.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+	</ItemGroup>
+</Project>

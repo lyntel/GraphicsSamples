@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<Filter Include="src">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="..\..\gl4-kepler\MultiDrawIndirect\MultiDrawIndirect.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClInclude Include="..\..\gl4-kepler\MultiDrawIndirect\MultiDrawIndirect.h">
+			<Filter>src</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<Filter Include="shaders">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<AndroidBuild Include="..\..\gl4-kepler\MultiDrawIndirect\assets\shaders\scenecolorvanilla.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\gl4-kepler\MultiDrawIndirect\assets\shaders\skyboxcolor.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\gl4-kepler\MultiDrawIndirect\assets\shaders\scenecolor.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\gl4-kepler\MultiDrawIndirect\assets\shaders\scenecolormdi.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\gl4-kepler\MultiDrawIndirect\assets\shaders\skyboxcolor.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+	</ItemGroup>
+</Project>

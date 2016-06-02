@@ -1,0 +1,476 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+	<title>Cubemap Rendering Sample</title>
+	<meta name="description" content="Cubemap Rendering Sample" />
+	
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row" id="subprojcontent">
+<div class="col-md-8">
+	<div class="page-header">
+		<h1>Cubemap Rendering Sample</h1>
+	</div>
+
+	<div class="row">
+		
+			<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+			</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min PC GPU:</b>
+			<span class="subprojmetagpu">GeForce Maxwell-class</span>
+		</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min Tegra Device:</b>
+			<span class="subprojmetagpu">N/A</span>
+		</div>
+		
+	</div>
+	
+	<div class="row">
+		<h3>Description</h3>
+		<p>This sample demonstrates various cubemap rendering techniques, including ones that use the Multi-Projection Acceleration feature introduced in Maxwell GM20x.</p>
+			
+		<a data-colorbox="true" href="images/cubemaprendering-screenshot.jpg"><img class="subprojscreen" src="images/cubemaprendering-screenshot.jpg" width="400" alt="Screenshot" /></a>
+		
+	</div>
+	
+	
+	<div class="row">
+		<h3>APIs Used</h3>
+		<ul>
+		
+		  <li class="odd">GL_NV_viewport_array2</li>
+		
+		  <li class="even">GL_NV_geometry_shader_passthrough</li>
+		
+		</ul>
+	</div>
+	
+
+	
+	
+	
+	
+	<div class="row">
+		<h3>Shared User Interface</h3>
+		<p>The Graphics samples all share a common app framework and certain user interface elements, centered around the "Tweakbar" panel on the left side of the screen which lets you interactively control certain variables in each sample.</p>
+		<p>To show and hide the Tweakbar, simply click or touch the triangular button positioned in the top-left of the view.</p>
+		<div class="subprojmetadata">
+			<p>Other controls are listed below.</p>
+			
+		<table class="table table-striped small subprojcontrolstable" id="sharedcontrolstable">
+		
+		<tr>
+			<th class="subprojcontrolsdevice">Device</th>
+			<th class="subprojcontrolsinput">Input</th>
+			<th class="subprojcontrolsresult">Result</th>
+		</tr>
+	
+		
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">touch</td>
+				
+				<td>1-Finger Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>2-Finger Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>2-Finger Pinch</td> <td>Scale the view</td>
+			</tr>
+			
+		
+			
+			<tr class="even">
+				
+				<td class="subprojcontrolsdevicekind">mouse</td>
+				
+				<td>Left-Button Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Right-Button Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Middle-Click Drag</td> <td>Scale the view (up:out, down:in)</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">keyboard</td>
+				
+				<td>Escape</td> <td>Quit the application</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Tab</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">gamepad</td>
+				
+				<td>Start</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Right ThumbStick</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Left ThumbStick</td> <td>Move forward/backward, Slide left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Left/Right Triggers</td> <td>Move up/down</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>A</td> <td>Show TweakBar, Toggle Focused Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>B</td> <td>Close Focused UI, Hide TweakBar</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>DPAD Up/Down</td> <td>Move Focus to Prev/Next Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>DPAD Left/Right</td> <td>Decrease/Increase Focused Item</td>
+			</tr>
+			
+		
+		</table>
+	
+		</div>
+	</div>
+	
+		
+	
+
+		
+	<div class="row" id="subprojfulldoc">
+		<h3>Technical Details</h3>
+		<div id="detaileddoc">
+
+<h4>Overview</h4>
+<p>
+This sample demonstrates various cubemap rendering techniques, including ones that use the Multi-Projection Acceleration feature introduced in Maxwell GM20x. 
+</p>
+
+<p>
+A cubemap has 6 faces that correspond to 6 different projections of the same scene onto faces of a cube. In order to render a cubemap, one has to draw each triangle one or multiple times. There are some well-known approaches to render a cubemap:
+<ol>
+    <li><u>Render each cube face separately</u>, using the standard rendering pipeline, drawing every mesh multiple times and changing the view/projection matrices according to the face being drawn. In order to improve performance, per-mesh culling can be applied, i.e. there is no need to draw a mesh for a certain face if it can be determined that no part of that mesh will project onto that face.</li>
+    <li><u>Render all faces at once using a geometry shader</u> to compute multiple projections of each triangle and render the triangle into multiple faces. Per-mesh culling can also be applied here by computing a mask of faces that a mesh may project onto and passing that mask to the geometry shader through a uniform value. Finer-grained culling can be performed by analyzing each triangle in the GS and determining the set of cube faces per triangle.
+</ol>
+</p>
+
+<p>
+This sample introduces two important techniques that significantly improve performance of cubemap rendering. 
+</p>
+
+<h4>Cubemap rendering with Multi-Projection Acceleration</h4>
+<p>
+The MPA feature consists of three sub-features:
+<ol>
+    <li>Pass-through Geometry Shader, or Fast GS, described in the <i>GL_NV_geometry_shader_passthrough</i> extension. This is a lightweight GS that cannot write any per-vertex attributes, but it can read and analyze those attributes, and it can create per-<u>primitive</u> attributes.</li>
+    <li>Viewport multicast, described in the same extension. This feature allows one primitive to be rasterized into several viewports and render target layers at once, without the need to replicate the primitive in the geometry shader or anywhere else.</li>
+    <li>Viewport swizzle, described in the <i>GL_NV_viewport_array2</i> extension. This feature allows vertex coordinates to be transformed just before rasterization; the transformation is limited to coordinate swizzle and sign changes, and it is defined independently for each viewport.</li>
+</ol>
+</p>
+
+<p>
+Using viewport multicast and swizzle and the fact that the cube map projections are highly symmetric, we can construct a rendering algorithm that processes every triangle once and uses a very simple geometry shader.
+</p>
+<p>
+When the scene geometry is properly transformed (translated, rotated and scaled) in the vertex shader, the cube map faces become aligned parallel to the major planes (XY, XZ, YZ) and cross the X, Y, Z axes at &ndash;1 or 1. Correspondingly, the projection frusta are also aligned along the major axes and have common top/bottom/left/right planes. In this case, transforming a vertex from cube-local coordinates to view space can be performed with rotation only. More importantly, this rotation is always a multiple of 90 degrees, so all the members of the rotation matrix are 0, 1 or &ndash;1, and each component of the result vector only depends on one component of the source vector. Such matrix can be replaced with simple swizzling of coordinates. Transforming the view space coordinates to clip space using swizzling is trickier because usually clip-space Z is a linear function of view-space Z, so that post-projection Z/W is within range (0, 1) where 0 is the near plane and 1 is the far plane. We cannot compute a linear function with coordinate swizzle, but there is still a way: we can make clip-space Z = 1 and clip-space W = view Z. This way, Z/W = 0 means the far plane at infinity, and Z/W = 1 means the near plane at 1.
+<p>
+<p>Viewport swizzle state is set from the CPU using the glViewportSwizzleNV function; refer to the sample source code for actual usage and swizzle pattern encodings. The geometry shader that is required for this algorithm to work is trivial and mostly declarative:</p>
+<pre>
+#extension GL_EXT_geometry_shader4 : enable
+#extension GL_NV_viewport_array2 : enable
+#extension GL_NV_geometry_shader_passthrough : require
+
+layout(triangles) in;
+layout(passthrough) in gl_PerVertex {
+    vec4 gl_Position;
+};
+
+layout(viewport_relative) out int gl_Layer;
+
+void main()
+{
+    gl_ViewportMask[0] = 0x3f;
+}
+</pre>
+
+<h4>Fast Cubemap Culling Algorithm</h4>
+<p>This section describes an efficient algorithm to conservatively compute the set of cube map faces that a given triangle may be rasterized into. This algorithm can be implemented with only a few instructions in both vertex and geometry shaders.</p>
+
+<h5>The idea</h5>
+<p>The main idea is that a triangle will <b>not</b> project onto the given face if <b>all</b> its vertices are located at the wrong side of <b>any</b> of the planes forming the face?s frustum.
+
+<p><a data-colorbox="true" href="images/culling-triangles.png"><img src="images/culling-triangles.png" width="360" alt="Culling planes"/></a></p>
+<p>Figure 1: Culling planes projected onto the XZ plane</p>
+
+<p>In a 2D case shown on Fig. 1, a triangle ABC is culled, i.e. not drawn, if:</p>
+<pre>
+    ((A.z &lt; A.x)  &amp;&amp; (B.z &lt; B.x)  &amp;&amp; (C.z &lt; C.x))   // plane Z = X
+||  ((A.z &lt; -A.x) &amp;&amp; (B.z &lt; -B.x) &amp;&amp; (C.z &lt; -C.x))  // plane Z = -X
+||  ((A.z &lt; 1)    &amp;&amp; (B.z &lt; 1)    &amp;&amp; (C.z &lt; 1))     // plane Z = 1
+</pre>
+
+<p>For example, triangle DEF on Fig. 1 is culled because all its vertices are on the wrong side of the Z = &ndash;X plane (second line of the condition). Triangle KLM is culled because of the planes Z = X and Z = 1, and triangle NOP is not culled because there is no plane that leaves all three vertices in the culled half space.</p>
+<p>Evaluating similar expressions for all 6 cube map faces will give us 6 flags that indicate the faces which do not contain any part of the triangle. The inverse of these flags therefore makes the mask of the viewports into which the triangle should be rasterized.</p>
+
+<h5>The implementation</h5>
+
+<p>Let?s ignore the near clip planes (Z = 1) for now.</p>
+
+<p>There are only 6 different planes that create all 6 frusta (pyramids if we omit the near planes): X = Y, X = &ndash;Y, X = Z, X = &ndash;Z, Y = Z, Y = &ndash;Z. This means that we can compute 6 flags for each vertex, and these flags will describe the side of that vertex relative to each plane, i.e. which half space defined by this plane does each vertex belong to. Then we combine these flags using logical expressions to compute the viewport mask.</p>
+
+<p>Since the flags are computed independently for each vertex, we can compute them in the vertex shader (or the domain shader in case tessellation is being used) and pass them to the geometry shader. Here?s the vertex shader code, excluding the model-view transformations:</p>
+
+<pre>
+out float planeMask;
+
+int getVertexPlaneMask(vec3 v)
+{ 
+    return int(v.x &lt; v.y) | 
+        (int(v.x &lt; -v.y) &lt;&lt; 1) | 
+        (int(v.x &lt;  v.z) &lt;&lt; 2) | 
+        (int(v.x &lt; -v.z) &lt;&lt; 3) | 
+        (int(v.z &lt;  v.y) &lt;&lt; 4) | 
+        (int(v.z &lt; -v.y) &lt;&lt; 5);
+}
+
+void main(void) {
+    gl_Position = gl_Vertex;
+    planeMask = float(getVertexPlaneMask(gl_Vertex.xyz));
+}
+</pre>
+
+<p>The output attribute ?planeMask? of the vertex shader is a bit field with 6 bits where each bit encodes the relation of the vertex processed by this vertex shader instance and one of the 6 planes.</p>
+<p>The geometry shader first gets the three plane masks computed by the vertex shader "pm0".."pm2", and then it computes all-vertex predicate masks:</p>
+<pre>
+in float planeMask[];
+void main() {
+    int pm0 = int(PlaneMask[0]);
+    int pm1 = int(PlaneMask[1]);
+    int pm2 = int(PlaneMask[2]);
+    int prim_plane_mask_0 = pm0 &amp; pm1 &amp; pm2;
+    int prim_plane_mask_1 = ~pm0 &amp; ~pm1 &amp; ~pm2;
+</pre>
+
+<p>Each bit of ?prim_plane_mask_0? encodes the condition that all vertices are in one half space of the corresponding plane. Each bit of ?prim_plane_mask_1? encodes that all vertices are the other half space.</p>
+<p>Then the geometry shader combines these masks into one word and computes the 6 predicates for cube map faces. The predicates are then combined into one viewport mask and passed to the rasterization pipeline.</p>
+<pre>
+    int combined_mask = prim_plane_mask_0 | (prim_plane_mask_1 &lt;&lt; 8);
+    int xp = (combined_mask &amp; 0x000f) == 0 ? 0x01 : 0;
+    int xn = (combined_mask &amp; 0x0f00) == 0 ? 0x02 : 0;
+    int yp = (combined_mask &amp; 0x1122) == 0 ? 0x04 : 0;
+    int yn = (combined_mask &amp; 0x2211) == 0 ? 0x08 : 0;
+    int zp = (combined_mask &amp; 0x0438) == 0 ? 0x10 : 0;
+    int zn = (combined_mask &amp; 0x3804) == 0 ? 0x20 : 0;
+    gl_ViewportMask[0] = xp | yp | zp | xn | yn | zn;
+}
+</pre>
+
+<p>These magic numbers require some explanation. First, let?s write down the full culling expressions for all 6 cube map faces.</p>
+<pre>
+    Does NOT project to +X viewport if: 
+all(x &lt; y) || all(x &lt; -y) || all(x &lt; z) || all(x &lt; -z)
+
+    Does NOT project to -X viewport if: 
+all(!(x &lt; y)) || all(!(x &lt; -y)) || all(!(x &lt; z)) || all(!(x &lt; -z))
+
+    Does NOT project to +Y viewport if: 
+all(!(x &lt; y)) || all(x &lt; -y) || all(!(z &lt; y)) || all(z &lt; -y)
+
+    Does NOT project to -Y viewport if: 
+all(x &lt; y) || all(!(x &lt; -y)) || all(z &lt; y) || all(!(z &lt; -y))
+
+    Does NOT project to +Z viewport if: 
+all(!(x &lt; z)) || all(x &lt; -z) || all(z &lt; y) || all(z &lt; -y)
+
+    Does NOT project to -Z viewport if: 
+all(x &lt; z) || all(!(x &lt; -z)) || all(!(z &lt; y)) || all(!(z &lt; -y))
+</pre>
+
+<p>These 6 expressions depend on 12 bits known as prim_plane_mask_0 (positive terms) and prim_plane_mask_1 (negative terms), in different combinations. Let?s rewrite them:</p>
+<pre>
+prim_plane_mask_0 = reverse {abcdef}, where
+    a = all(x &lt; y), b = all(x &lt; -y), c = all(x &lt; z), 
+    d = all(x &lt; -z), e = all(z &lt; y), f = all(z &lt; -y)
+
+prim_plane_mask_1 = reverse {mnopqr}, where 
+    m = all(!(x &lt; y)), n = all(!(x &lt; -y)), o = all(!(x &lt; z)), 
+    p = all(!(x &lt; -z)), q = all(!(z &lt; y)), r = all(!(z &lt; -y))
+
+    A bitwise function that selects x[i] if s[i] = 0, and selects y[i] otherwise
+let bitselect(x,y,s) = x &amp; ~s | y &amp; s
+
+    The _ symbol is just zero, used for aligning terms into the xy_xz_zy pattern.
+    Does NOT project to +X viewport if: 
+a || b || c || d || _ || _ = prim_plane_mask_0 &amp; 0b1111 != 0
+
+    Does NOT project to -X viewport if: 
+m || n || o || p || _ || _ = prim_plane_mask_1 &amp; 0b1111 != 0
+
+    Does NOT project to +Y viewport if: 
+m || b || _ || _ || q || f = bitselect(prim_plane_mask_0, prim_plane_mask_1, 0b01xx01) &amp; 0b110011 != 0
+
+    Does NOT project to -Y viewport if: 
+a || n || _ || _ || e || r = bitselect(prim_plane_mask_0, prim_plane_mask_1, 0b10xx10) &amp; 0b110011 != 0
+
+    Does NOT project to +Z viewport if: 
+_ || _ || o || d || e || f = bitselect(prim_plane_mask_0, prim_plane_mask_1, 0b0001xx) &amp; 0b111100 != 0
+
+    Does NOT project to -Z viewport if: 
+_ || _ || c || p || q || r = bitselect(prim_plane_mask_0, prim_plane_mask_1, 0b1110xx) &amp; 0b111100 != 0
+</pre>
+
+<p>These experssions can be efficiently calculated in this form, but we can optimize them further, get rid of the bitselect operations. Every expression simply selects a set of bits from prim_plane_mask_0 and prim_plane_mask_1 and tests whether all of them are zeros. We combine these 6-bit masks into one 16-bit word (for encoding convenience, prim_plane_mask_1 is aligned at 8 bit boundary) and select those bits directly from that word. The expressions convert as follows:</p>
+
+<pre>
+    Does NOT project to +X viewport if: 
+combined_mask &amp; 0b0000_0000_0000_1111 != 0 // 0x000f, abcd
+
+    Does NOT project to -X viewport if: 
+combined_mask &amp; 0b0000_1111_0000_0000 != 0 // 0x0f00, mnop
+
+    Does NOT project to +Y viewport if: 
+combined_mask &amp; 0b0001_0001_0010_0010 != 0 // 0x1122, bf | mq
+
+    Does NOT project to -Y viewport if: 
+combined_mask &amp; 0b0010_0010_0001_0001 != 0 // 0x2211, ae | nr
+
+    Does NOT project to +Z viewport if: 
+combined_mask &amp; 0b0000_0100_0011_1000 != 0 // 0x0438, def | o
+
+    Does NOT project to -Z viewport if: 
+combined_mask &amp; 0b0011_1000_0000_0100 != 0 // 0x3804, c | pqr
+</pre>
+
+<p>To add the near clip planes to this algorithm, following extensions have to be made:</p>
+<ol>
+<li>Compute 6 more flags for each vertex: X &lt; &plusmn;1, Y &lt; &plusmn;1, Z &lt; &plusmn;1.</li>
+<li>Extend the ?combined_mask? word with ANDs of these flags from the three vertices.</li>
+<li>Add one ?1? bit into each of the bit fields used to compute the viewport mask bits. The location of that ?1? bit should correspond to the location of the appropriate near plane in the combined mask.</li>
+</ol>
+<p>The sample implements near clip plane culling done like that.</p.
+
+</div>
+	</div>
+	
+
+		
+	
+</div>
+</div>
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+	<title>Soft Shadows Sample</title>
+	<meta name="description" content="Soft Shadows Sample" />
+	
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row" id="subprojcontent">
+<div class="col-md-8">
+	<div class="page-header">
+		<h1>Soft Shadows Sample</h1>
+	</div>
+
+	<div class="row">
+		
+			<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+			</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min PC GPU:</b>
+			<span class="subprojmetagpu">GeForce Fermi-class</span>
+		</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min Tegra Device:</b>
+			<span class="subprojmetagpu">Tegra K1</span>
+		</div>
+		
+	</div>
+	
+	<div class="row">
+		<h3>Description</h3>
+		<p>This sample shows two methods of simulating soft shadows with complex casters and receivers.  The Percentage-Closer Soft Shadows method includes a convincing impression of the shadow edge (penumbra) sharpening as the shadow caster approaches contact with the shadow receiver.</p>
+			
+		<a data-colorbox="true" href="images/softshadows-screenshot.jpg"><img class="subprojscreen" src="images/softshadows-screenshot.jpg" width="400" alt="Screenshot" /></a>
+		
+	</div>
+	
+	
+	<div class="row">
+		<h3>APIs Used</h3>
+		<ul>
+		
+		  <li class="odd">GL_EXT_shadow_samplers</li>
+		
+		  <li class="even">GL4.0</li>
+		
+		</ul>
+	</div>
+	
+
+	
+	
+	
+	
+	<div class="row">
+		<h3>Shared User Interface</h3>
+		<p>The Graphics samples all share a common app framework and certain user interface elements, centered around the "Tweakbar" panel on the left side of the screen which lets you interactively control certain variables in each sample.</p>
+		<p>To show and hide the Tweakbar, simply click or touch the triangular button positioned in the top-left of the view.</p>
+		<div class="subprojmetadata">
+			<p>Other controls are listed below.</p>
+			
+		<table class="table table-striped small subprojcontrolstable" id="sharedcontrolstable">
+		
+		<tr>
+			<th class="subprojcontrolsdevice">Device</th>
+			<th class="subprojcontrolsinput">Input</th>
+			<th class="subprojcontrolsresult">Result</th>
+		</tr>
+	
+		
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">touch</td>
+				
+				<td>1-Finger Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>2-Finger Drag</td> <td>Orbit-rotate the light</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>2-Finger Pinch</td> <td>Scale the view</td>
+			</tr>
+			
+		
+			
+			<tr class="even">
+				
+				<td class="subprojcontrolsdevicekind">mouse</td>
+				
+				<td>Left-Button Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Right-Button Drag</td> <td>Orbit-rotate the light</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Middle-Click Drag</td> <td>Scale the view (up:out, down:in)</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">keyboard</td>
+				
+				<td>Escape</td> <td>Quit the application</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Tab</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">gamepad</td>
+				
+				<td>Start</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Right ThumbStick</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Left ThumbStick</td> <td>Orbit-rotate the light</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Left/Right Triggers</td> <td>Move up/down</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>A</td> <td>Show TweakBar, Toggle Focused Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>B</td> <td>Close Focused UI, Hide TweakBar</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>DPAD Up/Down</td> <td>Move Focus to Prev/Next Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>DPAD Left/Right</td> <td>Decrease/Increase Focused Item</td>
+			</tr>
+			
+		
+		</table>
+	
+		</div>
+	</div>
+	
+		
+	
+	<div class="row">
+		<div class="subprojmetadata">
+			<h3>App-Specific Controls</h3>
+			 <p>This sample has the following app-specific controls:</p>
+			 
+		<table class="table table-striped small subprojcontrolstable" id="appcontrolstable">
+		
+		<tr>
+			<th class="subprojcontrolsdevice">Device</th>
+			<th class="subprojcontrolsinput">Input</th>
+			<th class="subprojcontrolsresult">Result</th>
+		</tr>
+	
+		
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">keyboard</td>
+				
+				<td>W/S</td> <td>Translate the view forward/back</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>A/D</td> <td>Translate the view left/right</td>
+			</tr>
+			
+		
+		</table>
+	
+		</div>	
+	</div>	
+	
+
+		
+	<div class="row" id="subprojfulldoc">
+		<h3>Technical Details</h3>
+		<div id="detaileddoc">
+
+<h4>Overview</h4>
+<p>
+This sample demonstrates two techniques for rendering soft shadows: Percentage Closer Filtering (PCS) with a uniform kernel size and Percentage-Closer Soft Shadows (PCSS) with a variable kernel size.
+</p>
+<p>
+This sample is assuming the shadow map is a regular depth buffer (non-linear depths), and the shadow-map is generated using a perspective projection with the center of projection at the center of the area light simulated by PCSS.
+</p>
+<p>
+The sample uses a gradient-based depth bias to scale the depth bias based on the uv-space distance from the center of the kernel. To avoid self-shadowing artifacts, an additional depth bias may also been applied while writing depth into the shadow map.
+</p>
+
+<h5>Percentage Closer Filtering (PCF)</h5>
+<p>
+The Percentage Closer Filtering technique uses a uniform size filter kernel, resulting in shadows with a uniformly soft edge. The PCF algorithm is very straightforward and fast, but does not achieve a realistic contact hardening effect. Also, while the kernel size and penumbra width is uniform, the kernel can be scaled to accomodate different sized lights.
+</p>
+
+<h5>Percentage-Closer Soft Shadows (PCSS)</h5>
+<p>
+Soft shadows are typically rendered in games by using shadow mapping and Percentage Closer Filtering with a uniform kernel size. The Percentage-Closer Soft Shadows (PCSS) algorithm computes a variable kernel size based on the distance between the relative position of the receiver point, an approximation of the blocker, and the area light. It produces perceptually plausible soft shadows that harden on contact (see screenshot above). For more information about PCSS, please refer to the integration guide and other resources listed below.
+</p>
+
+<h4>Running the Sample</h4>
+<p>
+The "Use Texture" check box renders the ground plane without any shading to show how undersampling artifacts in the shadows are hidden by textures.
+</p>
+<p>
+The "Visualize Depth" check box outputs the shadow map depths on the screen.
+</p>
+<p>The light source is a square area light. The "Light Size" slider changes the radius of the light.</p>
+<p>
+The shadow technique can be selected in the GUI; this allows comparing variable-size penumbra shadows ("PCSS") with uniform-size penumbra shadows ("PCF"). Shadows can be disabled by selecting "None".
+</p>
+<p>
+For each shadow technique, the number of samples and their associated sampling patterns used for the blocker search and the PCF filtering can be changed in the GUI. The available presets are:</p>
+<ul>
+<li>"25/25 Poisson": 25 samples for the blocker search, 25 samples in the PCF filtering, all samples using a Poisson disk</li>
+<li>"32/64 Poisson": 32 samples for the blocker search, 64 samples for the PCF filtering, all samples using a Poisson disk</li>
+<li>"100/100 Poisson": 100 samples for the blocker search, 100 samples for the PCF filtering, all samples using a Poisson disk</li>
+<li>"64/128 Poisson" 64 samples for the blocker search, 128 samples for the PCF filtering, all samples using a Poisson disk</li>
+<li>"49/225 Regular": 49 samples for the blocker search, 225 samples for the PCF filtering, all samples using regular sampling (faster than Poisson disk)</li>
+</ul>
+</div>
+	</div>
+	
+
+	
+	<div class="row" id="subprojseealso">
+		<h3>See Also</h3>
+		<ul>
+		
+		  <li class="odd">
+		  <!-- tbd file static refs will need to turn into an nvidia.com relative URL... -->
+		  <span class="subprojseeone">
+		  <a href="http://developer.download.nvidia.com/whitepapers/2008/PCSS_Integration.pdf">
+		  Integrating Realistic Soft Shadows into Your Game Engine, Kevin Myers, Randima Fernando, Louis Bavoil, NVIDIA whitepaper, 2008
+		  </a>
+		  </span></li>
+		
+		  <li class="even">
+		  <!-- tbd file static refs will need to turn into an nvidia.com relative URL... -->
+		  <span class="subprojseeone">
+		  <a href="http://developer.download.nvidia.com/presentations/2008/GDC/GDC08_SoftShadowMapping.pdf">
+		  Advanced Soft Shadow Mapping Techniques, Louis Bavoil, GDC slides, 2008
+		  </a>
+		  </span></li>
+		
+		  <li class="odd">
+		  <!-- tbd file static refs will need to turn into an nvidia.com relative URL... -->
+		  <span class="subprojseeone">
+		  <a href="http://developer.download.nvidia.com/shaderlibrary/docs/shadow_PCSS.pdf">
+		  Percentage-Closer Soft Shadows, Randima Fernando, SIGGRAPH sketch, 2005
+		  </a>
+		  </span></li>
+		
+		</ul>
+	</div>
+		
+	
+</div>
+</div>
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>

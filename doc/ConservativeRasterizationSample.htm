@@ -1,0 +1,320 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+	<title>Conservative Rasterization Sample</title>
+	<meta name="description" content="Conservative Rasterization Sample" />
+	
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row" id="subprojcontent">
+<div class="col-md-8">
+	<div class="page-header">
+		<h1>Conservative Rasterization Sample</h1>
+	</div>
+
+	<div class="row">
+		
+			<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+			</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min PC GPU:</b>
+			<span class="subprojmetagpu">GeForce Maxwell-class</span>
+		</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min Tegra Device:</b>
+			<span class="subprojmetagpu">N/A</span>
+		</div>
+		
+	</div>
+	
+	<div class="row">
+		<h3>Description</h3>
+		<p>This sample demonstrates the pixel-level effect of enabling the conservative rasterization feature supported in OpenGL.  It allows applications to shade every pixel whose area is touched by a fragment, rather than only those touching specific samples.</p>
+			
+		<a data-colorbox="true" href="images/conservative-screenshot.jpg"><img class="subprojscreen" src="images/conservative-screenshot.jpg" width="400" alt="Screenshot" /></a>
+		
+	</div>
+	
+	
+	<div class="row">
+		<h3>APIs Used</h3>
+		<ul>
+		
+		  <li class="odd">GL_NV_conservative_raster</li>
+		
+		  <li class="even">GL_NV_fill_rectangle</li>
+		
+		</ul>
+	</div>
+	
+
+	
+	
+	
+	
+	<div class="row">
+		<h3>Shared User Interface</h3>
+		<p>The Graphics samples all share a common app framework and certain user interface elements, centered around the "Tweakbar" panel on the left side of the screen which lets you interactively control certain variables in each sample.</p>
+		<p>To show and hide the Tweakbar, simply click or touch the triangular button positioned in the top-left of the view.</p>
+		<div class="subprojmetadata">
+			<p>Other controls are listed below.</p>
+			
+		<table class="table table-striped small subprojcontrolstable" id="sharedcontrolstable">
+		
+		<tr>
+			<th class="subprojcontrolsdevice">Device</th>
+			<th class="subprojcontrolsinput">Input</th>
+			<th class="subprojcontrolsresult">Result</th>
+		</tr>
+	
+		
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">touch</td>
+				
+				<td>1-Finger Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>2-Finger Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>2-Finger Pinch</td> <td>Scale the view</td>
+			</tr>
+			
+		
+			
+			<tr class="even">
+				
+				<td class="subprojcontrolsdevicekind">mouse</td>
+				
+				<td>Left-Button Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Right-Button Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Middle-Click Drag</td> <td>Scale the view (up:out, down:in)</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">keyboard</td>
+				
+				<td>Escape</td> <td>Quit the application</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Tab</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">gamepad</td>
+				
+				<td>Start</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Right ThumbStick</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Left ThumbStick</td> <td>Move forward/backward, Slide left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Left/Right Triggers</td> <td>Move up/down</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>A</td> <td>Show TweakBar, Toggle Focused Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>B</td> <td>Close Focused UI, Hide TweakBar</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>DPAD Up/Down</td> <td>Move Focus to Prev/Next Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>DPAD Left/Right</td> <td>Decrease/Increase Focused Item</td>
+			</tr>
+			
+		
+		</table>
+	
+		</div>
+	</div>
+	
+		
+	
+
+		
+	<div class="row" id="subprojfulldoc">
+		<h3>Technical Details</h3>
+		<div id="detaileddoc">
+
+<h4>Overview</h4>
+<p>
+This simple sample demonstrates a new rasterization feature introduced in the Maxwell GM20x architecture - conservative rasterization. 
+</p>
+
+<p>
+Traditional rasterization considers pixels as discrete sample points, and only generates a pixel (fragment) if the sample point is inside the primitive. This means it is possible for thin and edge-on triangles to miss the samples entirely.
+</p>
+
+<p><a data-colorbox="true" href="images/normal.jpg"><img src="images/normal.jpg" width="360" alt="Normal rasterization"/></a></p>
+<p>Figure 1: Normal rasterization (Click to enlarge)</p>
+
+<p>
+Conservative rasterization generates a fragment if the primitive intersects any part of the pixel area. This generally means that the outline of the primitive is expanded.
+</p>
+
+<p><a data-colorbox="true" href="images/conservative.jpg"><img src="images/conservative.jpg" width="360" alt="Conservative rasterization"/></a></p>
+<p>Figure 2: Conservative rasterization (Click to enlarge)</p>
+
+<p>
+Conservative rasterization can be useful for 3D voxelization and generating data structures using rasterization on the GPU. For example, to generate a uniform grid acceleration structure, you want to know which triangles intersect each grid cell. This can be achieved by rendering the triangles at the grid resolution with conservative rasterization, and storing the triangle indices using a linked list.
+</p>
+
+<p>
+Conservative rasterization also works with line and point primitives.
+</p>
+
+<p><a data-colorbox="true" href="images/lines.jpg"><img src="images/lines.jpg" width="360" alt="Lines with normal rasterization"/></a></p>
+<p>Figure 3: Lines with normal rasterization (Click to enlarge)</p>
+<p><a data-colorbox="true" href="images/lines_conservative.jpg"><img src="images/lines_conservative.jpg" width="360" alt="Lines with conservative rasterization"/></a></p>
+<p>Figure 4: Lines with conservative rasterization (Click to enlarge)</p>
+
+<p>
+It is worth noting that there is limited precision available in the hardware to determine if a pixel intersects a primitive. The test is conservative, in that pixels may sometimes be identified as intersecting, even if with perfect precision they do not, but pixels will never be excluded if they do actually intersect the primitive.
+</p>
+
+<p>
+Note that conservative rasterization can also be achieved on older hardware using a combination of a special geometry and pixel shader as described in the GPU Gems 2 article below, but in many cases this incurs considerable performance overhead. Hardware conservative rasterization has roughly the same performance as normal rasterization (it generates more fragments, and so might be slightly slower).
+</p>
+
+<h4>References</h4>
+
+<ol>
+<li>
+<a href="http://http.developer.nvidia.com/GPUGems2/gpugems2_chapter42.html">Conservative Rasterization, GPU Gems 2.</a>
+</li>
+<li>
+<a href="https://research.nvidia.com/publication/conservative-and-tiled-rasterization-using-modified-triangle-setup">Conservative and Tiled Rasterization Using a Modified Triangle Setup</a>
+</li>
+
+</ol>
+
+</div>
+	</div>
+	
+
+		
+	
+</div>
+</div>
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>

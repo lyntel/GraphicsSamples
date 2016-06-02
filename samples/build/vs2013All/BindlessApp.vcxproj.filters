@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<Filter Include="src">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="..\..\gl4-kepler\BindlessApp\BindlessApp.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\gl4-kepler\BindlessApp\Mesh.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClInclude Include="..\..\gl4-kepler\BindlessApp\BindlessApp.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\gl4-kepler\BindlessApp\Mesh.h">
+			<Filter>src</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<Filter Include="shaders">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<AndroidBuild Include="..\..\gl4-kepler\BindlessApp\assets\shaders\simple_fragment.glsl">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\gl4-kepler\BindlessApp\assets\shaders\simple_vertex.glsl">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+	</ItemGroup>
+</Project>

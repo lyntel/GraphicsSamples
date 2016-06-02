@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<Filter Include="src">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="..\..\gl4-maxwell\CubemapRendering\CubemapRendering.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClInclude Include="..\..\gl4-maxwell\CubemapRendering\CubemapRendering.h">
+			<Filter>src</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<Filter Include="shaders">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<AndroidBuild Include="..\..\gl4-maxwell\CubemapRendering\assets\shaders\Camera.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\gl4-maxwell\CubemapRendering\assets\shaders\CameraReflective.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\gl4-maxwell\CubemapRendering\assets\shaders\Cubemap.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\gl4-maxwell\CubemapRendering\assets\shaders\Camera.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\gl4-maxwell\CubemapRendering\assets\shaders\Cubemap.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\gl4-maxwell\CubemapRendering\assets\shaders\CubemapNoGs.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\gl4-maxwell\CubemapRendering\assets\shaders\CubemapFgs.geom">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\gl4-maxwell\CubemapRendering\assets\shaders\CubemapGs.geom">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+	</ItemGroup>
+</Project>

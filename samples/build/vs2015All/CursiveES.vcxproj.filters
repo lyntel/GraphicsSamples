@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<Filter Include="src">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="..\..\nvpr\CursiveES\cg4cpp_xform.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\nvpr\CursiveES\Cursive.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\nvpr\CursiveES\this_is_crazy.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClInclude Include="..\..\nvpr\CursiveES\Cursive.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\nvpr\CursiveES\cg4cpp_xform.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+	</ItemGroup>
+</Project>

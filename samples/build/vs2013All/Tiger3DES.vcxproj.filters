@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<Filter Include="src">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="..\..\nvpr\Tiger3DES\cg4cpp_xform.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\nvpr\Tiger3DES\glut_teapot.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\nvpr\Tiger3DES\render_font.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\nvpr\Tiger3DES\teapot.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\nvpr\Tiger3DES\tiger.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\nvpr\Tiger3DES\Tiger3D.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\nvpr\Tiger3DES\trackball.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClInclude Include="..\..\nvpr\Tiger3DES\glut_teapot.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\nvpr\Tiger3DES\teapot.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\nvpr\Tiger3DES\teapot_data.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\nvpr\Tiger3DES\tiger.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\nvpr\Tiger3DES\Tiger3D.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\nvpr\Tiger3DES\tiger_paths.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\nvpr\Tiger3DES\tiger_style.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\nvpr\Tiger3DES\trackball.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\nvpr\Tiger3DES\cg4cpp_xform.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\nvpr\Tiger3DES\render_font.hpp">
+			<Filter>src</Filter>
+		</ClInclude>
+	</ItemGroup>
+</Project>

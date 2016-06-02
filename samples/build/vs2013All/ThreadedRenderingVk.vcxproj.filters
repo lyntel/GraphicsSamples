@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<Filter Include="src">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="..\..\vk10-kepler\ThreadedRenderingVk\NvInstancedModelExtGL.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\vk10-kepler\ThreadedRenderingVk\NvInstancedModelExtVK.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\vk10-kepler\ThreadedRenderingVk\NvSharedVBOGL.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\vk10-kepler\ThreadedRenderingVk\NvSharedVBOVK.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\vk10-kepler\ThreadedRenderingVk\School.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\vk10-kepler\ThreadedRenderingVk\ThreadedRenderingVk.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClInclude Include="..\..\vk10-kepler\ThreadedRenderingVk\NvInstancedModelExtGL.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\vk10-kepler\ThreadedRenderingVk\NvInstancedModelExtVK.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\vk10-kepler\ThreadedRenderingVk\NvSharedVBOGL.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\vk10-kepler\ThreadedRenderingVk\NvSharedVBOVK.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\vk10-kepler\ThreadedRenderingVk\School.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\vk10-kepler\ThreadedRenderingVk\SchoolStateManager.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\vk10-kepler\ThreadedRenderingVk\ThreadedRenderingVk.h">
+			<Filter>src</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<Filter Include="glsl_shaders">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<CustomBuild Include="..\..\vk10-kepler\ThreadedRenderingVk\assets\src_shaders\groundplane.glsl">
+			<Filter>glsl_shaders</Filter>
+		</CustomBuild>
+		<CustomBuild Include="..\..\vk10-kepler\ThreadedRenderingVk\assets\src_shaders\skyboxcolor.glsl">
+			<Filter>glsl_shaders</Filter>
+		</CustomBuild>
+		<CustomBuild Include="..\..\vk10-kepler\ThreadedRenderingVk\assets\src_shaders\staticfish.glsl">
+			<Filter>glsl_shaders</Filter>
+		</CustomBuild>
+	</ItemGroup>
+</Project>

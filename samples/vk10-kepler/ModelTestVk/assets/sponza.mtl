@@ -1,0 +1,296 @@
+# 3ds Max Wavefront OBJ Exporter v0.94b - (c)2007 guruware
+# File Created: 09.08.2011 00:15:24
+
+newmtl sp_00_luk_mali
+	Ns 50.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.7451 0.7098 0.6745
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka sponzaMaps\sp_luk.JPG
+	map_Kd sponzaMaps\sp_luk.JPG
+	map_bump sponzaMaps\sp_luk.JPG
+	bump sponzaMaps\sp_luk.JPG
+
+newmtl sp_svod_kapitel
+	Ns 50.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.7137 0.7059 0.6588
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka sponzaMaps\00_skap.JPG
+	map_Kd sponzaMaps\00_skap.JPG
+	map_bump sponzaMaps\00_skap.JPG
+	bump sponzaMaps\00_skap.JPG
+
+newmtl sp_01_stub_baza_
+	Ns 20.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.7843 0.7843 0.7843
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+
+newmtl sp_01_stub_kut
+	Ns 50.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.7373 0.7098 0.6706
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka sponzaMaps\01_STUB.JPG
+	map_Kd sponzaMaps\01_STUB.JPG
+	map_bump sponzaMaps\01_STUB.JPG
+	bump sponzaMaps\01_STUB.JPG
+
+newmtl sp_00_stup
+	Ns 50.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.7373 0.7098 0.6706
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka sponzaMaps\01_STUB.JPG
+	map_Kd sponzaMaps\01_STUB.JPG
+	map_bump sponzaMaps\01_STUB.JPG
+	bump sponzaMaps\01_STUB.JPG
+
+newmtl sp_01_stub_baza
+	Ns 50.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.8000 0.7843 0.7490
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka sponzaMaps\01_S_ba.JPG
+	map_Kd sponzaMaps\01_S_ba.JPG
+	map_bump sponzaMaps\01_S_ba.JPG
+	bump sponzaMaps\01_S_ba.JPG
+
+newmtl sp_01_stub
+	Ns 50.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.7373 0.7098 0.6706
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka sponzaMaps\01_STUB.JPG
+	map_Kd sponzaMaps\01_STUB.JPG
+	map_bump sponzaMaps\01_STUB.JPG
+	bump sponzaMaps\01_STUB.JPG
+
+newmtl sp_01_stup
+	Ns 50.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.8275 0.8000 0.7686
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka sponzaMaps\x01_st.JPG
+	map_Kd sponzaMaps\x01_st.JPG
+
+newmtl sp_vijenac
+	Ns 50.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.7137 0.7059 0.6588
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka sponzaMaps\00_skap.JPG
+	map_Kd sponzaMaps\00_skap.JPG
+	map_bump sponzaMaps\00_skap.JPG
+	bump sponzaMaps\00_skap.JPG
+
+newmtl sp_00_pod
+	Ns 50.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.6275 0.5725 0.5608
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka sponzaMaps\KAMEN.JPG
+	map_Kd sponzaMaps\KAMEN.JPG
+	map_bump sponzaMaps\KAMEN.JPG
+	bump sponzaMaps\KAMEN.JPG
+
+newmtl sp_00_svod
+	Ns 0.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.9412 0.8667 0.7373
+	Ks 0.0340 0.0323 0.0293
+	Ke 0.0000 0.0000 0.0000
+
+newmtl sp_02_reljef
+	Ns 50.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.5294 0.4980 0.4902
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka sponzaMaps\reljef.JPG
+	map_Kd sponzaMaps\reljef.JPG
+	map_bump sponzaMaps\reljef.JPG
+	bump sponzaMaps\reljef.JPG
+
+newmtl sp_01_luk_a
+	Ns 50.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.7451 0.7098 0.6745
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka sponzaMaps\sp_luk.JPG
+	map_Kd sponzaMaps\sp_luk.JPG
+	map_bump sponzaMaps\sp_luk.JPG
+	bump sponzaMaps\sp_luk.JPG
+
+newmtl sp_zid_vani
+	Ns 50.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.6275 0.5725 0.5608
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka sponzaMaps\KAMEN.JPG
+	map_Kd sponzaMaps\KAMEN.JPG
+	map_bump sponzaMaps\KAMEN.JPG
+	bump sponzaMaps\KAMEN.JPG
+
+newmtl sp_01_stup_baza
+	Ns 50.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.8000 0.7843 0.7490
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka sponzaMaps\01_S_ba.JPG
+	map_Kd sponzaMaps\01_S_ba.JPG
+	map_bump sponzaMaps\01_S_ba.JPG
+	bump sponzaMaps\01_S_ba.JPG
+
+newmtl sp_00_zid
+	Ns 50.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.6275 0.5725 0.5608
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka sponzaMaps\KAMEN.JPG
+	map_Kd sponzaMaps\KAMEN.JPG
+	map_bump sponzaMaps\KAMEN.JPG
+	bump sponzaMaps\KAMEN.JPG
+
+newmtl sp_00_prozor
+	Ns 50.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka sponzaMaps\prozor1.JPG
+	map_Kd sponzaMaps\prozor1.JPG
+	map_bump sponzaMaps\prozor1.JPG
+	bump sponzaMaps\prozor1.JPG
+
+newmtl sp_00_vrata_krug
+	Ns 20.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.7843 0.7843 0.7843
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka sponzaMaps\vrata_kr.JPG
+	map_Kd sponzaMaps\vrata_kr.JPG
+	map_bump sponzaMaps\vrata_kr.JPG
+	bump sponzaMaps\vrata_kr.JPG
+
+newmtl sp_00_vrata_kock
+	Ns 20.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.7843 0.7843 0.7843
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka sponzaMaps\vrata_ko.JPG
+	map_Kd sponzaMaps\vrata_ko.JPG
+	map_bump sponzaMaps\vrata_ko.JPG
+	bump sponzaMaps\vrata_ko.JPG

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<Filter Include="src">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="..\..\es3aep-kepler\TerrainTessellation\assets\shaders\uniforms.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClCompile Include="..\..\es3aep-kepler\TerrainTessellation\noise.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es3aep-kepler\TerrainTessellation\TerrainTessellation.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClInclude Include="..\..\es3aep-kepler\TerrainTessellation\noise.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\TerrainTessellation\TerrainTessellation.h">
+			<Filter>src</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<Filter Include="shaders">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<AndroidBuild Include="..\..\es3aep-kepler\TerrainTessellation\assets\shaders\dnoise.glsl">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\TerrainTessellation\assets\shaders\fragment_wireframe.glsl">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\TerrainTessellation\assets\shaders\generateTerrain_fs.glsl">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\TerrainTessellation\assets\shaders\generateTerrain_vs.glsl">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\TerrainTessellation\assets\shaders\noise.glsl">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\TerrainTessellation\assets\shaders\noise3D.glsl">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\TerrainTessellation\assets\shaders\sky_fs.glsl">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\TerrainTessellation\assets\shaders\sky_vs.glsl">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\TerrainTessellation\assets\shaders\terrain.glsl">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\TerrainTessellation\assets\shaders\terrain_control.glsl">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\TerrainTessellation\assets\shaders\terrain_fragment.glsl">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\TerrainTessellation\assets\shaders\terrain_tessellation.glsl">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\TerrainTessellation\assets\shaders\terrain_vertex.glsl">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\TerrainTessellation\assets\shaders\wireframe_geom.glsl">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+	</ItemGroup>
+</Project>

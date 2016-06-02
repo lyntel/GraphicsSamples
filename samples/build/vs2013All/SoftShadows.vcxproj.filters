@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<Filter Include="src">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="..\..\es3aep-kepler\SoftShadows\KnightModel.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es3aep-kepler\SoftShadows\PodiumModel.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es3aep-kepler\SoftShadows\RigidMesh.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es3aep-kepler\SoftShadows\SoftShadows.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es3aep-kepler\SoftShadows\SoftShadowsRenderer.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClInclude Include="..\..\es3aep-kepler\SoftShadows\DepthPrepassShader.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\SoftShadows\EyeShader.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\SoftShadows\KnightModel.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\SoftShadows\PcssShader.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\SoftShadows\PodiumModel.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\SoftShadows\RigidMesh.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\SoftShadows\SceneShader.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\SoftShadows\Shader.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\SoftShadows\ShadowMapShader.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\SoftShadows\SimpleSceneShader.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\SoftShadows\SoftShadows.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\SoftShadows\SoftShadowsCommon.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\SoftShadows\SoftShadowsRenderer.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\SoftShadows\VisTexShader.h">
+			<Filter>src</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<Filter Include="shaders">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<AndroidBuild Include="..\..\es3aep-kepler\SoftShadows\assets\shaders\depthprepass.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\SoftShadows\assets\shaders\pcss.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\SoftShadows\assets\shaders\shadowmap.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\SoftShadows\assets\shaders\vistex.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\SoftShadows\assets\shaders\depthprepass.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\SoftShadows\assets\shaders\eyerender.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\SoftShadows\assets\shaders\shadowmap.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\SoftShadows\assets\shaders\vistex.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\SoftShadows\assets\shaders\depthprepass.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\SoftShadows\assets\shaders\eyerender.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\SoftShadows\assets\shaders\shadowmap.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\SoftShadows\assets\shaders\vistex.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\SoftShadows\assets\shaders\depthprepass.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\SoftShadows\assets\shaders\pcss.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\SoftShadows\assets\shaders\shadowmap.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\SoftShadows\assets\shaders\vistex.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+	</ItemGroup>
+</Project>

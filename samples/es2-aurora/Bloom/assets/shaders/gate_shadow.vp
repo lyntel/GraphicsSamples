@@ -1,0 +1,9 @@
+#version 100
+attribute mediump vec3 a_Position;
+
+uniform mediump mat4 u_ViewProjMatrix;
+
+void main() 
+{
+    gl_Position = u_ViewProjMatrix * vec4(a_Position, 1.0);
+}

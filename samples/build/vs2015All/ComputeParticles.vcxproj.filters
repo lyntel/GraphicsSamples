@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<Filter Include="src">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="..\..\es3aep-kepler\ComputeParticles\assets\shaders\uniforms.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClCompile Include="..\..\es3aep-kepler\ComputeParticles\ComputeParticles.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es3aep-kepler\ComputeParticles\noise.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es3aep-kepler\ComputeParticles\ParticleSystem.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClInclude Include="..\..\es3aep-kepler\ComputeParticles\ComputeParticles.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\ComputeParticles\noise.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\ComputeParticles\ParticleSystem.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es3aep-kepler\ComputeParticles\ShaderBuffer.h">
+			<Filter>src</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<Filter Include="shaders">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<AndroidBuild Include="..\..\es3aep-kepler\ComputeParticles\assets\shaders\particlesCS.glsl">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\ComputeParticles\assets\shaders\renderFS.glsl">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es3aep-kepler\ComputeParticles\assets\shaders\renderVS.glsl">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+	</ItemGroup>
+</Project>

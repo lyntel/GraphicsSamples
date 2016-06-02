@@ -1,0 +1,305 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+	<title>Texture Array Terrain Sample</title>
+	<meta name="description" content="Texture Array Terrain Sample" />
+	
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row" id="subprojcontent">
+<div class="col-md-8">
+	<div class="page-header">
+		<h1>Texture Array Terrain Sample</h1>
+	</div>
+
+	<div class="row">
+		
+			<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Performance&nbsp;</span>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+			</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min PC GPU:</b>
+			<span class="subprojmetagpu">GeForce Fermi-class</span>
+		</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min Tegra Device:</b>
+			<span class="subprojmetagpu">Tegra 4</span>
+		</div>
+		
+	</div>
+	
+	<div class="row">
+		<h3>Description</h3>
+		<p>This sample demonstrates how to use a Texture Array to render a terrain with visually-complex texturing at high performance.  The texture array is similar to a 3D texture, allowing for multiple &#39;slices&#39; or sub-textures bound to a single texture ID, but arrays are much higher performance due to disallowing trivial filtering across the slices.  We get great terrain rendering performance by eliminating the need to perform multiple, blended passes over the geometry, and improved quality by avoiding boundary issues that would occur with 2D atlas texturing.</p>
+			
+		<a data-colorbox="true" href="images/texturearrayterrain-screenshot.jpg"><img class="subprojscreen" src="images/texturearrayterrain-screenshot.jpg" width="400" alt="Screenshot" /></a>
+		
+	</div>
+	
+	
+	<div class="row">
+		<h3>APIs Used</h3>
+		<ul>
+		
+		  <li class="odd">GL_NV_texture_array</li>
+		
+		  <li class="even">glTexImage3D</li>
+		
+		  <li class="odd">glTexSubImage3D</li>
+		
+		  <li class="even">GL_NV_map_buffer_range</li>
+		
+		  <li class="odd">glMapBufferRange</li>
+		
+		  <li class="even">glUnmapBuffer</li>
+		
+		</ul>
+	</div>
+	
+
+	
+	
+	
+	
+	<div class="row">
+		<h3>Shared User Interface</h3>
+		<p>The Graphics samples all share a common app framework and certain user interface elements, centered around the "Tweakbar" panel on the left side of the screen which lets you interactively control certain variables in each sample.</p>
+		<p>To show and hide the Tweakbar, simply click or touch the triangular button positioned in the top-left of the view.</p>
+		<div class="subprojmetadata">
+			<p>Other controls are listed below.</p>
+			
+		<table class="table table-striped small subprojcontrolstable" id="sharedcontrolstable">
+		
+		<tr>
+			<th class="subprojcontrolsdevice">Device</th>
+			<th class="subprojcontrolsinput">Input</th>
+			<th class="subprojcontrolsresult">Result</th>
+		</tr>
+	
+		
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">touch</td>
+				
+				<td>1-Finger Drag</td> <td>Rotate the camera</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>2-Finger Drag</td> <td>Move forward (also controls rotation/heading)</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">mouse</td>
+				
+				<td>Any-Button Drag</td> <td>Rotate the camera</td>
+			</tr>
+			
+		
+			
+			<tr class="even">
+				
+				<td class="subprojcontrolsdevicekind">keyboard</td>
+				
+				<td>Escape</td> <td>Quit the application</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Tab</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>W/S, A/D</td> <td>Move forward/backward, Slide left/right</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">gamepad</td>
+				
+				<td>Start</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Right ThumbStick</td> <td>Rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Left ThumbStick</td> <td>Move forward/backward, Slide left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Left/Right Triggers</td> <td>Move up/down</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>A</td> <td>Show TweakBar, Toggle Focused Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>B</td> <td>Close Focused UI, Hide TweakBar</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>DPAD Up/Down</td> <td>Move Focus to Prev/Next Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>DPAD Left/Right</td> <td>Decrease/Increase Focused Item</td>
+			</tr>
+			
+		
+		</table>
+	
+		</div>
+	</div>
+	
+		
+	
+
+		
+	<div class="row" id="subprojfulldoc">
+		<h3>Technical Details</h3>
+		<div id="detaileddoc">
+<p>The sample loads multiple terrain texture images into a single texture array.  Multiple images are loaded from individual texture files.  The texture array is populated with calls to <code>glTexImage3D</code> and <code>glTexSubImage3D</code>.</p>
+
+<p>The vertex program computes the texture co-ordinates.  It computes a texture array slice based on the height of the terrain.  It also computes a factor that represents a cliff texture on steeper slopes.</p>
+<p>The fragment program samples the texture array twice to fetch two adjacent array slices and linearly interpolates between them.  It also fetches the cliff texture slice and interpolates between the cliff and the previous result.</p>
+
+<div class="row text-center"><div class="col-md-2"></div>
+<div class="col-md-8 text-center small">
+<p></p>
+<p><a data-colorbox="true" href="images/texturearray-closeup.jpg"><img src="images/texturearray-closeup.jpg" width="200" alt="Closeup"/></a></p>
+<p>Figure 1: Close-up of Texture Array Blending<br/>(Click to enlarge)</p>
+<p></p>
+</div><div class="col-md-2"></div></div>
+
+<p>Figure 1 illustrates the blending, most obviously in the foreground at the right hand edge.  There is a blend between three layers based on height: green grass, brown dirt and white snow; the snow doesn't blend in fully in the foreground and the result is mid-grey.  The dark grey cliff texture is also visible at the top-right of the image where the terrain angle is more vertical. </p>
+
+<h4>Future Improvement</h4>
+<p>The terrain rendering could be further optimized in several ways:</p>
+<ul>
+<li>Normals and heights could be stored as 16-bit <code>GL_HALF_FLOAT_OES values</code>.  There would probably be no loss of visual fidelity for a significant reduction in bandwidth.</li>
+<li>The indexing order is currently sub-optimal and could be improved with a preprocess step.</li>
+</ul>
+
+<h4>Terrain Height Field Generation</h4>
+<p>There is a significant amount of sample code that exists to generate a terrain height field.  This is not strictly necessary to enable the texture array technique.  However, a plausibly realistic height field is required.  We have not made strenuous efforts for true realism.</p>
+<p>The height field and normal vertex attributes are technically dynamic because they change in response to changes in the GUI sliders.  If this code were being deployed in a game terrain engine, the terrain would be strictly static (in the absence of terrain deformation which we are not attempting to demonstrate).  Hence, we do not attempt to optimize for the case of dynamic terrain updates beyond keeping the app interactive.  Optimal dynamic VBO updates would be double-buffered so that the graphics driver does not stall waiting for the CPU to finish updating.</p>
+<p>The <code>TerrainSim</code> class is responsible for generating the height field, using fBm and ridge noise.  The <code>TerrainSimRenderer</code> class owns vertex buffer objects (VBOs) and the corresponding indices.  The <code>TerrainSimThread</code> class manages multiple threads, taking advantage of Tegra's multiple CPU cores to accelerate the height field generation in response to adjustment's on the GUI sliders.</p>
+
+</div>
+	</div>
+	
+
+	
+	<div class="row" id="subprojseealso">
+		<h3>See Also</h3>
+		<ul>
+		
+		  <li class="odd">
+		  <!-- tbd file static refs will need to turn into an nvidia.com relative URL... -->
+		  <span class="subprojseeone">
+		  
+		  F. Kenton Musgrave, D. S. (2002). Texturing and Modeling, Third Edition: A Procedural Approach. Morgan Kaufmann.
+		  
+		  </span></li>
+		
+		</ul>
+	</div>
+		
+	
+</div>
+</div>
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>

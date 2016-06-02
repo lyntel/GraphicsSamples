@@ -1,0 +1,348 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+	<title>Terrain Tessellation Sample</title>
+	<meta name="description" content="Terrain Tessellation Sample" />
+	
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row" id="subprojcontent">
+<div class="col-md-8">
+	<div class="page-header">
+		<h1>Terrain Tessellation Sample</h1>
+	</div>
+
+	<div class="row">
+		
+			<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Performance&nbsp;</span>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+			</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min PC GPU:</b>
+			<span class="subprojmetagpu">GeForce Fermi-class</span>
+		</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min Tegra Device:</b>
+			<span class="subprojmetagpu">Tegra K1</span>
+		</div>
+		
+	</div>
+	
+	<div class="row">
+		<h3>Description</h3>
+		<p>This sample shows how OpenGL hardware tessellation support can be used to implement a highly-efficient terrain engine that supports high geometric detail.</p>
+			
+		<a data-colorbox="true" href="images/terraintessellation-screenshot.jpg"><img class="subprojscreen" src="images/terraintessellation-screenshot.jpg" width="400" alt="Screenshot" /></a>
+		
+	</div>
+	
+	
+	<div class="row">
+		<h3>APIs Used</h3>
+		<ul>
+		
+		  <li class="odd">GL_TESS_CONTROL_SHADER</li>
+		
+		  <li class="even">GL_TESS_EVALUATION_SHADER</li>
+		
+		  <li class="odd">glGenProgramPipelines</li>
+		
+		  <li class="even">glUseProgramStages</li>
+		
+		  <li class="odd">glPatchParameteri</li>
+		
+		  <li class="even">GLSL &#39;textureGather&#39;</li>
+		
+		</ul>
+	</div>
+	
+
+	
+	
+	
+	
+	<div class="row">
+		<h3>Shared User Interface</h3>
+		<p>The Graphics samples all share a common app framework and certain user interface elements, centered around the "Tweakbar" panel on the left side of the screen which lets you interactively control certain variables in each sample.</p>
+		<p>To show and hide the Tweakbar, simply click or touch the triangular button positioned in the top-left of the view.</p>
+		<div class="subprojmetadata">
+			<p>Other controls are listed below.</p>
+			
+		<table class="table table-striped small subprojcontrolstable" id="sharedcontrolstable">
+		
+		<tr>
+			<th class="subprojcontrolsdevice">Device</th>
+			<th class="subprojcontrolsinput">Input</th>
+			<th class="subprojcontrolsresult">Result</th>
+		</tr>
+	
+		
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">touch</td>
+				
+				<td>1-Finger Drag</td> <td>Rotate the camera</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>2-Finger Drag</td> <td>Move forward (also controls rotation/heading)</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">mouse</td>
+				
+				<td>Any-Button Drag</td> <td>Rotate the camera</td>
+			</tr>
+			
+		
+			
+			<tr class="even">
+				
+				<td class="subprojcontrolsdevicekind">keyboard</td>
+				
+				<td>Escape</td> <td>Quit the application</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Tab</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>W/S, A/D</td> <td>Move forward/backward, Slide left/right</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">gamepad</td>
+				
+				<td>Start</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Right ThumbStick</td> <td>Rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Left ThumbStick</td> <td>Move forward/backward, Slide left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Left/Right Triggers</td> <td>Move up/down</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>A</td> <td>Show TweakBar, Toggle Focused Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>B</td> <td>Close Focused UI, Hide TweakBar</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>DPAD Up/Down</td> <td>Move Focus to Prev/Next Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>DPAD Left/Right</td> <td>Decrease/Increase Focused Item</td>
+			</tr>
+			
+		
+		</table>
+	
+		</div>
+	</div>
+	
+		
+	
+
+		
+	<div class="row" id="subprojfulldoc">
+		<h3>Technical Details</h3>
+		<div id="detaileddoc">
+<p>This sample demonstrates how to render a procedural terrain using OpenGL tessellation shaders, including automatic level of detail and culling.</p>
+<p>It is not intended to show the optimal way of rendering terrain, but more to serve as a testbed for experimenting with tessellation shaders and different terrain heightfield functions.</p>
+
+<h4>Rendering Process</h4>
+
+<p>
+The code renders the terrain as a grid of patches, each of which can generate a grid of up to 64 x 64 triangles (this
+is the limit for the current tessellation hardware). The patches are rendered using instancing, using the <code>glDrawArraysInstanced()</code> function with a dummy vertex buffer. This means the whole terrain is rendered with a single draw call. The actual patch origin positions are then calculated from the <code>gl_InstanceID</code> in the vertex
+shader.
+</p>
+
+<p>
+Level of detail (determining the tessellation level) and view frustum culling are performed in the tessellation
+control shader. Level of detail is calculated based on the projected screen size of a sphere fitted to each patch edge
+(as described in NVIDIA's DirectX 11 terrain tessellation sample, see link below).
+Culling is performed by testing the bounding sphere of the patch against the view frustum planes.
+</p>
+
+<p>
+The terrain height is calculated procedurally for each generated vertex in the tessellation evaluation shader. Procedural noise is calculated based on a small 2D texture containing random values. The GLSL <code>textureGather()</code> function is used to read the neighboring texels in a single pass, so that custom smooth interpolation can be performed. Using hardware linear interpolation does not look as good, and has stepping artifacts at low frequencies due to the limited hardware precision (9 bits sub-texel).
+</p>
+
+<p>
+The noise function is used is based on an advanced perlin noise article by Inigo Quilez (see link below).
+It uses the derivatives of the noise function to weight the noise octaves.<br>
+</p>
+
+<p>
+Surface normals for the terrain can be calculated in two ways: either by evaluating the terrain function at two additional neighboring points in the tessellation evaluation shader (if the "smooth normals" option is enabled), or per-triangle using the geometry shader (if "smooth normals" is disabled). The geometry shader method is usually slower on current hardware, and only calculates a flat surface normal.
+</p>
+
+<p>
+Finally, the terrain color is calculated in the fragment shader, based on the height and normal.
+</p>
+
+<h4>Controls</h4>
+
+<p>
+The Tweakbar has several options and sliders to control various parameters.
+</p>
+<ul>
+	<li><p>
+	There are several different quality settings, which vary the number of terrain patches, and how large each patch is. Each quality level up doubles the resolution in each dimension (4 times the number of triangles).
+	</p></li>
+	<li><p>
+	If "auto LOD" mode is enabled, the tessellation level is calculated to try and maintain a constant screen-space triangle size, which is controlled by the "triangle size" slider.
+	</p></li>
+	<li><p>If "auto LOD" is disabled, you can directly control the tessellation factors using the two sliders. This mode is typically 	much slower, since patches in the distance are typically very over-tessellated.
+	</p></li>
+	<li><p>
+	You can also control the frequency of the noise function, the terrain height, and how many noise octaves are used to generate the terrain.
+	</p></li>
+</ul>
+
+</div>
+	</div>
+	
+
+	
+	<div class="row" id="subprojseealso">
+		<h3>See Also</h3>
+		<ul>
+		
+		  <li class="odd">
+		  <!-- tbd file static refs will need to turn into an nvidia.com relative URL... -->
+		  <span class="subprojseeone">
+		  <a href="https://developer.nvidia.com/content/opengl-sdk-simple-tessellation-shader">
+		  Simple Tessellation overview and sample
+		  </a>
+		  </span></li>
+		
+		  <li class="even">
+		  <!-- tbd file static refs will need to turn into an nvidia.com relative URL... -->
+		  <span class="subprojseeone">
+		  <a href="https://developer.nvidia.com/sites/default/files/akamai/gamedev/files/sdk/11/TerrainTessellation_WhitePaper.pdf">
+		  DX11 Terrain Tessellation whitepaper
+		  </a>
+		  </span></li>
+		
+		  <li class="odd">
+		  <!-- tbd file static refs will need to turn into an nvidia.com relative URL... -->
+		  <span class="subprojseeone">
+		  <a href="http://www.iquilezles.org/www/articles/morenoise/morenoise.htm">
+		  Advanced Perlin Noise article, by Inigo Quilez
+		  </a>
+		  </span></li>
+		
+		</ul>
+	</div>
+		
+	
+</div>
+</div>
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>

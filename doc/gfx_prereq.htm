@@ -1,0 +1,92 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+	<title>NVIDIA GameWorks Graphics Samples Prerequisites</title>
+	<meta name="description" content="NVIDIA GameWorks Graphics Samples Prerequisites" />
+
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row">
+ <div class="col-md-8">
+	<div class="page-header">
+		<h1>NVIDIA GameWorks Graphics Samples Prerequisites</h1>
+	</div>
+
+	<h3>Windows (Target) Development for OpenGL or Vulkan:</h3>
+	<ul>
+		<li>Windows Vista, 7, or 8 PC</li>
+		<li>NVIDIA GeForce Fermi-based (GTX 4xx) or better GPU</li>
+		<li>Visual Studio 2013 or 2015, non-Express editions</li>
+		<li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=35">Microsoft DirectX End-User Runtime Web Installer</a>.  This is required by all of the OpenGL samples on Windows in order to add XINPUT-based game controller support.</li>
+        <li><a href="https://lunarg.com/vulkan-sdk/">LunarG Vulkan SDK</a>.  This is required to build and run any of the Vulkan samples.</li>
+	</ul>
+
+   <h3>Android (Target) Development for OpenGL or Vulkan:</h3>
+	<ul>
+		<li>Windows Vista/7/8/10</li>
+		<li>Tegra 4-based device (advanced GL samples and all Vulkan samples require a Tegra K1/X1 device)</li>
+		<li>Build environment:<ul>
+			<li>Windows, Visual Studio:<ul>
+				<li>Visual Studio 2013 or 2015, non-Express editions</li>
+				<li>Full <a href="http://developer.nvidia.com/tadp">Tegra Android Development Pack</a> for Windows tools install<br/>(Note that <a href="http://developer.nvidia.com/nsighttegra">NVIDIA Nsight Tegra, Visual Studio Edition</a> should be included in full install if Visual Studio detected)</li>
+			</ul></li>
+		</ul></li>
+	</ul>		
+
+   <h3>Linux (Host or Target) Development for OpenGL or Vulkan:</h3>
+
+     <p>This initial 3.0 release only supports Windows as the development host and Windows or Android as the target.  Resumed Linux and Linux4Tegra support is forthcoming.</p>
+
+ </div> <!--col-md-8-->
+ <div class="col-md-4"></div>
+</div> <!--row-->
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>

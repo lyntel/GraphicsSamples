@@ -1,0 +1,127 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+	<title>NVIDIA GameWorks Graphics Samples Setup Guide</title>
+	<meta name="description" content="NVIDIA GameWorks Graphics Samples Setup Guide" />
+
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row">
+ <div class="col-md-8">
+	<div class="page-header">
+		<h1>NVIDIA GameWorks Graphics Samples Setup Guide</h1>
+	</div>
+	<p class="lead">This guide will help you with the setup of your host machine in order to properly build and run the the NVIDIA GameWorks Graphics sample applications for Vulkan and OpenGL.</p>
+	<p>Please ensure your system meets the <a href="gfx_prereq.htm">Graphics Samples Prerequisites</a> before proceeding further.</p>
+	
+	<h2>Installing and Building on Windows Host</h2>
+	<p>This section will walk you through the setup of the Vulkan and OpenGL samples on a Windows development PC, for Android and Windows build targets.</p>
+
+	<h3>Targeting Windows Host</h3>
+	<ol>
+		<li>Unzip the samples pack to a directory on the Windows Host PC.  We will call this directory <code>SAMPLES_ROOT</code>.</li>
+		<li>If you haven't already done so, download and install the <a href="https://lunarg.com/vulkan-sdk/">LunarG Vulkan SDK</a>.  Ensure that the installer has set <code>VK_SDK_PATH</code> to the path to the SDK, and restart any Visual Studio instances.</li>
+		<li>Launch Visual Studio 2013 or 2015.</li>
+		<li>Open the all-samples project file: <code>{SAMPLES_ROOT}/samples/build/vs201[3,5]All/AllSamples.sln</code>.</li>
+		<li>Build the solution as release or debug.</li>
+		<li>The resulting apps will be placed in <code>{SAMPLES_ROOT}/samples/bin/vs201[3,5][x86,x64]/</code>.</li>
+	</ol>
+	<h3>Targeting Android Device</h3>
+	<ol>
+		<li>Unzip the samples pack to a directory on the Windows Host PC.  We will call this directory <code>SAMPLES_ROOT</code>.</li>
+		<li>If you haven't already done so, download and install the <a href="http://developer.nvidia.com/tadp">Tegra Android Development Pack</a> (TADP) for Windows.  Be sure to include NVIDIA Nsight Tegra, Visual Studio Edition as an installed component.</li>
+		<li>Launch Visual Studio 2013 or 2015.</li>
+		<li>Open the all-samples project file: <code>{SAMPLES_ROOT}/samples/build/vs201[3,5]All/AllSamples.sln</code>.</li>
+		<li>Build the solution as release or debug.</li>
+		<li>The resulting app APKs will be placed in <code>{SAMPLES_ROOT}/samples/bin/Tegra-Android/</code>.</li>
+	</ol>
+	<h5>Common Android Build Errors</h5>
+	<ul>
+		<li><p>An error similar to:</p>
+			<div class="alert alert-warning"><code class="small">
+			BUILD FAILED<br/>C:\NVPACK\android-sdk-windows\tools\ant\build.xml:542: Unable to resolve project target 'android-14'
+			</code></div>
+			<p>Can be solved as follows:</p>
+			<ol>
+				<li>Run <code>{NVPACK}/android-sdk-windows/SDKManager.exe</code></li>
+				<li>Click <b>deselect all</b>.</li>
+				<li>Find <b>Android 4.0 (API14)</b>.</li>
+				<li>Check <b>SDK Platform</b>.</li>
+				<li>Click <b>Install packages</b>.</li>
+				<li>Follow the steps to accept the license and install the package</li>
+			</ol>
+		</li>
+		<li><p>The error:</p>
+			<div class="alert alert-warning"><code class="small">
+			[dx] Could not create the Java virtual machine.<br/>
+			[dx] Error occurred during initialization of VM<br/>
+			[dx] Could not reserve enough space for object heap
+			</code></div>
+			<p>Can be fixed as follows:</p>
+			<ol>
+				<li>Edit <code>{NVPACK}\android-sdk-windows\build-tools\{each version}\dx.bat</code>.</li>
+				<li>Find the line:<br/><code>set defaultMx=-Xmx1024M</code><br/>And change the 1024 to 512, like:<br/><code>set defaultMx=-Xmx512M</code>.</li>
+				<li>Save and exit.</li>
+				<li>Restart Visual Studio.</li>
+				<li>Rebuild.</li>
+			</ol>
+		</li>
+	</ul>
+
+	<h2>Installing and Building on Linux Host</h2>
+	<p>This release of the samples does not yet support building from a Linux host - support is in progress.</p>
+	
+
+ </div> <!--col-md-8-->
+ <div class="col-md-4"></div>
+</div> <!--row-->
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>

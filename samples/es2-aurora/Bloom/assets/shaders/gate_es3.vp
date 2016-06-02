@@ -1,0 +1,22 @@
+#version 300 es
+in mediump vec3 a_Position;
+in mediump vec3 a_Normal;
+in mediump vec3 a_TexCoord;
+
+uniform mediump mat4 u_ViewProjMatrix;
+uniform mediump mat4 u_LightMatrix;
+
+out lowp vec3 v_Normal;
+out mediump vec2 v_TexCoord;
+out mediump    vec4 v_ShadowMapTexCoord;
+
+void main() 
+{
+    vec4 transformed_position = vec4(a_Position, 1.0);
+    gl_Position = u_ViewProjMatrix * transformed_position;
+    v_ShadowMapTexCoord = (u_LightMatrix * transformed_position);
+	v_ShadowMapTexCoord.z -= 0.04;
+
+    v_Normal = a_Normal;
+    v_TexCoord = a_TexCoord.xy*2.0;
+}

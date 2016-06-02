@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<Filter Include="src">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="..\..\es2-aurora\OptimizationApp\IceRevisitedRadix.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es2-aurora\OptimizationApp\OptimizationApp.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es2-aurora\OptimizationApp\ParticleRenderer.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es2-aurora\OptimizationApp\ParticleSystem.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es2-aurora\OptimizationApp\scene.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es2-aurora\OptimizationApp\SceneRenderer.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es2-aurora\OptimizationApp\Terrain.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es2-aurora\OptimizationApp\Upsampler.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\es2-aurora\OptimizationApp\utils.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClInclude Include="..\..\es2-aurora\OptimizationApp\AppExtensions.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es2-aurora\OptimizationApp\IceRevisitedRadix.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es2-aurora\OptimizationApp\IceTypes.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es2-aurora\OptimizationApp\OptimizationApp.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es2-aurora\OptimizationApp\ParticleRenderer.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es2-aurora\OptimizationApp\ParticleSystem.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es2-aurora\OptimizationApp\scene.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es2-aurora\OptimizationApp\SceneFBOs.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es2-aurora\OptimizationApp\SceneInfo.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es2-aurora\OptimizationApp\SceneRenderer.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es2-aurora\OptimizationApp\Shaders.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es2-aurora\OptimizationApp\Terrain.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es2-aurora\OptimizationApp\Upsampler.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es2-aurora\OptimizationApp\utils.h">
+			<Filter>src</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<Filter Include="shaders">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<AndroidBuild Include="..\..\es2-aurora\OptimizationApp\assets\shaders\base.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\OptimizationApp\assets\shaders\base_es2.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\OptimizationApp\assets\shaders\cameraViewParticle.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\OptimizationApp\assets\shaders\cameraViewParticle_es2.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\OptimizationApp\assets\shaders\depth.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\OptimizationApp\assets\shaders\unshaded_alpha.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\OptimizationApp\assets\shaders\unshaded_solid.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\OptimizationApp\assets\shaders\upsampleBilinear.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\OptimizationApp\assets\shaders\upsampleCrossBilateral.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\OptimizationApp\assets\shaders\base.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\OptimizationApp\assets\shaders\base_es2.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\OptimizationApp\assets\shaders\cameraViewParticle.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\OptimizationApp\assets\shaders\cameraViewParticle_es2.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\OptimizationApp\assets\shaders\depth.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\OptimizationApp\assets\shaders\unshaded.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\OptimizationApp\assets\shaders\upsampleBilinear.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\OptimizationApp\assets\shaders\upsampleCrossBilateral.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+	</ItemGroup>
+</Project>

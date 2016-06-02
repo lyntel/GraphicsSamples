@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<Filter Include="src">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="..\..\gl4-maxwell\CascadedShadowMapping\CascadedShadowMapping.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\gl4-maxwell\CascadedShadowMapping\CascadedShadowMappingRenderer.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\gl4-maxwell\CascadedShadowMapping\KnightModel.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClInclude Include="..\..\gl4-maxwell\CascadedShadowMapping\CameraProgram.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\gl4-maxwell\CascadedShadowMapping\CascadedShadowMapping.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\gl4-maxwell\CascadedShadowMapping\CascadedShadowMappingCommon.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\gl4-maxwell\CascadedShadowMapping\CascadedShadowMappingRenderer.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\gl4-maxwell\CascadedShadowMapping\FloorModel.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\gl4-maxwell\CascadedShadowMapping\KnightModel.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\gl4-maxwell\CascadedShadowMapping\KnightNvModel.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\gl4-maxwell\CascadedShadowMapping\LightProgram.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\gl4-maxwell\CascadedShadowMapping\LightVsOnlyProgram.h">
+			<Filter>src</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<Filter Include="shaders">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<AndroidBuild Include="..\..\gl4-maxwell\CascadedShadowMapping\assets\shaders\Camera.frag">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\gl4-maxwell\CascadedShadowMapping\assets\shaders\Camera.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\gl4-maxwell\CascadedShadowMapping\assets\shaders\Light.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\gl4-maxwell\CascadedShadowMapping\assets\shaders\LightVsOnly.vert">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\gl4-maxwell\CascadedShadowMapping\assets\shaders\LightFgsMulticast.geom">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\gl4-maxwell\CascadedShadowMapping\assets\shaders\LightGsCull.geom">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\gl4-maxwell\CascadedShadowMapping\assets\shaders\LightMulticast.geom">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\gl4-maxwell\CascadedShadowMapping\assets\shaders\LightStandard.geom">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+	</ItemGroup>
+</Project>

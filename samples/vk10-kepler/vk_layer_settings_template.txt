@@ -1,0 +1,9 @@
+#Copy to ..\build\vs2013win64 when launching directly from VS
+#requires USE_VULKAN_SDK 
+
+
+# API Dump layer, creates ..\build\vs2013win64\vk_apidump.txt
+#APIDumpFile = TRUE
+#APIDumpFlush = TRUE
+#APIDumpNoAddr = FALSE
+#APIDumpDetailed = TRUE

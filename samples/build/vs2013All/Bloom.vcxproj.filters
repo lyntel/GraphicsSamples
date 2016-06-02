@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<Filter Include="src">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="..\..\es2-aurora\Bloom\Bloom.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClInclude Include="..\..\es2-aurora\Bloom\AppExtensions.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\es2-aurora\Bloom\Bloom.h">
+			<Filter>src</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<Filter Include="shaders">
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<AndroidBuild Include="..\..\es2-aurora\Bloom\assets\shaders\fullscreen_quad.vp">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\Bloom\assets\shaders\gate.vp">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\Bloom\assets\shaders\gate_es3.vp">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\Bloom\assets\shaders\gate_gl4.vp">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\Bloom\assets\shaders\gate_shadow.vp">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\Bloom\assets\shaders\osd.vp">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\Bloom\assets\shaders\quad.vp">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\Bloom\assets\shaders\touch.vp">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\Bloom\assets\shaders\blur.fp">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\Bloom\assets\shaders\combine.fp">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\Bloom\assets\shaders\downfilter.fp">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\Bloom\assets\shaders\gate.fp">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\Bloom\assets\shaders\gate_es3.fp">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\Bloom\assets\shaders\gate_gl4.fp">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\Bloom\assets\shaders\gate_shadow.fp">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\Bloom\assets\shaders\logo.fp">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\Bloom\assets\shaders\osd.fp">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\Bloom\assets\shaders\quad.fp">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+		<AndroidBuild Include="..\..\es2-aurora\Bloom\assets\shaders\touch.fp">
+			<Filter>shaders</Filter>
+		</AndroidBuild>
+	</ItemGroup>
+</Project>

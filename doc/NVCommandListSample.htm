@@ -1,0 +1,392 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+	<title>NV Command List Sample</title>
+	<meta name="description" content="NV Command List Sample" />
+	
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row" id="subprojcontent">
+<div class="col-md-8">
+	<div class="page-header">
+		<h1>NV Command List Sample</h1>
+	</div>
+
+	<div class="row">
+		
+			<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Performance&nbsp;</span>
+			
+			</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min PC GPU:</b>
+			<span class="subprojmetagpu">GeForce Fermi-class</span>
+		</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min Tegra Device:</b>
+			<span class="subprojmetagpu">Tegra K1</span>
+		</div>
+		
+	</div>
+	
+	<div class="row">
+		<h3>Description</h3>
+		<p>This sample demonstrates the use of the NV_command_list extension. In this sample the NV_command_list is used to render a basic scene. Texturing is performed via ARB_bindless_texture.</p>
+			
+		<a data-colorbox="true" href="images/nvcommandlist-screenshot.png"><img class="subprojscreen" src="images/nvcommandlist-screenshot.png" width="400" alt="Screenshot" /></a>
+		
+	</div>
+	
+	
+	<div class="row">
+		<h3>APIs Used</h3>
+		<ul>
+		
+		  <li class="odd">OpenGL  4.4</li>
+		
+		  <li class="even">GL_NV_command_list</li>
+		
+		  <li class="odd">GL_ARB_bindless_texture</li>
+		
+		  <li class="even">GL_NV_uniform_buffer_unified_memory</li>
+		
+		  <li class="odd">GL_ARB_shading_language_include</li>
+		
+		  <li class="even">GL_NV_shadow_samplers_cube</li>
+		
+		</ul>
+	</div>
+	
+
+	
+	
+	
+	
+	<div class="row">
+		<h3>Shared User Interface</h3>
+		<p>The Graphics samples all share a common app framework and certain user interface elements, centered around the "Tweakbar" panel on the left side of the screen which lets you interactively control certain variables in each sample.</p>
+		<p>To show and hide the Tweakbar, simply click or touch the triangular button positioned in the top-left of the view.</p>
+		<div class="subprojmetadata">
+			<p>Other controls are listed below.</p>
+			
+		<table class="table table-striped small subprojcontrolstable" id="sharedcontrolstable">
+		
+		<tr>
+			<th class="subprojcontrolsdevice">Device</th>
+			<th class="subprojcontrolsinput">Input</th>
+			<th class="subprojcontrolsresult">Result</th>
+		</tr>
+	
+		
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">touch</td>
+				
+				<td>1-Finger Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>2-Finger Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>2-Finger Pinch</td> <td>Scale the view</td>
+			</tr>
+			
+		
+			
+			<tr class="even">
+				
+				<td class="subprojcontrolsdevicekind">mouse</td>
+				
+				<td>Left-Button Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Right-Button Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Middle-Click Drag</td> <td>Scale the view (up:out, down:in)</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">keyboard</td>
+				
+				<td>Escape</td> <td>Quit the application</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Tab</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">gamepad</td>
+				
+				<td>Start</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Right ThumbStick</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Left ThumbStick</td> <td>Move forward/backward, Slide left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Left/Right Triggers</td> <td>Move up/down</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>A</td> <td>Show TweakBar, Toggle Focused Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>B</td> <td>Close Focused UI, Hide TweakBar</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>DPAD Up/Down</td> <td>Move Focus to Prev/Next Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>DPAD Left/Right</td> <td>Decrease/Increase Focused Item</td>
+			</tr>
+			
+		
+		</table>
+	
+		</div>
+	</div>
+	
+		
+	
+
+		
+	<div class="row" id="subprojfulldoc">
+		<h3>Technical Details</h3>
+		<div id="detaileddoc">
+
+<p>The <code>Nv_command_list extension</code> is built around bindless GPU pointers/handles which allow rendering scenes with hundreds of thousands of draw calls at extremely low CPU time:</p>
+
+<ul><li>Tokenized Rendering :
+<ul>
+<li>Commands are encoded into binary data ( tokens ) instead of issuing classic gl calls. This allows the driver of the GPU to efficiently iterate over a stream of many commands in single or multiple sequences : <code>glDrawCommandsStatesNV(tokenBuffer, offsets[], sizes[], states[], fbos[], count)</code></li>
+<li>The tokens are stored in regular OpenGL buffers and can be re - used across frames or manipulated by the GPU itself</li>
+<li>In addition to draw calls, the tokens cover the most frequent state changes ( VBO/IBO/UBO ) and a few basic scalar changes ( blend color, polygon offset, stencil ref, etc.  )</li>
+<li>As tokens are only reference data ( for example UBO ), their content is free to change. You can change vertex positions or matrices freely</li>
+</ul>
+</li></ul>
+
+The tokens are tightly-packed structs and most common tokens are 16 bytes each. Below you will find the token definition to update a UBO binding.
+
+<pre><code>
+typedef struct
+{
+    GLuint header;  // glGetCommandHeader(GL_UNIFORM_ADDRESS_COMMAND_NV)
+    GLushort index; // in glsl: layout(binding=INDEX, commandBindableNV) uniform...
+    GLushort stage;  // glGetStageIndexNV(GL_VERTEX_SHADER)
+    GLuint64 address; // glGetNamedBufferParameterui64vNV(buffer, GL_BUFFER_GPU_ADDRESS, 
+                                                         // &address);
+} UniformAddressCommandNV;
+</code></pre>
+
+
+<ul>
+    <li>
+        State Objects
+    <ul>
+    <li>Costly validation in the driver can often happen as late as at draw call time or at other unexpected times, potentially causing unstable framerates. Monolithic state-objects (common in other new graphics APIs) allow us to pre-validate the core rendering state (FBO, program, blending states, etc.) and reuse it</li>
+    <li>Full control over when validation happens via <code>glCaptureState (stateObject, primitiveBaseMode)</code> and use of the current GL state's setup</li>
+    <li>Very efficient state switching between different State Objects</li>
+    </ul>
+    </li>
+    <li>
+        Pre-compiled Command List Object
+    <ul>
+    <li>State Objects and client-side tokens can be pre-compiled into a special object</li>
+    <li>Allows further driver optimization (faster State Object transitions) at the loss of flexibility (changing State Objects requires rebuilding command list object)</li>
+    </ul>
+    </li>
+</ul>
+
+<h5>Sample Highlights</h5>
+<p>Depending on the availability of the extension, the sample allows switching between a standard OpenGL, token-buffer or commandlist-object modes to render the scene. Inside <code>basic-nvcommandlist.cpp</code> you will find the functions:</p>
+<ul>
+    <li>
+<code>Sample::drawStandard()</code>
+<ul>
+    <li>
+The standard OpenGL approach allows rendering the scene via the standard <code>glDrawElements</code> function for each object on the scene
+    </li>
+</ul>
+</li>
+    <li>
+<code>Sample::drawTokenBuffer()</code>
+<ul>
+    <li>
+The token buffer approach allows rendering the scene using list of tokens (binary data) via the <code>glDrawCommandsStatesNV</code> function
+    </li>
+</ul>
+</li>
+    <li>
+<code>Sample::drawTokenList()</code>
+<ul>
+    <li>
+The token list approach allows rendering the scene using pre-compiled command list via <code>glCallComandListNV</code>
+    </li>
+</ul>
+</li>
+    <li>
+<code>Sample::drawTokenEmulation()</code>
+<ul>
+    <li>
+The emulation layer allows us to roughly get an idea how the <code>glDrawCommands*</code> and <code>glStateCapture</code> work internally. Emulation may also be useful as a permanent compatibility layer for driver/hardware combinations which do not run the extension natively
+    </li>
+</ul>
+</li>
+</ul>
+
+<h5>Performance</h5>
+The sample renders 1024 objects. Each object has a sphere or box VBO/IBO pair and references a range within a big UBO that stores per -- object data like matrix, color and texture. Half of objects on the scene use the geometry shader to transform primitives. 
+Here are some preliminary example results for Timer Draw on a win 7 -- 64, i7 -- 860, Quadro K5000 system
+<table border=1 >
+    <tr>
+        <th>Draw mode</th>
+        <th>GPU time</th>
+        <th>CPU time ( microseconds )</th>
+    </tr>
+    <tr>
+        <td>standard</td>
+        <td>850</td>
+        <td>1750</td>
+    </tr>
+    <tr>
+        <td>nvcmdlist emulated</td>
+        <td>830</td>
+        <td>1500</td>
+    </tr>
+    <tr>
+        <td>nvcmdlist buffer</td>
+        <td>775</td>
+        <td>30</td>
+    </tr>
+    <tr>
+        <td>nvcmdlist list</td>
+        <td>775</td>
+        <td>&lt1</td>
+    </tr>
+</table>
+
+<p>One can see that by classic API usage the scene is CPU bound as more time is spent here than on the graphics card. </p>
+<p>The gained performance in emulation approach comes from using bindless VBO and UBO. </p>
+<p>The token-buffer technique is slightly slower on CPU than the pre-compiled list because the 500 State Objects (each half of scene's objects) still need to be checked every frame. The nvcmdlist techniques essentially only require a single dispatch.</p>
+<p>The closest other way to get to this command would be by using MultiDrawIndirect and vertex divisor indexing, but it makes shaders more complex by adding an indirection parameter.</p>
+
+</div>
+	</div>
+	
+
+		
+	
+</div>
+</div>
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>
