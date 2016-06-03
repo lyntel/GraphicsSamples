@@ -1,0 +1,362 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+	<title>Compute Particles Sample</title>
+	<meta name="description" content="Compute Particles Sample" />
+	
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row" id="subprojcontent">
+<div class="col-md-8">
+	<div class="page-header">
+		<h1>Compute Particles Sample</h1>
+	</div>
+
+	<div class="row">
+		
+			<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Compute&nbsp;</span>
+			
+			</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min PC GPU:</b>
+			<span class="subprojmetagpu">GeForce Fermi-class</span>
+		</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min Tegra Device:</b>
+			<span class="subprojmetagpu">Tegra K1</span>
+		</div>
+		
+	</div>
+	
+	<div class="row">
+		<h3>Description</h3>
+		<p>The Compute Particles sample shows how OpenGL Compute Shaders can be used along with OpenGL rendering to create complex animations and effects entirely on the GPU.</p>
+			
+		<a data-colorbox="true" href="images/computeparticles-screenshot.jpg"><img class="subprojscreen" src="images/computeparticles-screenshot.jpg" width="400" alt="Screenshot" /></a>
+		
+	</div>
+	
+	
+	<div class="row">
+		<h3>APIs Used</h3>
+		<ul>
+		
+		  <li class="odd">glBindProgramPipeline</li>
+		
+		  <li class="even">glUseProgramStages</li>
+		
+		  <li class="odd">GL_COMPUTE_SHADER</li>
+		
+		  <li class="even">glDispatchCompute</li>
+		
+		  <li class="odd">glMemoryBarrier</li>
+		
+		</ul>
+	</div>
+	
+
+	
+	
+	
+	
+	<div class="row">
+		<h3>Shared User Interface</h3>
+		<p>The Graphics samples all share a common app framework and certain user interface elements, centered around the "Tweakbar" panel on the left side of the screen which lets you interactively control certain variables in each sample.</p>
+		<p>To show and hide the Tweakbar, simply click or touch the triangular button positioned in the top-left of the view.</p>
+		<div class="subprojmetadata">
+			<p>Other controls are listed below.</p>
+			
+		<table class="table table-striped small subprojcontrolstable" id="sharedcontrolstable">
+		
+		<tr>
+			<th class="subprojcontrolsdevice">Device</th>
+			<th class="subprojcontrolsinput">Input</th>
+			<th class="subprojcontrolsresult">Result</th>
+		</tr>
+	
+		
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">touch</td>
+				
+				<td>1-Finger Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>2-Finger Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>2-Finger Pinch</td> <td>Scale the view</td>
+			</tr>
+			
+		
+			
+			<tr class="even">
+				
+				<td class="subprojcontrolsdevicekind">mouse</td>
+				
+				<td>Left-Button Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Right-Button Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Middle-Click Drag</td> <td>Scale the view (up:out, down:in)</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">keyboard</td>
+				
+				<td>Escape</td> <td>Quit the application</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Tab</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">gamepad</td>
+				
+				<td>Start</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Right ThumbStick</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Left ThumbStick</td> <td>Move forward/backward, Slide left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Left/Right Triggers</td> <td>Move up/down</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>A</td> <td>Show TweakBar, Toggle Focused Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>B</td> <td>Close Focused UI, Hide TweakBar</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>DPAD Up/Down</td> <td>Move Focus to Prev/Next Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>DPAD Left/Right</td> <td>Decrease/Increase Focused Item</td>
+			</tr>
+			
+		
+		</table>
+	
+		</div>
+	</div>
+	
+		
+	
+
+		
+	<div class="row" id="subprojfulldoc">
+		<h3>Technical Details</h3>
+		<div id="detaileddoc">
+<h5>Introduction</h5>
+<p>This sample shows how compute shaders can be used to implement massively parallel animation tasks on the GPU, and pass the results to rendering.  It demonstrates how vertex shaders can access any element of the compute shader's output buffer by indexing.</p>
+<p>The high-level stages are as follows:</p>
+<ol>
+<li><p>The compute shader updates the positions and velocities of the particles on the GPU.</p></li>
+<li><p>The vertex shader accesses the resulting particle positions and expands them out to 4-vertex quads.</p></li>
+<li><p>The fragment shader applies a computed exponential fall-off alpha to draw smooth particles.</p></li>
+</ol>
+<h5>UI Options</h5>
+  The following options can be adjusted in the tweak UI:
+<ul>
+<li>
+<p>The animate toggle enables and disables the compute shader invocation and thus the particle animations.</p>  
+</li>
+<li>
+<p>Enable attractor toggles the magnitude of the moving attractor location to zero and non-zero.  When the attractor is off, only the noisy vector field affects the particles.</p>
+</li>
+<li>
+<p>Sprite size adjusts the value sent to vertex shader to set the size of the particle quads.</p>
+</li>
+<li>
+<p>Noise strength adjusts the magnitude of the noise vector field that is added to the particle velocities each frame.</p>
+</li>
+<li>
+<p>Noise frequency adjusts the scaling of the spatial frequency of the noise lookup.</p>
+</li>
+<li>
+<p>Reset returns the particles to their initial positions.</p>
+</li>
+</ul>
+<h5>Details</h5>
+<p>The details of each stage are as follows:</p>
+<h6>Compute Shader</h6>
+<p>The compute shader operates on a pair of in/out buffers: one for positions and one for velocities.  The velocities are used only by the compute shader, while the positions are read and written by the compute shader, and read by the rendering shader.  The steps in the per-frame compute shader update are:</p>
+<ol>
+<li>
+<p>The sources used to update each particle are read: these include previous position, previous velocity, and the position and strength of the attractor.</p>
+</li>
+<li>
+<p>Next, a vector-valued multi-octave (4 octaves) smooth noise value is computed and added to the velocity vector.  This addition is scaled by the adjustable noise magnitude parameter.</p>
+</li>
+<li>
+<p>An attraction vector is computed, including a quadratic falloff (this looks in the code to be a scaling by the inverse cube, but the vector is not normalized, so one factor is for the normalization).  This vector is scaled by the adjustable attractor magnitude and added to the velocity.</p>
+</li>
+<li>
+<p>The velocity is added to the particle position as an integration step.</p>
+</li>
+<li>
+<p>The velocity is scaled by a damping factor to keep the system's energy in check.</p>
+</li>
+</ol>
+
+<h6>Vertex Shader</h6>
+<p>The vertex shader serves multiple purposes in this rendering pipeline.  Not only does it project the vertices, it also serves as a simple "vertex amplifier," splitting the N particle positions in 4N vertices, offsetting to the four corners of each particle.</p>
+<ol>
+<li>
+<p>First, the particle index is computed by dividing the vertex ID by 4.  Every four-vertex quad represents a single particle.</p>
+</li>
+<li>
+<p>The position of the particle is looked up in the compute shader buffer.</p>
+</li>
+<li>
+<p>The 0.0-1.0 U and V position of the vertex in the quad is computed via bitmasking of the vertex ID (i.e. its value mod 4).  This is stored as quadPos, which is used directly as the texture coordinates.</p>
+</li>
+<li>
+<p>The quadPos is used to offset the particle center horizontally and vertically to form the correct quad corner.</p>
+</li>
+<li>
+<p>The resulting vertex is transformed and output.</p>
+</li>
+</ol>
+
+<h6>Fragment Shader</h6>
+<p>The fragment shader is extremely simple.  It writes the passed-in varying color as the RGB channels and computes an exponential fall-off from the center of the particle, placing it in the alpha channel.  It discards the fragment if the computed alpha is close to zero.</p>
+</div>
+	</div>
+	
+
+	
+	<div class="row" id="subprojseealso">
+		<h3>See Also</h3>
+		<ul>
+		
+		  <li class="odd">
+		  <!-- tbd file static refs will need to turn into an nvidia.com relative URL... -->
+		  <span class="subprojseeone">
+		  <a href="https://www.opengl.org/wiki/Compute_Shader">
+		  Khronos OpenGL Compute Shader wiki
+		  </a>
+		  </span></li>
+		
+		</ul>
+	</div>
+		
+	
+</div>
+</div>
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>

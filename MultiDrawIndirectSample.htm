@@ -1,0 +1,170 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+	<title>Multi-Draw Indirect Sample</title>
+	<meta name="description" content="Multi-Draw Indirect Sample" />
+	
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row" id="subprojcontent">
+<div class="col-md-8">
+	<div class="page-header">
+		<h1>Multi-Draw Indirect Sample</h1>
+	</div>
+
+	<div class="row">
+		
+			<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Performance&nbsp;</span>
+			
+			</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min PC GPU:</b>
+			<span class="subprojmetagpu">GeForce Fermi-class</span>
+		</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min Tegra Device:</b>
+			<span class="subprojmetagpu">Tegra K1</span>
+		</div>
+		
+	</div>
+	
+	<div class="row">
+		<h3>Description</h3>
+		<p>This sample demonstrates how to use extensions to OpenGL to offload the CPU in generating rendering work when you have a large number of objects in a scene.  The extensions and core features used are a subset of the features commonly known as &#39;AZDO&#39; (For Approaching Zero Driver Overhead)</p>
+			
+		<a data-colorbox="true" href="images/multidrawindirect-screenshot.jpg"><img class="subprojscreen" src="images/multidrawindirect-screenshot.jpg" width="400" alt="Screenshot" /></a>
+		
+	</div>
+	
+	
+	<div class="row">
+		<h3>APIs Used</h3>
+		<ul>
+		
+		  <li class="odd">GL_ARB_multi_draw_indirect</li>
+		
+		</ul>
+	</div>
+	
+
+	
+	
+	
+	
+		
+	
+
+		
+	<div class="row" id="subprojfulldoc">
+		<h3>Technical Details</h3>
+		<div id="detaileddoc">
+
+<p>The MultiDrawIndirect sample shows how to use core OpenGL 4.4 behavior, along with several extensions to minimize driver-related CPU overhead.  Modern applications frequently run into bottlenecks regarding the sheer number of draw calls needed per frame. In order to reduce this overhead, a set of core features and extensions referred to as "Approaching Zero Driver Overhead" ("AZDO") were developed to process multiple draw commands, using vertex and index data sourced from arbitrary buffers in a single function call. If your scene is bottlenecked by draw calls and contains a large number of similar models, then you should look at whether the MultiDrawIndirect extensions can be of use.  This is a much more generally applicable method than strict instancing.</p>
+  
+<p>As a visual, the samples shows a grid of windmills.  Each windmill is an instance selected from a set of twenty randomly-scaled models. The interface allows you to adjust the number of instances rendered, and to select between a single call to MultiDrawIndirect, or to display the grid as a number of single draw calls.</p>
+
+  <p>While these instances are (in the case of this sample) manual copies of the sample model for ease of loading, the models could each be any of a wide range of geometries.  Using MultiDrawIndirect, the rendering of each object is declared in the  <code>GL_DRAW_INDIRECT_BUFFER</code> array, with each set of instances being represented by a copy of the structure <code>DrawElementsIndirectCommand</code>.  This structure is defined in the extension <a href="https://www.opengl.org/registry/specs/ARB/draw_indirect.txt"><code>GL_ARB_draw_indirect</code></a>, and includes the primitive count, the number of instances to be drawn, the first index to use for drawing, and any vertex array offsets or instance offsets.  This allows a single sub-command in the array to draw either a single object or any number of classic instances.  Thus, MultiDrawIndirect improves upon &mdash; rather than replaces &mdash; classic instancing.
+</p>
+
+<p>The time taken by the GPU and CPU is displayed for both the MultiDraw call and single draw calls.  In general, even if the frame rate rises only slightly when MultiDrawIndirect is selected (e.g. if the scene is fill-limited), the CPU time should be seen to fall significantly when using MultiDrawIndirect.  The main goal of MultiDrawIndirect and other AZDO features is to reduce driver overhead; while they may not always increase frame rate directly, they can generally reduce the CPU load, providing more CPU "headroom" for the application itself. </p>
+  
+<p>This sample uses the following extensions to enable functionalities that may not be available in base OpenGL:</p>
+
+<ul>
+	<li><code>GL_ARB_multi_draw_indirect</code>: Allows the parameters of each draw to be stored in a buffer.</li>
+</ul>
+
+</div>
+	</div>
+	
+
+	
+	<div class="row" id="subprojseealso">
+		<h3>See Also</h3>
+		<ul>
+		
+		  <li class="odd">
+		  <!-- tbd file static refs will need to turn into an nvidia.com relative URL... -->
+		  <span class="subprojseeone">
+		  <a href="http://on-demand.gputechconf.com/gtc/2013/presentations/S3032-Advanced-Scenegraph-Rendering-Pipeline.pdf">
+		  Advanced Scenegraph Rendering Pipeline (GTC 2013 presentation)
+		  </a>
+		  </span></li>
+		
+		  <li class="even">
+		  <!-- tbd file static refs will need to turn into an nvidia.com relative URL... -->
+		  <span class="subprojseeone">
+		  <a href="https://developer.nvidia.com/content/how-modern-opengl-can-radically-reduce-driver-overhead-0">
+		  How Modern OpenGL can Radically Reduce Driver Overhead
+		  </a>
+		  </span></li>
+		
+		  <li class="odd">
+		  <!-- tbd file static refs will need to turn into an nvidia.com relative URL... -->
+		  <span class="subprojseeone">
+		  <a href="https://github.com/nvMcJohn/apitest">
+		  APITest - sample code for GPU work creation
+		  </a>
+		  </span></li>
+		
+		</ul>
+	</div>
+		
+	
+</div>
+</div>
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>

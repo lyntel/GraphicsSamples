@@ -1,0 +1,238 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+<title>NVIDIA GameWorks Graphics App Framework and Libraries</title>
+<meta name="description" content="NVIDIA GameWorks Graphics App Framework and Libraries" />
+
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row">
+ <div class="col-md-8">
+	<div class="page-header">
+	  <h1>NVIDIA GameWorks Graphics App Framework and Libraries</h1>
+	</div>
+
+	<p class="lead">The Graphics sample applications all leverage a cross-platform application framework and helper libraries in order to streamline and unify the sample code, and offer ease-of-use to developers.</p>
+
+	<p>This document covers the following:</p>
+	<ul>
+		<li><a class="nvpageinternalref" href="#AppFrameworkOverview">Application Framework Overview</a></li>
+		<li><a class="nvpageinternalref" href="#NvSampleAppFlow">NvSampleApp-based Application Flow</a></li>
+		<li><a class="nvpageinternalref" href="#ThirdPartyOverview">Third-Party Libraries Overview</a></li>
+	</ul>
+
+	<a name="AppFrameworkOverview"></a>
+	<h2>Application Framework Overview</h2>
+	<p>The framework consists of a few libraries that each implement a particular reusable feature area:</p>
+	<ul>
+		<li><a class="nvpageinternalref" href="#NvAppBase">NvAppBase</a><p>Provides the raw application structure, with needed methods, callbacks, and event loop to execute on various platforms.  It also includes abstractions for timing, mouse/touch input, keyboard input, gamepad control, and logging.</p></li>
+		<li><a class="nvpageinternalref" href="#NvAssetLoader">NvAssetLoader</a><p>Provides basic file reading functionality.  On Android, also supports reading files from the AssetManager.</p></li>
+		<li><a class="nvpageinternalref" href="#NvGamepad">NvGamepad</a><p>Provides abstraction of gamepad input across platforms -- specifically, it implements support for Windows XInput and Android gamepad devices at this time.</p></li>
+		<li><a class="nvpageinternalref" href="#NvGLUtils">NvGLUtils</a><p>Provides a number of helper classes for managing GL-related data -- including a GLSL program loader, and an image class focused on textures for the API.</p></li>
+		<li><a class="nvpageinternalref" href="#NvImage">NvImage</a><p>Cross-platform and API-agnostic image code, including an image loader focused on DDS files/data.</p></li>
+		<li><a class="nvpageinternalref" href="#NvModel">NvModel</a><p>Provides a number of helper classes for loading and managing geometric model files -- including loading simple OBJ files, rendering, transforming and optimizing the content.</p></li>
+		<li><a class="nvpageinternalref" href="#NvUI">NvUI</a><p>Provides a user interface framework for many standard 2D widgets, as well as the specific "TweakBar" UI used in the sample applications.</p></li>
+		<li><a class="nvpageinternalref" href="#NvVKUtil">NvVKUtil</a><p>Provides a number of helper classes for managing Vulkan-related data -- including a SPIR-V program loader, and an image class focused on textures for the API.</p></li>
+	</ul>
+
+	<p>	The following sections introduce the classes that are provided in each library.</p>
+
+	<a name="NvAppBase"></a>
+	<h3>NvAppBase</h3>
+	<p>The NVAppBase library exports a set of classes that make it easy to create simple Vulkan, OpenGL and OpenGL ES applications that run on Windows, Android and Linux from a single source base.  The basic functionalities of application lifecycle, input handling and mapping, window handling, file loading OpenGL context creation and interactive mainloop are all in place, leaving the application author to focus on the content of the application itself.</p>
+
+	<h4>class NvAppBase</h4>
+	<p><a href="doxygen/html/class_nv_app_base.html">NvAppBase</a> serves as a base class for applications and a base implementation of core application functionality.  It includes callback functions for all forms of user input, rendering, initialization and shutdown.  It provides access to platform functionalities like the OpenGL context, the game controllers (if any) and status information. </p>
+
+	<p>Most applications will not subclass NvAppBase directly, as far more functionality is available via the subclass NvSampleApp.</p>
+
+	<p>NvAppBase exposes the key startup function that all applications must define and implement: NvAppFactory.  This function is declared and called in the NvAppBase library, but must be defined by the application.  Each application creates an instance of itself in this function and returns it to the caller.  This is how the application framework bootstraps itself.</p>
+
+	<h4>class NvSampleApp</h4>
+	<p><a href="doxygen/html/class_nv_sample_app.html">NvSampleApp</a> inherits from NvAppBase and adds a host of functionalities that are used by all of the sample applications in the samples pack.  These include built-in:</p>
+	<ul>
+	  <li> NvInputTransformer object and update calls to the object so that the application can implement a user-controlled object or camera by simply setting the desired interaction mode and querying the latest transform matrices.
+	  <li> <a href="doxygen/html/_nv_tweak_bar_8h.html">NvTweakBar</a> UI for easy creation of basic "parameter tuning" dialogs.
+	  <li> Framerate counter for displaying the mean frame rate in the UI.
+	  <li> Test mode to allow for unattended application testing and reporting.
+	</ul>
+
+    <p>Two subclasses of NvSampleApp, <a href="doxygen/html/class_nv_sample_app_v_k.html">NvSampleAppVK</a> and <a href="doxygen/html/class_nv_sample_app_g_l.html">NvSampleAppGL</a> add API-specific graphics context functions.  These give dire3ct access to useful API objects (devices, queues, etc).  Since most samples are either GL or VK and not both, this further subclassing enforces no new limitations.</p>
+
+	<p>All of the sample applications are subclasses of either NvSampleAppGL or NvSampleAppVK as appropriate, adding as needed to the initialization, rendering, update and input-handling functions.  However, the availability of the built-in UI and input mapping objects means that extremely few (if any) samples need to explicitly override the input handling.</p>
+
+	<h4>class NvPlatformContext</h4>
+	<p><a href="doxygen/html/class_nv_platform_context.html">NvPlatformContext</a> exports important platform functionalities to be used by both the framework and the app itself, including:</p>
+	<ul>
+		<li>Flags indicating whether the application should exit, whether it is the currently-focused application, whether the app has lost its GL context, etc.
+		<li>The ability to request that the app exit.
+		<li>The gamepad object (if gamepads are supported on the platform).
+		<li>The command-line arguments or properties used to launch the application.
+	</ul>
+
+	<h4>class NvAppContext</h4>
+	<p><a href="doxygen/html/class_nv_app_context.html">NvAppContext</a> provides cross-platform and cross-API access to the generic graphics-related functionalities and queries.  These include:</p>
+	<ul>
+		<li>Binding and unbinding the context to/from the current thread.
+		<li>Swapping (presenting).
+		<li>Querying the width and height of the main window surface.
+		<li>Querying platform capabilities.
+	</ul>
+
+	<h4>class NvStopWatch</h4>
+	<p><a href="doxygen/html/class_nv_stop_watch.html">NvStopWatch</a> provides cross-platform timer functionalities for timing application operations and doing animations based on wall-clock time.</p>
+
+	<h4>class NvFramerateCounter</h4>
+	<p><a href="doxygen/html/class_nv_framerate_counter.html">NvFramerateCounter</a> provides and easy encapsulation for measuring and computing the mean frame rate of an application over an adjustable window of frames and time.  The application need do no more than signal the end of each frame.</p>
+
+	<h4>class NvInputTransformer</h4>
+	<p><a href="doxygen/html/class_nv_input_transformer.html">NvInputTransformer</a> automatically maps touch, mouse and gamepad input events into OpenGL-ready transform matrices.  It can generate different interaction paradigms, such as "camera orbits object (virtual trackball)", "First-person shooter" and "2D pan-and-zoom".  The functions in NvInputTransformer that accept input events filter them and will return whether the event should be "eaten" by the interaction method, or whether the events were ignored and should be passed on for further processing.  Methods also allow the application to define starting location and orientation, as well as initial rotational and linear velocities.</p>
+
+	<a name="NvAssetLoader"></a>
+	<h3>NvAssetLoader</h3>
+	<p><a href="doxygen/html/_nv_asset_loader_8h.html">NvAssetLoader</a> provides functions that allow applications to load asset files into memory on all supported platforms.  On Windows and Linux, assets are read from directories on the local filesystem, while on Android, the assets are ready from the application's APK pack.</p>
+
+	<a name="NvGamepad"></a>
+	<h3>NvGamepad</h3>
+	<p><a href="doxygen/html/class_nv_gamepad.html">NvGamepad</a> is a cross-platform gamepad class that makes it easy for applications to query the status of connected gamepads.  This support includes digital buttons as well as analog axes.  A logical clock is implemented per gamepad to allow applications to quickly determine if any gamepad axes or buttons have changed since the last query.  NvGamepad is abstract and serves as the client-side interface for using gamepads.</p>
+
+	<p><a href="doxygen/html/class_nv_gamepad_android.html">NvGamepadAndroid</a> and <a href="doxygen/html/class_nv_gamepad_x_input.html">NvGamepadXInput</a> are concrete implementations of NvGamepad for Android and XINPUT-supporting (Win32) platforms.  Applications using a cross-platform app framework will likely never deal with these subclasses directly.  They will be given pointers to them, cast to the base NvGamepad class.  The only interfaces these subclasses add are platform-specific methods of passing input events so that the current gamepad status is kept up-to-date.</p>
+
+	<a name="NvGLUtils"></a>
+	<h3>NvGLUtils</h3>
+	<p>The NvGLUtils package is a collection of classes designed to simplify common rendering-related operations without attempting to "abstract away" OpenGL.</p>
+
+	<h4>namespace NvImageGL</h4>
+	<p><a href="doxygen/html/namespace_nv_image_g_l.html">NvImageGL</a> Functions for loading NvImage objects into GL textures.</p>
+
+	<h4>class NvModelGL</h4>
+	<p><a href="doxygen/html/class_nv_model_g_l.html">NvModelGL</a> loads OBJ data from asset files or from memory blocks.  It formats them for rendering via OpenGL and provides functions to render the objects using the application's own shaders.</p>
+
+	<h4>class NvShapesGL</h4>
+	<p><a href="doxygen/html/_nv_shapes_g_l_8h.html">NvShapesGL</a> includes simple functions to draw basic primitives like rectangles, points and lines using the applications own shaders.</p>
+
+	<h4>class NvGLSLProgram</h4>
+	<p><a href="doxygen/html/class_nv_g_l_s_l_program.html">NvGLSLProgram</a> supports loading and binding of GLSL shader programs as well as common uniform and attribute operations.  GLSL shaders can be loaded from asset files or strings; there are convenience functions for the common vertex-plus-fragment shader case, but all forms of shaders can be loaded, including extensions such as Compute Shadrs.  While not the top performance, for simple samples, uniforms and attributes can be set by string name as well as by index.</p>
+
+	<h4>class NvSimpleFBO</h4>
+	<p><a href="doxygen/html/class_nv_simple_f_b_o.html">NvSimpleFBO</a> wraps framebuffer object creation with some simple APIs and makes it easy to create and bind FBOs.  Both color and depth texture buffers are supported.</p>
+
+  	<a name="NvImage"></a>
+	<h3>NvImage</h3>
+	<p><a href="doxygen/html/class_nv_image.html">NvImage</a> includes lightweight geometry loaders and optimizers designed to load OBJ files for rendering under OpenGL.</p>
+
+	<a name="NvModel"></a>
+	<h3>NvModel</h3>
+	<p><a href="doxygen/html/class_nv_model.html">NvModel</a> includes lightweight geometry loaders and optimizers designed to load OBJ files for rendering under OpenGL.</p>
+
+	<a name="NvUI"></a>
+	<h3>NvUI</h3>
+	<p><a href="doxygen/html/_nv_u_i_8h.html">NvUI</a> is a cross-platform, GL/GLES-based user interface widget framework.  It includes support for typical elements like icons/graphics, frames, text, buttons, progress bars and sliders, and popup menus, handling user interaction with widgets and rendering of their visuals.  The primary use of NvUI in the sample applications is the construction and handling of the <a href="doxygen/html/_nv_tweak_bar_8h.html">NvTweakBar</a> interface.</p>
+	
+	<a name="NvVKUtil"></a>
+	<h3>NvVKUtil</h3>
+	<p>The NvVKUtil package is a collection of classes designed to simplify common rendering-related operations without attempting to "abstract away" Vulkan.</p>
+
+	<h4>class NvModelVK</h4>
+	<p><a href="doxygen/html/class_nv_model_v_k.html">NvModelVK</a> loads OBJ data from asset files or from memory blocks.  It formats them for rendering via Vulkan and provides functions to render the objects using the application's own shaders.</p>
+
+	<a name="NvSampleAppFlow"></a>
+	<h2>NvSampleApp-based Application Flow</h2>
+	<p>At a high level, NvSampleApp-based samples are initialized and run in the following manner:</p>
+	<div class="panel panel-default panel-body">
+	<ul>
+		<li>The platform's "main" function (built into the NvAppBase library) is started</li>
+		<li>The main function calls NvAppFactory to create an instance of NvAppBase.  This call is actually defined in the derived application itself and returns a pointer to an object that is an instance of the application class itself (e.g. MyApp), cast to the base class NvAppBase.</li>
+		<li>The main function sets up the OpenGL system or wrapper and creates the application window on windowed platforms.</li>
+		<li>The main function calls the application object's mainLoop, function.  This is normally the implementation in NvSampleApp.  This function will loop and not return to main until the application exits.</li>
+		<li>The NvSampleApp::mainLoop function loops:
+		<ul>
+			<li>mainLoop tests if the platform context indicates that it is still running.  If not, the mainLoop returns</li>
+			<li>mainLoop polls for events from the platform context
+			<ul>
+					<li>The platform context queries the platform-specific input system (this code is in the NvAppBase library).  Any input events are passed to the NvAppBase instance's input functions.</li>
+			</ul>
+			</li>
+			<li>NvSampleApp's implementation of the NvAppBase input functions:
+			<ul>
+				<li>Passes the input the NvTweakUI</li>
+				<li>If not handled, then the input is passed to the specific app's "handle*Input" and "handleGamepad*" functions</li>
+				<li>If not handled, the the input is passed to the NvInputTransformer</li>
+			</ul>
+			</li>
+			<li>mainLoop calls the app's update function.</li>
+			<li>If the rendering context is not yet set up, the mainLoop attempts to set it up via the platform API context
+				<ul>
+					<li>If the setup succeeds, mainLoop calls the app's initRendering function</li>
+					<li>mainLoop then creates the NvTweakUI</li>
+					<li>mainLoop calls the app's initUI</li>
+				</ul>
+			</li>
+			<li>If the rendering context is set up, the mainLoop calls the app's render function.</li>
+			<li>mainLoop calls the renderUI function</li>
+		</ul>
+		</li>
+		<li>Main shuts down all instances and exits</li>
+	</ul>
+	</div>
+
+	<a name="ThirdPartyOverview"></a>
+    <h2>Third-Party Libraries Overview</h2>
+	<p>The framework currently uses some third-party libraries to layer particular functionality:</p>
+	<ul>
+		<li><a href="http://glew.sourceforge.net/">GLEW</a><p>Provides easier access to OpenGL extensions.</p></li>
+		<li><a href="http://www.glfw.org/">GLFW</a><p>Provides a base cross-platform framework, supplying windowing, GL setup, and input support.  Used for all platforms other than Android, where we have custom code.</p></li>
+	</ul>		
+ </div> <!--col-md-8-->
+ <div class="col-md-4"></div>
+</div> <!--row-->
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>

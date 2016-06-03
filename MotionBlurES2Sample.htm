@@ -1,0 +1,313 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+	<title>Motion Blur ES2 Sample</title>
+	<meta name="description" content="Motion Blur ES2 Sample" />
+	
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row" id="subprojcontent">
+<div class="col-md-8">
+	<div class="page-header">
+		<h1>Motion Blur ES2 Sample</h1>
+	</div>
+
+	<div class="row">
+		
+			<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+			</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min PC GPU:</b>
+			<span class="subprojmetagpu">GeForce Fermi-class</span>
+		</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min Tegra Device:</b>
+			<span class="subprojmetagpu">Tegra 3</span>
+		</div>
+		
+	</div>
+	
+	<div class="row">
+		<h3>Description</h3>
+		<p>This sample shows a method of simulating motion blur of fast-moving objects using multi-pass rendering.  In the first pass, the fast-moving geometry is rendered unblurred into a framebuffer object.  In the second pass, a special vertex shader stretches the geometry between the previous and current vertex position based on the normal at the vertex and apparent shutter duration (stretch length), and the fragment shader applies supersampling to the first pass results to generate a blurred visual.</p>
+			
+		<a data-colorbox="true" href="images/motionblur-screenshot.jpg"><img class="subprojscreen" src="images/motionblur-screenshot.jpg" width="400" alt="Screenshot" /></a>
+		
+	</div>
+	
+	
+	<div class="row">
+		<h3>APIs Used</h3>
+		<ul>
+		
+		  <li class="odd">glBindRenderbuffer</li>
+		
+		  <li class="even">glRenderbufferStorage</li>
+		
+		  <li class="odd">glBindFramebuffer</li>
+		
+		  <li class="even">glFramebufferTexture2D</li>
+		
+		  <li class="odd">glFramebufferRenderbuffer</li>
+		
+		</ul>
+	</div>
+	
+
+	
+	
+	
+	
+	<div class="row">
+		<h3>Shared User Interface</h3>
+		<p>The Graphics samples all share a common app framework and certain user interface elements, centered around the "Tweakbar" panel on the left side of the screen which lets you interactively control certain variables in each sample.</p>
+		<p>To show and hide the Tweakbar, simply click or touch the triangular button positioned in the top-left of the view.</p>
+		<div class="subprojmetadata">
+			<p>Other controls are listed below.</p>
+			
+		<table class="table table-striped small subprojcontrolstable" id="sharedcontrolstable">
+		
+		<tr>
+			<th class="subprojcontrolsdevice">Device</th>
+			<th class="subprojcontrolsinput">Input</th>
+			<th class="subprojcontrolsresult">Result</th>
+		</tr>
+	
+		
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">touch</td>
+				
+				<td>1-Finger Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>2-Finger Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>2-Finger Pinch</td> <td>Scale the view</td>
+			</tr>
+			
+		
+			
+			<tr class="even">
+				
+				<td class="subprojcontrolsdevicekind">mouse</td>
+				
+				<td>Left-Button Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Right-Button Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Middle-Click Drag</td> <td>Scale the view (up:out, down:in)</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">keyboard</td>
+				
+				<td>Escape</td> <td>Quit the application</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Tab</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">gamepad</td>
+				
+				<td>Start</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Right ThumbStick</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Left ThumbStick</td> <td>Move forward/backward, Slide left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Left/Right Triggers</td> <td>Move up/down</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>A</td> <td>Show TweakBar, Toggle Focused Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>B</td> <td>Close Focused UI, Hide TweakBar</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>DPAD Up/Down</td> <td>Move Focus to Prev/Next Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>DPAD Left/Right</td> <td>Decrease/Increase Focused Item</td>
+			</tr>
+			
+		
+		</table>
+	
+		</div>
+	</div>
+	
+		
+	
+
+		
+	<div class="row" id="subprojfulldoc">
+		<h3>Technical Details</h3>
+		<div id="detaileddoc">
+
+<h5>Introduction</h5>
+<p>This sample is a simple implementation of a reconstruction filter for motion blur. Its main premise to to blur geometry by "stretching" some of the vertices in the opposite direction of object movement, and use the "stretched" vertex position for supersampling. This method has some constraints:</p>
+<ul>
+	<li>It is not a straight-forward post-process; the effect has to be attached to specific moving object.</li>
+	<li>Since it is not a post-process, its performance is tied to scene complexity.</li>
+	<li>Since motion blur is computed per object, the motion blur effect is specific to that object and not a true artifact of camera aperture and exposure (like it is in the real world). Therefore, it is not dependent on camera motion or pose. </li>
+</ul>
+<p>For a more plausible, generalizable motion blur effect, see the "MotionBlurAdvanced" sample for OpenGL 4.x and OpenGL ES 3.0.</p>
+
+<h5>Algorithm overview</h5>
+<p>The algorithm consists of the following two rendering passes:</p>
+<ol>
+	<li>
+		Unblurred, moving geometry pass:
+		<ul>
+			<li>The <i>moving</i> scene geometry is drawn, textured and shaded (simple Gourad interpolation).</li>
+			<li>This is rendered directly onto a framebuffer object (FBO).</li>
+		</ul>
+	</li>
+	<li>
+		Blurred geometry plus rest of the scene:
+		<ul>
+			<li>The <i>static</i> scene geometry is drawn, textured and shaded (simple Gourad interpolation).</li>
+			<li>The skybox is drawn (using a cubemap texture) onto a screen-aligned quad at max depth distance.</li>
+			<li>The "stretched" moving geometry is drawn (with depth test disabled). In this step, the FBO color attachment rendered earlier is used for supersampling.</li>
+			<li>All of this is rendered directly onto the default framebuffer.</li>
+		</ul>
+	</li>
+</ol>
+
+<h5>Using our sample implementation</h5>
+<p> In addition to the controls indicated in the section "Shared User Interface" above, The following controls have been added to the TweakBar:</p>
+<ul>
+	<li><b>Pause Animation</b>: Pauses the windmill sails' movement (though it still allows for motion blur to be computed and displayed).</li>
+	<li><b>Motion Blur</b>: Toggles the motion blur effect on and off.</li>
+	<li><b>Sky Box</b>: Toggles the skybox on and off.</li>
+	<li><b>Sail Speed</b>: Changes the angular speed of the windmill sails.</li>
+	<li><b>Stretch Factor</b>: Value used to compute the amount of trailing of the "blurred" vertices.</li>
+</ul>
+</div>
+	</div>
+	
+
+		
+	
+</div>
+</div>
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>

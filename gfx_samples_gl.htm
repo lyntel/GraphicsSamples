@@ -1,0 +1,904 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+	<title>GameWorks OpenGL Graphics Samples Documentation</title>
+	<meta name="description" content="GameWorks OpenGL Graphics Samples Documentation" />
+	
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row" id="content">
+<div class="col-md-8">
+	<div class="page-header">
+		<h1>GameWorks OpenGL Graphics Samples Documentation</h1>
+	</div>
+	
+	
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="BindlessGraphicsSample.htm">
+		Bindless Graphics Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Performance&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="BindlessGraphicsSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/bindless-screenshot.jpg" alt="images/bindless-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>This sample demonstrates the large performance increase in OpenGL that is made possible by &#39;Bindless Graphics&#39;.  These extensions allow applications to draw large numbers of objects with only a few setup calls, rather than a few calls per object, thus reducing the driver overhead necessary to render highly populated scenery.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="BlendedAASample.htm">
+		BlendedAA Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Performance&nbsp;</span>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="BlendedAASample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/BlendedAA-screenshot.png" alt="images/BlendedAA-screenshot.png" width="180" />
+		</a>
+		
+		<p>This sample implements a two-pass additive blending anti-aliasing technique using Target-Independent Rasterization (TIR), which should give comparable results to MSAA with a reduced memory footprint.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="BloomSample.htm">
+		Bloom Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="BloomSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/bloom-screenshot.jpg" alt="images/bloom-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>This sample demonstrates creating a glow effect by post-processing the main scene.  It heavily leverages FBO render targets across multiple steps/passes with custom effects processing shaders.  It also integrates shadow mapping to demonstrate self-illumination cutting through the shadow effects.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="CascadedShadowMapping.htm">
+		Cascaded Shadow Mapping
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Performance&nbsp;</span>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="CascadedShadowMapping.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/csm.png" alt="images/csm.png" width="180" />
+		</a>
+		
+		<p>This sample implements the cascaded shadow mapping technique using Viewport Multicast and Fast Geometry Shader.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="ComputeBasicGLSLSample.htm">
+		Compute Basic GLSL Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Compute&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="ComputeBasicGLSLSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/computebasicglsl-screenshot.jpg" alt="images/computebasicglsl-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>This basic sample demonstrates how to interoperate between OpenGL [ES] and a simple OpenGL Compute Shader-based compute kernel.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="ComputeParticlesSample.htm">
+		Compute Particles Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Compute&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="ComputeParticlesSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/computeparticles-screenshot.jpg" alt="images/computeparticles-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>The Compute Particles sample shows how OpenGL Compute Shaders can be used along with OpenGL rendering to create complex animations and effects entirely on the GPU.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="ComputeWaterSurfaceSample.htm">
+		Compute Water Surface Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="ComputeWaterSurfaceSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/computewatersurface-screenshot.jpg" alt="images/computewatersurface-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>This sample demonstrates dynamic, interactive water surface animation using compute shaders</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="ConservativeRasterizationSample.htm">
+		Conservative Rasterization Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="ConservativeRasterizationSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/conservative-screenshot.jpg" alt="images/conservative-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>This sample demonstrates the pixel-level effect of enabling the conservative rasterization feature supported in OpenGL.  It allows applications to shade every pixel whose area is touched by a fragment, rather than only those touching specific samples.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="CubemapRenderingSample.htm">
+		Cubemap Rendering Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="CubemapRenderingSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/cubemaprendering-screenshot.jpg" alt="images/cubemaprendering-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>This sample demonstrates various cubemap rendering techniques, including ones that use the Multi-Projection Acceleration feature introduced in Maxwell GM20x.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="DeferredShadingMSAASample.htm">
+		Deferred Shading MSAA Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="DeferredShadingMSAASample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/deferredshadingmsaa-screenshot.png" alt="images/deferredshadingmsaa-screenshot.png" width="180" />
+		</a>
+		
+		<p>This sample demonstrates how to render anti-aliased geometry when using a deferred shading pipeline.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="FeedbackParticlesSample.htm">
+		Feedback Particles Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Performance&nbsp;</span>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="FeedbackParticlesSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/feedbackparticles-screenshot.jpg" alt="images/feedbackparticles-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>The Feedback Particles sample shows how normal vertex shaders can be used to animate particles and write the results back into vertex buffer objects via Transform Feedback, for use in subsequent frames.  This is another way of implementing GPU-only particle animations.  The sample also uses Geometry Shaders to generate custom particles from single points and also to kill the dead ones.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="FXAASample.htm">
+		FXAA Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Performance&nbsp;</span>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="FXAASample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/FXAA-screenshot.jpg" alt="images/FXAA-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>This sample presents a high performance and high quality screen-space software approximation to anti-aliasing called FXAA</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="HDRSample.htm">
+		HDR Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="HDRSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/HDR-screenshot.jpg" alt="images/HDR-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>This sample demonstrates High Dynamic Rendering with Auto-Exposure and Tonemapping</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="InstancedTessellationSample.htm">
+		Instanced Tessellation Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Performance&nbsp;</span>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="InstancedTessellationSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/instancedtessellation-screenshot.jpg" alt="images/instancedtessellation-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>This sample demonstrates how instancing can be used to efficiently tessellate objects in real-time.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="InstancingSample.htm">
+		Instancing Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Performance&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="InstancingSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/instancing-screenshot.jpg" alt="images/instancing-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>This sample demonstrates how instancing techniques can be used to speed up drawing operations for scenes that consist of many copies of the same object rendered with slight differences.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="MercurySample.htm">
+		Mercury Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="MercurySample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/mercury-screenshot.png" alt="images/mercury-screenshot.png" width="180" />
+		</a>
+		
+		<p>This sample demonstrates how to use compute shaders to generate and render particle-based implicit surfaces.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="MotionBlurES2Sample.htm">
+		Motion Blur ES2 Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="MotionBlurES2Sample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/motionblur-screenshot.jpg" alt="images/motionblur-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>This sample shows a method of simulating motion blur of fast-moving objects using multi-pass rendering.  In the first pass, the fast-moving geometry is rendered unblurred into a framebuffer object.  In the second pass, a special vertex shader stretches the geometry between the previous and current vertex position based on the normal at the vertex and apparent shutter duration (stretch length), and the fragment shader applies supersampling to the first pass results to generate a blurred visual.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="MotionBlurGL4GLES3AdvancedSample.htm">
+		Motion Blur GL4/GLES3 Advanced Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="MotionBlurGL4GLES3AdvancedSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/motionbluradvanced-screenshot.jpg" alt="images/motionbluradvanced-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>This sample shows a filtering method for simulating motion blur of fast-moving objects. The method used is a 2D full-screen post-process that works on a normal framebuffer augmented with a screen-space velocity buffer; thus, filtering performance is not dependent on scene geometric complexity.  The algorithm is based on the paper &#39;A Reconstruction Filter for Plausible Motion Blur&#39;, by McGuire et. al. (SIGGRAPH I3D&#39;12)</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="MultiDrawIndirectSample.htm">
+		Multi-Draw Indirect Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Performance&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="MultiDrawIndirectSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/multidrawindirect-screenshot.jpg" alt="images/multidrawindirect-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>This sample demonstrates how to use extensions to OpenGL to offload the CPU in generating rendering work when you have a large number of objects in a scene.  The extensions and core features used are a subset of the features commonly known as &#39;AZDO&#39; (For Approaching Zero Driver Overhead)</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="NormalBlendedDecalSample.htm">
+		Normal Blended Decal Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Performance&nbsp;</span>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="NormalBlendedDecalSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/normalblendeddecal-screenshot.jpg" alt="images/normalblendeddecal-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>The Normal Blended Decal Sample demonstrates how to use the OpenGL PSI (Pixel Shader Interlock) feature to blend normals when drawing screen-space decals. This sample compares the performance of PSI with glMemoryBarrier.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="NVCommandListSample.htm">
+		NV Command List Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Performance&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="NVCommandListSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/nvcommandlist-screenshot.png" alt="images/nvcommandlist-screenshot.png" width="180" />
+		</a>
+		
+		<p>This sample demonstrates the use of the NV_command_list extension. In this sample the NV_command_list is used to render a basic scene. Texturing is performed via ARB_bindless_texture.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="NVPRBasicPathRenderingSample.htm">
+		NVPR Basic Path Rendering Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="NVPRBasicPathRenderingSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/nvprbasic-screenshot.jpg" alt="images/nvprbasic-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>This sample uses NVIDIA&#39;s Path Rendering extensions to demonstrate rendering stroked and filled 2D line-art, such as you would implement with Skia, SVG, or HTML Canvas, fully leveraging the power and speed of OpenGL hardware.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="NVPRCursiveTextSample.htm">
+		NVPR Cursive Text Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="NVPRCursiveTextSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/cursive-screenshot.jpg" alt="images/cursive-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>This sample demonstrates how to use NV_path_rendering to animate the dash pattern of a stroked path, as a way to simulate live cursive writing.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="NVPRShapedTextSample.htm">
+		NVPR Shaped Text Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="NVPRShapedTextSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/shapedtext-screenshot.jpg" alt="images/shapedtext-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>This sample demonstrates sophisticated text layout using the open source HarfBuzz text shaping engine library to position glyphs for strings of Unicode text.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="NVPRTextWheel.htm">
+		NVPR Text Wheel
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="NVPRTextWheel.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/textwheel-screenshot.jpg" alt="images/textwheel-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>This sample demonstrates using the NV_path_rendering OpenGL extension to draw text arranged like spokes in a wheel, with a slight 3D projection applied to the rendering.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="NVPRTiger3DSample.htm">
+		NVPR Tiger 3D Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="NVPRTiger3DSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/tiger3d-screenshot.jpg" alt="images/tiger3d-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>This sample shows how NV_path_rendering content and conventional 3D graphics can be mixed in the same 3D scene.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="NVPRTigerWarpSample.htm">
+		NVPR Tiger Warp Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="NVPRTigerWarpSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/tigerwarp-screenshot.jpg" alt="images/tigerwarp-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>This samples draws the so-called &#39;PostScript Tiger&#39; artwork, consisting of 240 paths specified as cubic Bezier curves and line segments.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="OptimizationSample.htm">
+		Optimization Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Performance&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="OptimizationSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/optimizationapp-screenshot.jpg" alt="images/optimizationapp-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>The Optimization Sample demonstrates several generic performance-improving rendering techniques.  These include down-sampled rendering and depth pre-passes.  The sample also demonstrates the use of app-level GPU and CPU timers, which allow apps to create focused timings of actual GPU work.  This is extremely important, since it is otherwise difficult to actually determine parallel CPU and GPU timings.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="ParticleUpsamplingSample.htm">
+		Particle Upsampling Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Performance&nbsp;</span>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="ParticleUpsamplingSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/particleupsampling-screenshot.jpg" alt="images/particleupsampling-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>The Particle Upsampling sample uses a combination of rendering techniques to simulate a cloud of particles casting shadows on a model and a floor object.  The particles are rendered into a lower-resolution offscreen surface, and then up-sampled to the screen to lower the cost of the high depth complexity.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="SkinningSample.htm">
+		Skinning Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="SkinningSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/skinning-screenshot.jpg" alt="images/skinning-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>This sample demonstrates how to render skinned meshes using both one or two bones in a vertex shader. Skinning allows organic shapes (such as humans) to deform nicely around joints as they bend. Without skinning, joints have a rigid appearance that is more similar to a mechanical joint like you would see in a robot.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="SoftShadowsSample.htm">
+		Soft Shadows Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="SoftShadowsSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/softshadows-screenshot.jpg" alt="images/softshadows-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>This sample shows two methods of simulating soft shadows with complex casters and receivers.  The Percentage-Closer Soft Shadows method includes a convincing impression of the shadow edge (penumbra) sharpening as the shadow caster approaches contact with the shadow receiver.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="TerrainTessellationSample.htm">
+		Terrain Tessellation Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Performance&nbsp;</span>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="TerrainTessellationSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/terraintessellation-screenshot.jpg" alt="images/terraintessellation-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>This sample shows how OpenGL hardware tessellation support can be used to implement a highly-efficient terrain engine that supports high geometric detail.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="TextureArrayTerrainSample.htm">
+		Texture Array Terrain Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Performance&nbsp;</span>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="TextureArrayTerrainSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/texturearrayterrain-screenshot.jpg" alt="images/texturearrayterrain-screenshot.jpg" width="180" />
+		</a>
+		
+		<p>This sample demonstrates how to use a Texture Array to render a terrain with visually-complex texturing at high performance.  The texture array is similar to a 3D texture, allowing for multiple &#39;slices&#39; or sub-textures bound to a single texture ID, but arrays are much higher performance due to disallowing trivial filtering across the slices.  We get great terrain rendering performance by eliminating the need to perform multiple, blended passes over the geometry, and improved quality by avoiding boundary issues that would occur with 2D atlas texturing.</p>
+	</div>
+	
+	<div class="row tocsubproj">
+		<h3>
+		<a href="ThreadedRenderingGLSample.htm">
+		Threaded Rendering GL Sample
+		</a>
+		</h3>
+				
+		
+		<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Performance&nbsp;</span>
+			
+		</div>
+		
+
+			
+		<a href="ThreadedRenderingGLSample.htm">
+			<img class="pull-right padding-sm-left padding-sm-bottom subprojscreenthumb" src="images/threadedrenderinggl-screenshot.png" alt="images/threadedrenderinggl-screenshot.png" width="180" />
+		</a>
+		
+		<p>This sample demonstrates how to use threading to render efficiently in extended OpenGL.</p>
+	</div>
+	
+	
+		
+</div>
+</div>
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>

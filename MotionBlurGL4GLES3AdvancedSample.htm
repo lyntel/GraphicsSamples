@@ -1,0 +1,410 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+	<title>Motion Blur GL4/GLES3 Advanced Sample</title>
+	<meta name="description" content="Motion Blur GL4/GLES3 Advanced Sample" />
+	
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row" id="subprojcontent">
+<div class="col-md-8">
+	<div class="page-header">
+		<h1>Motion Blur GL4/GLES3 Advanced Sample</h1>
+	</div>
+
+	<div class="row">
+		
+			<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+			</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min PC GPU:</b>
+			<span class="subprojmetagpu">GeForce Fermi-class</span>
+		</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min Tegra Device:</b>
+			<span class="subprojmetagpu">Tegra K1</span>
+		</div>
+		
+	</div>
+	
+	<div class="row">
+		<h3>Description</h3>
+		<p>This sample shows a filtering method for simulating motion blur of fast-moving objects. The method used is a 2D full-screen post-process that works on a normal framebuffer augmented with a screen-space velocity buffer; thus, filtering performance is not dependent on scene geometric complexity.  The algorithm is based on the paper &#39;A Reconstruction Filter for Plausible Motion Blur&#39;, by McGuire et. al. (SIGGRAPH I3D&#39;12)</p>
+			
+		<a data-colorbox="true" href="images/motionbluradvanced-screenshot.jpg"><img class="subprojscreen" src="images/motionbluradvanced-screenshot.jpg" width="400" alt="Screenshot" /></a>
+		
+	</div>
+	
+	
+	<div class="row">
+		<h3>APIs Used</h3>
+		<ul>
+		
+		  <li class="odd">GLSL &#39;texelFetch&#39;</li>
+		
+		  <li class="even">GLSL &#39;textureSize&#39;</li>
+		
+		  <li class="odd">glBindRenderbuffer</li>
+		
+		  <li class="even">glRenderbufferStorage</li>
+		
+		  <li class="odd">glBindFramebuffer</li>
+		
+		  <li class="even">glFramebufferTexture2D</li>
+		
+		  <li class="odd">glFramebufferRenderbuffer</li>
+		
+		</ul>
+	</div>
+	
+
+	
+	
+	
+	
+	<div class="row">
+		<h3>Shared User Interface</h3>
+		<p>The Graphics samples all share a common app framework and certain user interface elements, centered around the "Tweakbar" panel on the left side of the screen which lets you interactively control certain variables in each sample.</p>
+		<p>To show and hide the Tweakbar, simply click or touch the triangular button positioned in the top-left of the view.</p>
+		<div class="subprojmetadata">
+			<p>Other controls are listed below.</p>
+			
+		<table class="table table-striped small subprojcontrolstable" id="sharedcontrolstable">
+		
+		<tr>
+			<th class="subprojcontrolsdevice">Device</th>
+			<th class="subprojcontrolsinput">Input</th>
+			<th class="subprojcontrolsresult">Result</th>
+		</tr>
+	
+		
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">touch</td>
+				
+				<td>1-Finger Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>2-Finger Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>2-Finger Pinch</td> <td>Scale the view</td>
+			</tr>
+			
+		
+			
+			<tr class="even">
+				
+				<td class="subprojcontrolsdevicekind">mouse</td>
+				
+				<td>Left-Button Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Right-Button Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Middle-Click Drag</td> <td>Scale the view (up:out, down:in)</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">keyboard</td>
+				
+				<td>Escape</td> <td>Quit the application</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Tab</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">gamepad</td>
+				
+				<td>Start</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Right ThumbStick</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Left ThumbStick</td> <td>Move forward/backward, Slide left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Left/Right Triggers</td> <td>Move up/down</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>A</td> <td>Show TweakBar, Toggle Focused Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>B</td> <td>Close Focused UI, Hide TweakBar</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>DPAD Up/Down</td> <td>Move Focus to Prev/Next Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>DPAD Left/Right</td> <td>Decrease/Increase Focused Item</td>
+			</tr>
+			
+		
+		</table>
+	
+		</div>
+	</div>
+	
+		
+	
+
+		
+	<div class="row" id="subprojfulldoc">
+		<h3>Technical Details</h3>
+		<div id="detaileddoc">
+<h5>Introduction</h5>
+<p>This sample is an implementation of a plausible reconstruction filter for motion blur. It is a 2D multi-pass post-process implemented mostly in a GPU shader language, which has the following advantages over competing alternatives:</p>
+<ul>
+	<li>Since it is a 2D post-process, it does not require significant changes to a rendering pipeline when inserting it.</li>
+	<li>Since it does not require scene-dependent computations (other than the creation of the vertex half-velocity buffer), its performance is not tied to scene complexity, but rather to screen resolution</li>
+	<li>For the same reasons as above, it can be used on an entire scene (as opoposed to being enabled on specific scene objects, like the "Motion Blur ES2" sample does).</li>
+	<li>Since motion blur is computed in screen space, the motion blur effect can be made specific to what is being tracked by the camera. For example, if the virtual camera pose is attached to a moving scene object, the objects not moving in relation to the camera (i.e. the moving scene object the camera is attached to) will not be blurred, but the rest of the environment will. Conversely, if the virtual camera is attached to a stationary pose in the scene, only moving objects will be blurred. </li>
+</ul>
+
+<p>The algorithm takes the following as inputs:</p>
+<ul>
+	<li>A set of buffers (from previous render-to-framebuffer-object operations) containing the color, depth and vertex half-velocities of the objects in the scene (this is the only scene-complexity-dependent step in the algorithm, from a performance point of view).</li>
+	<li>A maximum motion blur radius <code>K</code> (suggested values around 20).</li>
+	<li>An odd number of reconstruction filter sample taps <code>S</code> (suggested values around 15).</li>
+</ul>
+
+<div class="row text-center"><div class="col-md-2"></div>
+<div class="col-md-8 text-center small">
+<p></p>
+<p><a data-colorbox="true" href="images/motionbluradvanced_coloronly.jpg"><img src="images/motionbluradvanced_coloronly.jpg" width="360" alt="Color Only"/></a></p>
+<p>Figure 1: Color buffer (Click to enlarge)</p>
+<p></p>
+</div><div class="col-md-2"></div></div>
+
+<div class="row text-center"><div class="col-md-2"></div>
+<div class="col-md-8 text-center small">
+<p></p>
+<p><a data-colorbox="true" href="images/motionbluradvanced_depthonly.jpg"><img src="images/motionbluradvanced_depthonly.jpg" width="360" alt="Depth Only"/></a></p>
+<p>Figure 2: Depth buffer (Click to enlarge)</p>
+<p></p>
+</div><div class="col-md-2"></div></div>
+
+<div class="row text-center"><div class="col-md-2"></div>
+<div class="col-md-8 text-center small">
+<p></p>
+<p><a data-colorbox="true" href="images/motionbluradvanced_velocity.jpg"><img src="images/motionbluradvanced_velocity.jpg" width="360" alt="Velocity"/></a></p>
+<p>Figure 3: Half-velocity buffer (Click to enlarge)</p>
+<p></p>
+</div><div class="col-md-2"></div></div>
+
+<h5>Algorithm overview</h5>
+<p>Once the color buffer <code>C</code>, depth buffer <code>Z</code> and vertex half-velocity buffer <code>V</code> (all of size <code>w</code> and <code>h</code>) have been generated, the algorithm performs the following passes:</p>
+<ol start="1">
+	<li>
+		<code>TileMax(V)</code>:
+		<ul>
+			<li>Takes the vertex half-velocities <code>V</code> as input.</li>
+			<li>It is a downsampling pass: it produces a buffer of size (<code>w/K</code>, <code>h/K</code>), where each pixel represents a tile.</li>
+			<li>Each tile stores the dominant (i.e. highest magnitude) half-velocity for all the original values within that tile.</li>
+		</ul>
+	</li>
+</ol>
+
+
+<div class="row text-center"><div class="col-md-2"></div>
+<div class="col-md-8 text-center small">
+<p></p>
+<p><a data-colorbox="true" href="images/motionbluradvanced_tilemax.jpg"><img src="images/motionbluradvanced_tilemax.jpg" width="360" alt="TileMax"/></a></p>
+<p>Figure 4: TileMax pass output (Click to enlarge)</p>
+<p></p>
+</div><div class="col-md-2"></div></div>
+
+<ol start="2">
+	<li>
+		<code>NeighborMax(TileMax)</code>:
+		<ul>
+			<li>Takes the output of <code>TileMax(V)</code> as input.</li>
+			<li>Both input and output buffers are of size (<code>w/K</code>, <code>h/K</code>).</li>
+			<li>Each tile's dominant half-velocity is compared against its neighbors', and it stores the highest dominant half-velocity found. This effectively "smears" the highest velocities onto other neighboring tiles.</li>
+		</ul>
+	</li>
+</ol>
+
+<div class="row text-center"><div class="col-md-2"></div>
+<div class="col-md-8 text-center small">
+<p></p>
+<p><a data-colorbox="true" href="images/motionbluradvanced_neighbormax.jpg"><img src="images/motionbluradvanced_neighbormax.jpg" width="360" alt="NeighborMax"/></a></p>
+<p>Figure 5: NeighborMax pass output (Click to enlarge)</p>
+<p></p>
+</div><div class="col-md-2"></div></div>
+
+<ol start="3">
+	<li>
+		Final gathering (reconstruction) pass:
+		<ul>
+			<li>It takes <code>C</code>, <code>V</code>, <code>Z</code> and <code>NeighborMax</code> as inputs.</li>
+			<li>Its output goes directly to the default framebuffer (or to other post-processes, if appropriate), using the entire screen size.</li>
+			<li>Each output pixel is blurred in the direction of the dominant half-velocity for its tile (obtained from <code>NeighborMax</code>). This is done by selecting S pixels in a pseudorandom fashion along that dominant half-velocity, and the selected pixel is then weighted against the current one. This weighing takes into account depth differences and ordering (by consulting <code>Z</code>).</li>
+		</ul>
+	</li>
+</ol>
+
+<div class="row text-center"><div class="col-md-2"></div>
+<div class="col-md-8 text-center small">
+<p></p>
+<p><a data-colorbox="true" href="images/motionbluradvanced_final.jpg"><img src="images/motionbluradvanced_final.jpg" width="360" alt="Final"/></a></p>
+<p>Figure 6: Final reconstruction pass output (Click to enlarge)</p>
+<p></p>
+</div><div class="col-md-2"></div></div>
+
+<h5>Using our sample implementation</h5>
+<p> In addition to the shared controls above, the following items have been added to the TweakBar:</p>
+<ul>
+	<li><b>Pause Animation</b>: Pauses the windmill sails' movement (though it still allows for motion blur to be computed and displayed).</li>
+	<li><b>Sky Box</b>: Toggles the skybox on and off.</li>
+	<li><b>Sail Speed</b>: Changes the angular speed of the windmill sails.</li>
+	<li><b>Exposure Fraction</b>: Changes the exposure (fraction of a frame that represents the amount of time the camerais receiving light, thus creating motion blur).</li>
+	<li><b>Maximum Motion Blur Radius</b>: Number of tiles created in <code>TileMax</code> pass (<code>K</code>).</li>
+	<li><b>Reconstruction Sample Taps</b>: Number of sample taps obtained along the dominant half-velocity of the tile for a single output pixel (<code>S</code>).</li>
+	<li><b>Render Options</b>: Selects a specific buffer visualizations to be rendered. Available: "Color only", "Depth only", "Velocity", "TileMax", "NeighborMax", "Gather (final result)", and "MotionBlurES2".</li>
+</ul>
+
+<h5>Implementation details and observations</h5>
+<ul>
+	<li><code>V</code>, <code>TileMax</code> and <code>NeighborMax</code> need to be scaled and biased (from range [-1.0, 1.0] to [0.0, 1.0]) for storage in buffers.</li>
+	<li>Color and depth texture generation can easily be implemented in the same render-to-FBO pass by using the appropriate FBO attachments; using Multiple Render Targets (MRT) can also yield the vertex half-velocity texture in the same pass (not currently implemented in our sample).
+</ul>
+
+</div>
+	</div>
+	
+
+	
+	<div class="row" id="subprojseealso">
+		<h3>See Also</h3>
+		<ul>
+		
+		  <li class="odd">
+		  <!-- tbd file static refs will need to turn into an nvidia.com relative URL... -->
+		  <span class="subprojseeone">
+		  <a href="http://graphics.cs.williams.edu/papers/MotionBlurI3D12/">
+		  McGuire M., Hennessy P., Bukowski M., Osman B.: A reconstruction filter for plausible motion blue. In I3D (2012), pp. 135-142.
+		  </a>
+		  </span></li>
+		
+		</ul>
+	</div>
+		
+	
+</div>
+</div>
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>

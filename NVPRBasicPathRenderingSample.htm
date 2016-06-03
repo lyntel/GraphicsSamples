@@ -1,0 +1,376 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+	<title>NVPR Basic Path Rendering Sample</title>
+	<meta name="description" content="NVPR Basic Path Rendering Sample" />
+	
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row" id="subprojcontent">
+<div class="col-md-8">
+	<div class="page-header">
+		<h1>NVPR Basic Path Rendering Sample</h1>
+	</div>
+
+	<div class="row">
+		
+			<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+			</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min PC GPU:</b>
+			<span class="subprojmetagpu">GeForce Fermi-class</span>
+		</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min Tegra Device:</b>
+			<span class="subprojmetagpu">Tegra K1</span>
+		</div>
+		
+	</div>
+	
+	<div class="row">
+		<h3>Description</h3>
+		<p>This sample uses NVIDIA&#39;s Path Rendering extensions to demonstrate rendering stroked and filled 2D line-art, such as you would implement with Skia, SVG, or HTML Canvas, fully leveraging the power and speed of OpenGL hardware.</p>
+			
+		<a data-colorbox="true" href="images/nvprbasic-screenshot.jpg"><img class="subprojscreen" src="images/nvprbasic-screenshot.jpg" width="400" alt="Screenshot" /></a>
+		
+	</div>
+	
+	
+	<div class="row">
+		<h3>APIs Used</h3>
+		<ul>
+		
+		  <li class="odd">NV_path_rendering</li>
+		
+		</ul>
+	</div>
+	
+
+	
+	
+	
+	
+	<div class="row">
+		<h3>Shared User Interface</h3>
+		<p>The Graphics samples all share a common app framework and certain user interface elements, centered around the "Tweakbar" panel on the left side of the screen which lets you interactively control certain variables in each sample.</p>
+		<p>To show and hide the Tweakbar, simply click or touch the triangular button positioned in the top-left of the view.</p>
+		<div class="subprojmetadata">
+			<p>Other controls are listed below.</p>
+			
+		<table class="table table-striped small subprojcontrolstable" id="sharedcontrolstable">
+		
+		<tr>
+			<th class="subprojcontrolsdevice">Device</th>
+			<th class="subprojcontrolsinput">Input</th>
+			<th class="subprojcontrolsresult">Result</th>
+		</tr>
+	
+		
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">touch</td>
+				
+				<td>2-Finger Drag</td> <td>Translate the view</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>2-Finger Pinch</td> <td>Scale the view</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">mouse</td>
+				
+				<td>Left-Click Drag</td> <td>Translate the view</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Right-Click Drag</td> <td>Scale the view (up:out, down:in)</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">keyboard</td>
+				
+				<td>Esc</td> <td>Quit the application</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Tab</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">gamepad</td>
+				
+				<td>Start</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>A</td> <td>Show TweakBar, Toggle Focused Item</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>B</td> <td>Close Focused UI, Hide TweakBar</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>DPAD Up/Down</td> <td>Move Focus to Prev/Next Item</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>DPAD Left/Right</td> <td>Decrease/Increase Focused Item</td>
+			</tr>
+			
+		
+		</table>
+	
+		</div>
+	</div>
+	
+		
+	
+	<div class="row">
+		<div class="subprojmetadata">
+			<h3>App-Specific Controls</h3>
+			 <p>This sample has the following app-specific controls:</p>
+			 
+		<table class="table table-striped small subprojcontrolstable" id="appcontrolstable">
+		
+		<tr>
+			<th class="subprojcontrolsdevice">Device</th>
+			<th class="subprojcontrolsinput">Input</th>
+			<th class="subprojcontrolsresult">Result</th>
+		</tr>
+	
+		
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">keyboard</td>
+				
+				<td>P</td> <td>Cycle Path Definition Modes</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>F</td> <td>Toggle Fill Paths</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>S</td> <td>Toggle Stroke Paths</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>E</td> <td>Toggle Even-Odd Fill</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>D</td> <td>Toggle Dashed Lines</td>
+			</tr>
+			
+		
+			
+			<tr class="even">
+				
+				<td class="subprojcontrolsdevicekind">gamepad</td>
+				
+				<td>DPAD Left/Right</td> <td>Cycle Path Definition Modes</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Left Shoulder Button</td> <td>Toggle Path Fill</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Right Shoulder Button</td> <td>Toggle Path Stroke</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>X</td> <td>Toggle Even-Odd Fill</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Y</td> <td>Toggle Dashed Lines</td>
+			</tr>
+			
+		
+		</table>
+	
+		</div>	
+	</div>	
+	
+
+		
+	<div class="row" id="subprojfulldoc">
+		<h3>Technical Details</h3>
+		<div id="detaileddoc">
+<p>Path rendering is a new OpenGL extension that is focused on rendering a sequence of resolution-independent outlines, known as paths, which can be filled or stroked.  Such paths can be painted with constant colors, linear or radial gradients, images, even arbitrary fragment shaders (i.e., bump-mapping).</p>
+<p>Unlike bitmap images, path rendering content can be arbitrarily zoomed and rescaled without pixelized results.  Path rendering contents are also easy to edit and animate because an artist can manipulate or edit the underlying paths that make up the scene instead of having to manipulate individual pixels.  For this reason and many other advantages, path rendering powers important 2D graphics standards such as Skia, PostScript, PDF, Scalable Vector Graphics (SVG), Adobe Flash, TrueType font rendering, HTML 5 Canvas, and more.</p>
+<p>This sample shows the most basic attributes of the path rendering APIs, focused on path fill and stroke commands.  It shows three different forms of specifying path data, and minor styling ability.</p>
+<p>Path Rendering supports the following primitives:</p>
+<ul>
+	<li>Cubic curves</li>
+	<li>Quadratic curves</li>
+	<li>Lines</li>
+	<li>Fonts/glyphs</li>
+	<li>Arcs</li>
+	<li>Dash & Endcap Style</li>
+</ul>
+<h4>Rendering Process</h4>
+<p>At a basic level, coding of path rendering support might look like the following:</p>
+<pre class="prettyprint lang-cpp">
+//Compile an SVG path 
+glPathStringNV( pathObj, GL_PATH_FORMAT_SVG_NV, 
+    strlen(svgPathString), svgPathString); 
+ 
+//Fill a stencil of the path 
+glStencilFillPathNV( pathObj, GL_COUNT_UP_NV, 0x1F); 
+ 
+//Configure stencil testing 
+//... as appropriate.
+ 
+//Cover the stencil 
+glCoverFillPathNV( pathObj, GL_BOUNDING_BOX_NV); 
+</pre>
+
+</div>
+	</div>
+	
+
+	
+	<div class="row" id="subprojseealso">
+		<h3>See Also</h3>
+		<ul>
+		
+		  <li class="odd">
+		  <!-- tbd file static refs will need to turn into an nvidia.com relative URL... -->
+		  <span class="subprojseeone">
+		  <a href="https://developer.nvidia.com/nv-path-rendering">
+		  Path Rendering home page
+		  </a>
+		  </span></li>
+		
+		  <li class="even">
+		  <!-- tbd file static refs will need to turn into an nvidia.com relative URL... -->
+		  <span class="subprojseeone">
+		  <a href="http://developer.download.nvidia.com/assets/gamedev/files/Getting_Started_with_NV_path_rendering.pdf">
+		  Getting Started with NV_path_rendering (PDF whitepaper)
+		  </a>
+		  </span></li>
+		
+		</ul>
+	</div>
+		
+	
+</div>
+</div>
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>

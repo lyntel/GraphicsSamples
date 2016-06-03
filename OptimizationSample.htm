@@ -1,0 +1,281 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+	<title>Optimization Sample</title>
+	<meta name="description" content="Optimization Sample" />
+	
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row" id="subprojcontent">
+<div class="col-md-8">
+	<div class="page-header">
+		<h1>Optimization Sample</h1>
+	</div>
+
+	<div class="row">
+		
+			<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Performance&nbsp;</span>
+			
+			</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min PC GPU:</b>
+			<span class="subprojmetagpu">GeForce Fermi-class</span>
+		</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min Tegra Device:</b>
+			<span class="subprojmetagpu">Tegra 4</span>
+		</div>
+		
+	</div>
+	
+	<div class="row">
+		<h3>Description</h3>
+		<p>The Optimization Sample demonstrates several generic performance-improving rendering techniques.  These include down-sampled rendering and depth pre-passes.  The sample also demonstrates the use of app-level GPU and CPU timers, which allow apps to create focused timings of actual GPU work.  This is extremely important, since it is otherwise difficult to actually determine parallel CPU and GPU timings.</p>
+			
+		<a data-colorbox="true" href="images/optimizationapp-screenshot.jpg"><img class="subprojscreen" src="images/optimizationapp-screenshot.jpg" width="400" alt="Screenshot" /></a>
+		
+	</div>
+	
+	
+	<div class="row">
+		<h3>APIs Used</h3>
+		<ul>
+		
+		  <li class="odd">GL_EXT_framebuffer_blit/GL_NV_framebuffer_blit</li>
+		
+		  <li class="even">GL_ARB_timer_query/GL_NV_timer_query</li>
+		
+		</ul>
+	</div>
+	
+
+	
+	
+	
+	
+	<div class="row">
+		<h3>Shared User Interface</h3>
+		<p>The Graphics samples all share a common app framework and certain user interface elements, centered around the "Tweakbar" panel on the left side of the screen which lets you interactively control certain variables in each sample.</p>
+		<p>To show and hide the Tweakbar, simply click or touch the triangular button positioned in the top-left of the view.</p>
+		<div class="subprojmetadata">
+			<p>Other controls are listed below.</p>
+			
+		<table class="table table-striped small subprojcontrolstable" id="sharedcontrolstable">
+		
+		<tr>
+			<th class="subprojcontrolsdevice">Device</th>
+			<th class="subprojcontrolsinput">Input</th>
+			<th class="subprojcontrolsresult">Result</th>
+		</tr>
+	
+		
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">touch</td>
+				
+				<td>1-Finger Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>2-Finger Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>2-Finger Pinch</td> <td>Scale the view</td>
+			</tr>
+			
+		
+			
+			<tr class="even">
+				
+				<td class="subprojcontrolsdevicekind">mouse</td>
+				
+				<td>Left-Button Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Right-Button Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Middle-Click Drag</td> <td>Scale the view (up:out, down:in)</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">keyboard</td>
+				
+				<td>Escape</td> <td>Quit the application</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Tab</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">gamepad</td>
+				
+				<td>Start</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Right ThumbStick</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Left ThumbStick</td> <td>Move forward/backward, Slide left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Left/Right Triggers</td> <td>Move up/down</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>A</td> <td>Show TweakBar, Toggle Focused Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>B</td> <td>Close Focused UI, Hide TweakBar</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>DPAD Up/Down</td> <td>Move Focus to Prev/Next Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>DPAD Left/Right</td> <td>Decrease/Increase Focused Item</td>
+			</tr>
+			
+		
+		</table>
+	
+		</div>
+	</div>
+	
+		
+	
+
+		
+	<div class="row" id="subprojfulldoc">
+		<h3>Technical Details</h3>
+		<div id="detaileddoc">
+  <h4>Introduction</h4>
+
+  <p>This sample demonstrates a few basic methods that can be used to optimize fill-bound applications, as well as methods of timing the impact.  Of the two, the real key here is the use of asynchronous, query-based GL counters to time GPU activity.  The timings are printed to the screen live as the application runs.  The UI can be used to enable and disable features and track the performance impacts to each stage.</p>
+
+  <h4>The Scene</h4>
+
+  <p>The rendered scene in this application includes a basic terrain, individual rigid objects and animated particles.  The particles can be rendered to an independent (downsized with regard to the scene buffer) FBO and then composited with the main scene.  The scene itself can also be rendered to a downsized buffer (note that the particles are downsized relative to the scene buffer, so downsizing the scene buffer downsizes the particle buffer).  The UI allows these to be changed independently.  Thus, there are four total modes: Scene and Particles at window resolution, particles downsized 2x, scene and particles downsized 2x, and finally the scene and particles downsized 2x and 4x, respectively.  The effect of changing these modes can be seen by watching the on-screen timers.</p>
+
+  <p>In addition, the UI allows a depth pre-pass to be enabled at runtime.  The effect of enabling and disabling this pass can be seen by watching the on-screen timers.</p>
+
+  <h4>CPU and GPU Timing</h4>
+<p>At the application level, CPU timings can be collected quite trivially, as shown in the CPU timers in this sample.  They use a simple C++ "scope" object to auto-time blocks of code.  However, OpenGL is explicitly an asynchronous API.  In fact, performance tends to be quite poor when applications are coded in such a way that OpenGL becomes a synchronous API.  Thus, timing the GPU work accurately can be difficult.  NVIDIA provides extensions that allow GL to start a timer in the GL stream of commands, stop the timer in the stream of commands, and then (later) query the time between those two calls in the GPU.  Note that the timer is started and stopped asynchronously; it starts and stops when the start and stop commands are processed on the GPU.  Depending on how heavily the GPU's pipeline is backed up, the timer may start significantly later than the query is launched by the GL query call.</p>
+
+<p>There are five timers each for CPU and GPU, and each timer covers the same selection of GL calls.  The CPU timers cover the time taken in wall-clock time between the start of the first call in the block, and the return of the last call in the block.  The GPU timers cover the time taken to process GL work generated by calls within the block.  The timers cover the cost of a depth pre-pass, the time spent rendering the main scene, the time rendering the particles, and the time spent up-sampling the scene and/or particles, if they are rendered to a low-resolution buffer.  All of these values are normalized by the total CPU and GPU time, and presented as percentages of total.</p>
+</div>
+	</div>
+	
+
+		
+	
+</div>
+</div>
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>

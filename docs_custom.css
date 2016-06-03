@@ -1,0 +1,57 @@
+body {
+	margin: 0;
+	padding:0;
+	background: #fcfcfc;
+	font-family:'Trebuchet MS', 'DIN Pro', sans-serif;
+	font-size: 14px;
+	line-height: 133%;
+	color: #333;
+	overflow:hidden
+	padding-top: 4px;
+	width: 800px;
+	margin: 10px 10px 20px;
+}
+
+div {
+	display: block;
+}
+
+a { color: #5B8C00; text-decoration: none; }
+a:hover { color: black; text-decoration: underline; }
+
+.subprojmetacat { padding: 0px 4px; border: 1px solid #ccc; }
+
+.subprojsubtitle { color: #555599; font-weight: bold; }
+
+a:hover  img { border: 2px solid black; }
+
+img.subprojscreen { width: 640px;  border: 2px solid #ccc;}
+img.subprojscreenthumb { margin: 4px 24px; width: 180px; float: right; border: 2px solid #ccc;}
+
+.nvfloatright { margin: 4px 16px; float: right; text-align: center; }
+.nvfloatleft { margin: 4px 16px; float: right; text-align: center; }
+.nvfloatright img, .nvfloatleft img { border: 2px solid #ccc; }
+.nvcaption { font-size: 75%; }
+.nvcentered { text-align: center; margin: 0 auto; }
+
+h1, h2, h3, h4, h5, h6 { line-height: 100%; color: #9acd32; padding: 6px 0px; border-bottom: 1px solid #ddd; clear: both;}
+h4 { margin-right: 40%;}
+h5, h6 { margin: 0; padding: 0; padding-top: 8px; border-bottom: none; line-height: 110%; }
+h2 { font-size: 170%; }
+h3 { font-size: 150%; }
+h4 { font-size: 125%; }
+h5 { font-size: 110%; }
+h6 { font-size: 100%; }
+
+.subprojcontrolsdevice { width: 20%; }
+.subprojcontrolsinput { width: 30%; }
+.subprojcontrolsresult { width: 50%; }
+.subprojcontrolsdevicekind { text-align: center; }
+
+tr.odd { background: #eeeeee; }
+
+.subprojcontrolstable { width: 600px; border: 1px solid #ddd; text-align: center; }
+.subprojcontrolstable th { border-bottom: 1px solid gray; }
+
+.codeinline { font-family: "Courier New", mono; }
+code { display: block; padding: 8px 12px; margin: 8px 0; background-color: #f8f8f8; border: 1px dotted #bbb; }

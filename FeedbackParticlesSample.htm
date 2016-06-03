@@ -1,0 +1,427 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+	<title>Feedback Particles Sample</title>
+	<meta name="description" content="Feedback Particles Sample" />
+	
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row" id="subprojcontent">
+<div class="col-md-8">
+	<div class="page-header">
+		<h1>Feedback Particles Sample</h1>
+	</div>
+
+	<div class="row">
+		
+			<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Performance&nbsp;</span>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+			</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min PC GPU:</b>
+			<span class="subprojmetagpu">GeForce Fermi-class</span>
+		</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min Tegra Device:</b>
+			<span class="subprojmetagpu">Tegra K1</span>
+		</div>
+		
+	</div>
+	
+	<div class="row">
+		<h3>Description</h3>
+		<p>The Feedback Particles sample shows how normal vertex shaders can be used to animate particles and write the results back into vertex buffer objects via Transform Feedback, for use in subsequent frames.  This is another way of implementing GPU-only particle animations.  The sample also uses Geometry Shaders to generate custom particles from single points and also to kill the dead ones.</p>
+			
+		<a data-colorbox="true" href="images/feedbackparticles-screenshot.jpg"><img class="subprojscreen" src="images/feedbackparticles-screenshot.jpg" width="400" alt="Screenshot" /></a>
+		
+	</div>
+	
+	
+	<div class="row">
+		<h3>APIs Used</h3>
+		<ul>
+		
+		  <li class="odd">GL_EXT_transform_feedback</li>
+		
+		  <li class="even">glBindTransformFeedback</li>
+		
+		  <li class="odd">glDrawTransformFeedback</li>
+		
+		  <li class="even">GL_EXT_geometry_shader4</li>
+		
+		</ul>
+	</div>
+	
+
+	
+	
+	
+	
+	<div class="row">
+		<h3>Shared User Interface</h3>
+		<p>The Graphics samples all share a common app framework and certain user interface elements, centered around the "Tweakbar" panel on the left side of the screen which lets you interactively control certain variables in each sample.</p>
+		<p>To show and hide the Tweakbar, simply click or touch the triangular button positioned in the top-left of the view.</p>
+		<div class="subprojmetadata">
+			<p>Other controls are listed below.</p>
+			
+		<table class="table table-striped small subprojcontrolstable" id="sharedcontrolstable">
+		
+		<tr>
+			<th class="subprojcontrolsdevice">Device</th>
+			<th class="subprojcontrolsinput">Input</th>
+			<th class="subprojcontrolsresult">Result</th>
+		</tr>
+	
+		
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">touch</td>
+				
+				<td>1-Finger Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>2-Finger Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>2-Finger Pinch</td> <td>Scale the view</td>
+			</tr>
+			
+		
+			
+			<tr class="even">
+				
+				<td class="subprojcontrolsdevicekind">mouse</td>
+				
+				<td>Left-Button Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Right-Button Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Middle-Click Drag</td> <td>Scale the view (up:out, down:in)</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">keyboard</td>
+				
+				<td>Escape</td> <td>Quit the application</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Tab</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">gamepad</td>
+				
+				<td>Start</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Right ThumbStick</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Left ThumbStick</td> <td>Move forward/backward, Slide left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Left/Right Triggers</td> <td>Move up/down</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>A</td> <td>Show TweakBar, Toggle Focused Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>B</td> <td>Close Focused UI, Hide TweakBar</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>DPAD Up/Down</td> <td>Move Focus to Prev/Next Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>DPAD Left/Right</td> <td>Decrease/Increase Focused Item</td>
+			</tr>
+			
+		
+		</table>
+	
+		</div>
+	</div>
+	
+		
+	
+
+		
+	<div class="row" id="subprojfulldoc">
+		<h3>Technical Details</h3>
+		<div id="detaileddoc">
+
+<p>The Feedback Particles sample shows how normal vertex shaders can be used to animate particles and write the results back into vertex buffer objects via Transform Feedback, for use in subsequent frames.  This is another way of implementing GPU-only particle animations.  The sample also uses Geometry Shaders to generate custom particles from single points and to delete expired ones.</p>
+<h4>Naive Implementation</h4>
+<p>The first idea that comes to mind when it comes to GPU particle system using transform feedback is the idea of creating a geometry shader which will handle logic and lifecycle of the entire particle system or even a number of particle systems. With a single GPU program a single draw call can emit, move and delete particles. This approach could have simple shader logic like the following: </p>
+<div class="panel panel-success panel-body">
+	<p>Single Pass (input from the previous frame transform feedback)</p>
+	<ol>
+		<li>Process TTL (Time to Live): if expired -- exit the shader;</li>
+		<li>Read particle type;</li>
+		<li>If it is an emitter:
+			<ul>
+			<li>If it is time to emit - emit new particles to the output; Reset the time to emit counter;</li>
+			<li>Process emitter data and push it to the output;</li>
+			</ul>
+		</li>
+		<li>If it is an ordinary particle:
+			<ul>
+				<li>Process particle data and push it to the output.</li>
+			</ul>
+		</li>
+	</ol>
+</div>
+
+<p>Running a simulation is straightforward:</p>
+<pre class="prettyprint lang-cpp">
+//Turn rendering OFF
+glEnable(GL_RASTERIZER_DISCARD_EXT);
+
+glUseProgram(m_simulationProgram);
+{
+    //Output particles to Current feedback object
+    glBindTransformFeedback(GL_TRANSFORM_FEEDBACK, m_Current);
+    glBeginTransformFeedback(GL_POINTS);
+
+    //If not first frame, run GPU pass with input from feedback object Previous
+    //If is first frame, run GPU pass with input from emitter VBO
+    if (!m_isFirstHit)
+        glDrawTransformFeedback(GL_POINTS, m_Previous);
+    else
+    {
+        glDrawArrays(GL_POINTS, 0, m_emitterCount);
+        m_isFirstHit = false;
+    }
+
+    glEndTransformFeedback();
+}
+
+//Turn rendering ON
+glDisable(GL_RASTERIZER_DISCARD_EXT);
+
+...
+
+//Render particles from feedback object Current
+glDrawTransformFeedback(GL_POINTS, m_Current);
+
+//Swap feedback objects IDs
+swap(m_Current, m_Previous);
+</pre>
+
+<p>However, although it may sound great and could be an interesting programming challenge, this approach is not that great performance-wise. The output of the geometry shader can be placed into the fast on-chip memory, which is usually quite limited in size. Because the GPU runs threads in parallel, this limitation may reduce the number of simultaneously running geometry shader threads and so reduce the overall performance of the particle system. </p>
+<h4>An Optimized Approach</h4>
+<p> A basic idea is to somehow workaround a possible GPU under-utilization introduced by the limited fast memory space. To do this, the particle system GPU program from the naive approach has to be split into two passes: a particle emission pass and a particle processing and deletion pass. Both passes stream data out to the same transform feedback buffer which will be later used during rendering and also on the next frame as input for the second pass.</p>
+<p>However, there is an obstacle in the way: the GPU program can't be changed during transform feedback. To work around this obstacle we have to introduce a third pass: a generated particles copy pass. Obviously, the particle emission pass has shared memory limitations; but it will be issued only on emitters, which are usually small in number. The second pass GPU program will only work with one particle at a time and is free from the described limitation, unless particle system uses a very fat particle structure. It is also best to have emitters at the CPU side, as they can be controlled more comfortably. The simplest shader logic then for this approach would be:</p>
+<div class="panel panel-success panel-body">
+	<p>First pass (input from CPU memory):</p>
+	<ul><li>[GS] If it is time to emit - emit new particles to the output; </li></ul>
+	<p>Second pass (input from the previous PASS transform feedback):</p>
+	<ul>
+		<li>[VS] Process particle;</li>
+		<li>[GS] If TTL is not expired push particle to the output;</li>
+	</ul>
+	<p>Third pass (input from the previous FRAME transform feedback):</p>
+	<ul>
+		<li>[VS] Process particle;</li>
+		<li>[GS] If TTL is not expired, push particle to the output;</li>
+	</ul>
+</div>
+
+<p>So, pulling it all together, the new algorithm would be:
+<pre class="prettyprint lang-cpp">
+//Turn rendering OFF;
+glEnable(GL_RASTERIZER_DISCARD_EXT);
+
+//Run first GPU pass;
+glUseProgram(m_emitProgram);
+{
+    //emit particles to EmitterFeedback transform feedback object;
+    glBindTransformFeedback(GL_TRANSFORM_FEEDBACK, m_EmitterFeedback);
+    glBeginTransformFeedback(GL_POINTS);
+    glDrawArrays(GL_POINTS, 0, m_EmitterCount);
+    glEndTransformFeedback();
+}
+
+//Run second and third GPU passes;
+glUseProgram(m_processProgram);
+{
+    //Output particles to Current
+    glBindTransformFeedback(GL_TRANSFORM_FEEDBACK, m_Current);
+
+    //Run second GPU pass with input from feedback object EmitterFeedback
+    glDrawTransformFeedback(GL_POINTS, m_EmitterFeedback);
+
+    //If not the first frame, then run third GPU pass with
+    //the input from feedback object Previous
+    if (!m_isFirstHit)
+        glDrawTransformFeedback(GL_POINTS, m_Previous);
+
+    glEndTransformFeedback();
+    m_isFirstHit = false;
+}
+
+//Turn rendering ON;
+glDisable(GL_RASTERIZER_DISCARD_EXT);
+
+...
+
+//Render particles from feedback object Current
+glDrawTransformFeedback(GL_POINTS, m_Current);
+
+//Swap feedback object IDs
+swap(m_Current, m_Previous);
+</pre>
+
+</div><!--detaileddoc-->
+	</div>
+	
+
+	
+	<div class="row" id="subprojseealso">
+		<h3>See Also</h3>
+		<ul>
+		
+		  <li class="odd">
+		  <!-- tbd file static refs will need to turn into an nvidia.com relative URL... -->
+		  <span class="subprojseeone">
+		  <a href="https://www.opengl.org/wiki/Transform_Feedback">
+		  OpenGL.org Transform Feedback doc
+		  </a>
+		  </span></li>
+		
+		  <li class="even">
+		  <!-- tbd file static refs will need to turn into an nvidia.com relative URL... -->
+		  <span class="subprojseeone">
+		  <a href="http://www.cs.ubc.ca/~rbridson/">
+		  Curl Noise paper and example code by Robert Bridson
+		  </a>
+		  </span></li>
+		
+		  <li class="odd">
+		  <!-- tbd file static refs will need to turn into an nvidia.com relative URL... -->
+		  <span class="subprojseeone">
+		  <a href="http://prideout.net/blog/?p=67">
+		  Noise-Based Particles article and sample code by Philip Rideout
+		  </a>
+		  </span></li>
+		
+		</ul>
+	</div>
+		
+	
+</div>
+</div>
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>

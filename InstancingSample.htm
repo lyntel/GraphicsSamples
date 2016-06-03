@@ -1,0 +1,322 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+	<title>Instancing Sample</title>
+	<meta name="description" content="Instancing Sample" />
+	
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row" id="subprojcontent">
+<div class="col-md-8">
+	<div class="page-header">
+		<h1>Instancing Sample</h1>
+	</div>
+
+	<div class="row">
+		
+			<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Performance&nbsp;</span>
+			
+			</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min PC GPU:</b>
+			<span class="subprojmetagpu">GeForce Fermi-class</span>
+		</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min Tegra Device:</b>
+			<span class="subprojmetagpu">Tegra 4</span>
+		</div>
+		
+	</div>
+	
+	<div class="row">
+		<h3>Description</h3>
+		<p>This sample demonstrates how instancing techniques can be used to speed up drawing operations for scenes that consist of many copies of the same object rendered with slight differences.</p>
+			
+		<a data-colorbox="true" href="images/instancing-screenshot.jpg"><img class="subprojscreen" src="images/instancing-screenshot.jpg" width="400" alt="Screenshot" /></a>
+		
+	</div>
+	
+	
+	<div class="row">
+		<h3>APIs Used</h3>
+		<ul>
+		
+		  <li class="odd">glDrawElementsInstanced (or glDrawElementsInstancedARB, or glDrawElementsInstancedNV)</li>
+		
+		  <li class="even">glVertexAttribDivisor (or glVertexAttribDivisorARB, or glVertexAttribDivisorNV)</li>
+		
+		  <li class="odd">GL_ARB_instanced_arrays [optional]</li>
+		
+		  <li class="even">GL_NV_draw_instanced [optional]</li>
+		
+		</ul>
+	</div>
+	
+
+	
+	
+	
+	
+	<div class="row">
+		<h3>Shared User Interface</h3>
+		<p>The Graphics samples all share a common app framework and certain user interface elements, centered around the "Tweakbar" panel on the left side of the screen which lets you interactively control certain variables in each sample.</p>
+		<p>To show and hide the Tweakbar, simply click or touch the triangular button positioned in the top-left of the view.</p>
+		<div class="subprojmetadata">
+			<p>Other controls are listed below.</p>
+			
+		<table class="table table-striped small subprojcontrolstable" id="sharedcontrolstable">
+		
+		<tr>
+			<th class="subprojcontrolsdevice">Device</th>
+			<th class="subprojcontrolsinput">Input</th>
+			<th class="subprojcontrolsresult">Result</th>
+		</tr>
+	
+		
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">touch</td>
+				
+				<td>1-Finger Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>2-Finger Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>2-Finger Pinch</td> <td>Scale the view</td>
+			</tr>
+			
+		
+			
+			<tr class="even">
+				
+				<td class="subprojcontrolsdevicekind">mouse</td>
+				
+				<td>Left-Button Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Right-Button Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Middle-Click Drag</td> <td>Scale the view (up:out, down:in)</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">keyboard</td>
+				
+				<td>Escape</td> <td>Quit the application</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Tab</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">gamepad</td>
+				
+				<td>Start</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Right ThumbStick</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Left ThumbStick</td> <td>Move forward/backward, Slide left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Left/Right Triggers</td> <td>Move up/down</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>A</td> <td>Show TweakBar, Toggle Focused Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>B</td> <td>Close Focused UI, Hide TweakBar</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>DPAD Up/Down</td> <td>Move Focus to Prev/Next Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>DPAD Left/Right</td> <td>Decrease/Increase Focused Item</td>
+			</tr>
+			
+		
+		</table>
+	
+		</div>
+	</div>
+	
+		
+	
+
+		
+	<div class="row" id="subprojfulldoc">
+		<h3>Technical Details</h3>
+		<div id="detaileddoc">
+<p>This sample demonstrates how instancing techniques can be used to speed up drawing operations for scenes that consist of many copies of the same object rendered with slight differences.</p>
+<p>The key message here is if your scene is cpu/driver limited by the sheer volume of draw calls and/or uniform updates, using hardware instancing is the easiest way to overcome those performance bottlenecks.</p>
+<h4>Render Modes</h4>
+<p>There are two different visuals that can be rendered via the Render Mode UI, each with its own set of control variables per instance:</p>
+<ol>
+	<li>
+	<p><b>Boxes</b></p>
+	<p>Draws a 3D grid of textured and animated cubes.  Each cube has the following unique per instance attributes:</p>
+		<ol type='a'>
+			<li>3D Position</li>
+			<li>Rotation around the Y axis</li>
+			<li>Color shade into a palette of 6 shades</li>
+		</ol>
+	</li>
+	<li>
+		<p><b>Grass</b></p>
+		<p>Draws a rectangular (2D) patch of grass blades.  Each grass blade has the following unique per instance attributes:</p>
+		<ol type='a'>
+			<li>2D Position</li>
+			<li>Rotation around the Y axis</li>
+			<li>Color index used to choose one of 6 color variations for the grass blades</li>
+		</ol>
+	</li>
+</ol>
+<h4>Instancing Modes</h4>
+<p>The sample has three different, selectable Instancing Modes that show different techniques for rendering instances, each with different performance (from slowest to fastest):</p>
+<ol>
+	<li>
+		<p><b>No Instancing</b></p>
+		<p>Each instance of the object is drawn individually.</p>
+		<ol type='a'>
+			<li>Two calls to <code>glUniform3fv</code> to set the attributes for the current instance</li>
+			<li>One call to <code>glDrawElements</code> to render the current instance</li>
+		</ol>
+	</li>
+	<li>
+		<p><b>Shader Instancing</b></p>
+		<p>Objects are drawn in batches with each batch containing up to 100 instances.</p>
+	    <ol type='a'>
+			<li>Two calls to <code>glUniform3fv</code> to set the attributes for the current batch of instances</li>
+			<li>One call to <code>glDrawElements</code> to render the current batch of instance</li>
+		</ol>
+		<p>In order to support drawing 100 instances of the object the sample creates a vertex buffer object that contains the vertices of 100 copies of the object. The data for each vertex is extended to additionally contain an instance id. This id is then used to load per instance attributes from an array of uniform shaders variables to adjust position, rotation and color of each instance.</p>
+		<p>Further on, in addition to the vertex buffer object, a buffer is created that contains the indices for the 100 copies of the original index buffer.</p>
+	</li>
+	<li>
+		<p><b>Hardware Instancing</b></p>
+		<p>Objects are drawn using just one call to <code>glDrawElementsInstanced()</code> (or if not available <code>glDrawElementsInstancedARB()</code> or <code>glDrawElementsInstancedNV()</code>).</p>
+		<p>To setup this draw call additional per instance vertex attributes are setup by two calls to each <code>glEnableVertexAttribArray</code>, <code>glVertexAttribPointer</code> and <code>glVertexAttribDivisorARB/NV</code>. This setup does bring in per instance data as additional per vertex attributes to the vertex shader.</p>
+	</li>
+</ol>
+</div>
+	</div>
+	
+
+		
+	
+</div>
+</div>
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+	<title>Compute Water Surface Sample</title>
+	<meta name="description" content="Compute Water Surface Sample" />
+	
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row" id="subprojcontent">
+<div class="col-md-8">
+	<div class="page-header">
+		<h1>Compute Water Surface Sample</h1>
+	</div>
+
+	<div class="row">
+		
+			<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Visuals&nbsp;</span>
+			
+			</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min PC GPU:</b>
+			<span class="subprojmetagpu">GeForce Kepler-class</span>
+		</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min Tegra Device:</b>
+			<span class="subprojmetagpu">Tegra K1</span>
+		</div>
+		
+	</div>
+	
+	<div class="row">
+		<h3>Description</h3>
+		<p>This sample demonstrates dynamic, interactive water surface animation using compute shaders</p>
+			
+		<a data-colorbox="true" href="images/computewatersurface-screenshot.jpg"><img class="subprojscreen" src="images/computewatersurface-screenshot.jpg" width="400" alt="Screenshot" /></a>
+		
+	</div>
+	
+	
+	<div class="row">
+		<h3>APIs Used</h3>
+		<ul>
+		
+		  <li class="odd">GL_COMPUTE_SHADER</li>
+		
+		  <li class="even">glDispatchCompute</li>
+		
+		  <li class="odd">glMemoryBarrier</li>
+		
+		  <li class="even">glGenFramebuffers</li>
+		
+		  <li class="odd">glBindFramebuffer</li>
+		
+		</ul>
+	</div>
+	
+
+	
+	
+	
+	
+	<div class="row">
+		<h3>Shared User Interface</h3>
+		<p>The Graphics samples all share a common app framework and certain user interface elements, centered around the "Tweakbar" panel on the left side of the screen which lets you interactively control certain variables in each sample.</p>
+		<p>To show and hide the Tweakbar, simply click or touch the triangular button positioned in the top-left of the view.</p>
+		<div class="subprojmetadata">
+			<p>Other controls are listed below.</p>
+			
+		<table class="table table-striped small subprojcontrolstable" id="sharedcontrolstable">
+		
+		<tr>
+			<th class="subprojcontrolsdevice">Device</th>
+			<th class="subprojcontrolsinput">Input</th>
+			<th class="subprojcontrolsresult">Result</th>
+		</tr>
+	
+		
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">touch</td>
+				
+				<td>1-Finger Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>2-Finger Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>2-Finger Pinch</td> <td>Scale the view</td>
+			</tr>
+			
+		
+			
+			<tr class="even">
+				
+				<td class="subprojcontrolsdevicekind">mouse</td>
+				
+				<td>Left-Button Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Right-Button Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Middle-Click Drag</td> <td>Scale the view (up:out, down:in)</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">keyboard</td>
+				
+				<td>Escape</td> <td>Quit the application</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Tab</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">gamepad</td>
+				
+				<td>Start</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Right ThumbStick</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Left ThumbStick</td> <td>Move forward/backward, Slide left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Left/Right Triggers</td> <td>Move up/down</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>A</td> <td>Show TweakBar, Toggle Focused Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>B</td> <td>Close Focused UI, Hide TweakBar</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>DPAD Up/Down</td> <td>Move Focus to Prev/Next Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>DPAD Left/Right</td> <td>Decrease/Increase Focused Item</td>
+			</tr>
+			
+		
+		</table>
+	
+		</div>
+	</div>
+	
+		
+	
+
+		
+	<div class="row" id="subprojfulldoc">
+		<h3>Technical Details</h3>
+		<div id="detaileddoc">
+<h4>Introduction</h4>
+<p>This sample shows how compute shaders can be used to implement height field-based water simulation techniques on the GPU, and use the results for rendering.</p>
+<p>In this technique, the water surface is represented as regular grid with height and velocity values for each point.</p>
+<p>Compute shader is used for surface transformation and computation of normals, which are required for realistic rendering.</p>
+
+
+<h4>Rendering Procedure:</h4>
+<ol>
+<li><p>In the first pass, the compute shader calculates updated velocity vectors per water height map sample.  New height values are computed for each point via integration, and the results written into a temporary buffer.</p></li>
+<li><p>In the second pass, the compute shader calculates water surface normals at each point via gradients, and updates the resulting data.</p></li>
+<li><p>The vertex shader accesses the resulting height and normal data to compute fresnel and reflection vectors.</p></li>
+<li><p>The fragment shader uses the fresnel and reflection vectors to draw, shade, and reflect the surface.</p></li>
+</ol>
+
+<h4>UI options:</h4>
+<ul>
+<li><p>Toggle between CPU and GPU simulation</p></li>
+<li><p>Enable/Disable rain</p></li>
+<li><p>Select grid size</p></li>
+<li><p>Select number of surfaces</p></li>
+<li><p>Adjust wave size</p></li>
+<li><p>Adjust wave damping</p></li>
+<li><p>Show fresnel/normals</p></li>
+</ul>
+
+<h4>Details:</h4>
+
+<h5>Compute shader:</h5>
+
+<p>Height and velocity data is stored in regular buffers, which are used as input attributes to the vertex shader.</p>
+
+<ol>
+  <li>
+    <p>Height Computation Pass</p>
+    <ol>
+      <li><p>Update the velocities using a nearest-neighbor distribution formula.</p></li>
+      <li><p>Apply a damping factor to the current velocity.</p></li>
+      <li><p>Update height value into temporary compute buffer.</p></li>
+      <li><p>Apply a "disturbance" function to the temporary height value.</p></li>
+    </ol>
+  </li>
+  <li>
+    <p>Normal Computation Pass</p>
+    <ol>
+      <li><p>Compute surface normals and write into the gradients buffer.</p></li>
+      <li><p>Copy temporary height data into output height field buffer.</p></li>
+    </ol>
+  </li>
+</ol>
+
+<h5>Vertex shader:</h5>
+
+<p>The two result buffers from the compute shader stage (heights and normals) are bound as regular vertex attributes in the vertex shader stage.</p>
+<p>The vertex shader does the following:</p>
+
+  <ol>
+    <li><p>Fetches gradients from the compute buffer and computes the normal for the vertex.</p></li>
+    <li><p>Fetches the height value from the compute buffer and calculates the position of the vertex.</p></li>
+    <li><p>Transforms and projects the vertex.</p></li>
+    <li><p>Computes the fresnel term, reflection and refraction vectors and passes them to the fragment shader.</p></li>
+  </ol>
+
+<h5>Fragment Shader:</h5>
+
+<p>The fragment shader fetches a texel from the environment map (a cube map texture) using the reflection and refraction vectors, and blends between them using a fresnel term.</p>
+</div>
+  
+	</div>
+	
+
+	
+	<div class="row" id="subprojseealso">
+		<h3>See Also</h3>
+		<ul>
+		
+		  <li class="odd">
+		  <!-- tbd file static refs will need to turn into an nvidia.com relative URL... -->
+		  <span class="subprojseeone">
+		  <a href="http://www.matthiasmueller.info/talks/gdc2008.pdf">
+		  Mueller, Matthias; Fast Water Simulation for Games Using Height Fields, GDC2008
+		  </a>
+		  </span></li>
+		
+		</ul>
+	</div>
+		
+	
+</div>
+</div>
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>

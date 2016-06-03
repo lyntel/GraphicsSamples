@@ -1,0 +1,386 @@
+<!doctype html>
+<html class="csstransforms csstransforms3d csstransitions" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+	
+	<title>Threaded Rendering Vulkan Sample</title>
+	<meta name="description" content="Threaded Rendering Vulkan Sample" />
+	
+	<!-- CSS files -->
+    <link href="./css/application.css" rel="stylesheet" type="text/css" />
+    <link href="./css/styleguide.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" type="text/css" href="sdk_samples.css" />-->
+	<!-- scripts to include -->
+    <script src="./js/jquery.js"></script>
+    <script src="./js/owl.carousel.js"></script>
+    <script src="./js/jquery.fitvids.js"></script>
+    <script src="./js/jquery.colorbox.js"></script>
+    <script src="./js/jquery.isotope.js"></script>
+    <script src="./js/jquery.sidr.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/prettify.js"></script>
+</head>
+
+<body style="">
+
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+	<div class="navbar-header" style="">
+	  <!--<button class="navbar-toggle" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>-->
+	  <div class="logo-header">
+		<a class="navbar-brand logo" href="http://developer.nvidia.com/gameworks"><img alt="NVidia Gameworks" height="21" src="./images/developerzone_gameworks_logo.png" width="245"></a>
+	  </div>
+	</div>
+  </div>
+</nav>
+
+<!-- main body block -->
+<div id="content" class="container">
+
+<div class="row" id="subprojcontent">
+<div class="col-md-8">
+	<div class="page-header">
+		<h1>Threaded Rendering Vulkan Sample</h1>
+	</div>
+
+	<div class="row">
+		
+			<div class="subprojmetadata">
+			<b class="small">Category:</b>
+			
+				<span class="btn btn-primary btn-xs subprojmetacat">&nbsp;Vulkan&nbsp;</span>
+			
+			</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min PC GPU:</b>
+			<span class="subprojmetagpu">GeForce Kepler-class</span>
+		</div>
+		
+		<div class="subprojmetadata">
+			<b class="small">Min Tegra Device:</b>
+			<span class="subprojmetagpu">Tegra K1</span>
+		</div>
+		
+	</div>
+	
+	<div class="row">
+		<h3>Description</h3>
+		<p>This sample demonstrates how to render enormous amounts of geometry by generating not only animation data but even command buffers in multiple threads using Vulkan.</p>
+			
+		<a data-colorbox="true" href="images/threadedrenderingvk-screenshot.png"><img class="subprojscreen" src="images/threadedrenderingvk-screenshot.png" width="400" alt="Screenshot" /></a>
+		
+	</div>
+	
+	
+	<div class="row">
+		<h3>APIs Used</h3>
+		<ul>
+		
+		  <li class="odd">Vulkan 1.0</li>
+		
+		</ul>
+	</div>
+	
+
+	
+	
+	
+	
+	<div class="row">
+		<h3>Shared User Interface</h3>
+		<p>The Graphics samples all share a common app framework and certain user interface elements, centered around the "Tweakbar" panel on the left side of the screen which lets you interactively control certain variables in each sample.</p>
+		<p>To show and hide the Tweakbar, simply click or touch the triangular button positioned in the top-left of the view.</p>
+		<div class="subprojmetadata">
+			<p>Other controls are listed below.</p>
+			
+		<table class="table table-striped small subprojcontrolstable" id="sharedcontrolstable">
+		
+		<tr>
+			<th class="subprojcontrolsdevice">Device</th>
+			<th class="subprojcontrolsinput">Input</th>
+			<th class="subprojcontrolsresult">Result</th>
+		</tr>
+	
+		
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">touch</td>
+				
+				<td>1-Finger Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>2-Finger Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>2-Finger Pinch</td> <td>Scale the view</td>
+			</tr>
+			
+		
+			
+			<tr class="even">
+				
+				<td class="subprojcontrolsdevicekind">mouse</td>
+				
+				<td>Left-Button Drag</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Right-Button Drag</td> <td>Move up/down/left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Middle-Click Drag</td> <td>Scale the view (up:out, down:in)</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">keyboard</td>
+				
+				<td>Escape</td> <td>Quit the application</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Tab</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">gamepad</td>
+				
+				<td>Start</td> <td>Toggle TweakBar visibility</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Right ThumbStick</td> <td>Orbit-rotate the camera</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Left ThumbStick</td> <td>Move forward/backward, Slide left/right</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>Left/Right Triggers</td> <td>Move up/down</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>A</td> <td>Show TweakBar, Toggle Focused Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>B</td> <td>Close Focused UI, Hide TweakBar</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>DPAD Up/Down</td> <td>Move Focus to Prev/Next Item</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>DPAD Left/Right</td> <td>Decrease/Increase Focused Item</td>
+			</tr>
+			
+		
+		</table>
+	
+		</div>
+	</div>
+	
+		
+	
+	<div class="row">
+		<div class="subprojmetadata">
+			<h3>App-Specific Controls</h3>
+			 <p>This sample has the following app-specific controls:</p>
+			 
+		<table class="table table-striped small subprojcontrolstable" id="appcontrolstable">
+		
+		<tr>
+			<th class="subprojcontrolsdevice">Device</th>
+			<th class="subprojcontrolsinput">Input</th>
+			<th class="subprojcontrolsresult">Result</th>
+		</tr>
+	
+		
+		
+			
+			<tr class="odd">
+				
+				<td class="subprojcontrolsdevicekind">keyboard</td>
+				
+				<td>G</td> <td>Draw using GLES3 AEP / VK</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>T</td> <td>Threaded Rendering</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>P</td> <td>Pause Animation</td>
+			</tr>
+			
+			<tr class="even">
+				
+				<td> </td>
+				
+				<td>R</td> <td>Use Avoidance</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>C</td> <td>Cycle Stats</td>
+			</tr>
+			
+		
+			
+			<tr class="even">
+				
+				<td class="subprojcontrolsdevicekind">gamepad</td>
+				
+				<td>Y</td> <td>Fish Fireworks</td>
+			</tr>
+			
+			<tr class="odd">
+				
+				<td> </td>
+				
+				<td>Left Shoulder</td> <td>Cycle Stats</td>
+			</tr>
+			
+		
+		</table>
+	
+		</div>	
+	</div>	
+	
+
+		
+	<div class="row" id="subprojfulldoc">
+		<h3>Technical Details</h3>
+		<div id="detaileddoc">
+<h5>Introduction</h5>
+<p>This sample implements techniques for utilizing multiple threads, along with instanced meshes, to render a high number of moving objects with minimal draw calls.</p>
+The application uses multiple threads to perform tasks such as:
+<ul>
+	<li> Animation</li>
+	<li> Flocking Simulation</li>
+	<li> Generating CommandSets for rendering</li>
+</ul>
+<p>This frees up the main thread to simply submit the generated CommandSets and perform the final buffer swap.</p>
+
+<h5>Algorithm overview</h5>
+<p>The application maintains pools of threads, each specialized to a particular task, such as animation or rendering.  Each thread is specialized by associating
+them with the AnimateJobFunction or RenderJobFunction, respectively.</p>
+<p>The application is structured such that each School of fish is a mostly self-contained set of data and methods.  This allows threads within the application
+to simply call a method on the School to perform the work for that thread with minimal synchronization.</p>
+<p>When a School's Update() method is called, any animation, including the flocking simulation, is performed on the School and its fish.  Once all of the new 
+state is calculated, the School's InstanceData buffer is updated in preparation for rendering.  The InstanceData buffer contains any per-fish data required by 
+the shader, including the fish's position and heading. Once the Update() call is complete, the School is handed off to the Rendering queue to be serviced by an
+available Rendering thread.<p>
+<p>When a School's Render() method is called, the School creates a CommandBuffer containing the commands required to bind a Uniform Buffer Object, containing school-specific
+data used by the shader, as well as the commands required to render the model associated with the School.  The model contained in the School is actually an "Instanced"
+model, in that each of its component meshes are rendered using the CommandBuffer's vkCmdDrawIndexed() method along with the InstanceData that was filled in
+during the School's Update() call.  With this method, each mesh is rendered once for each entry in the InstanceData buffer.  Since there is one entry per fish in 
+the school, this results in the mesh being rendered once for each fish in the school.  If the model contains only a single mesh, then this allows every fish in 
+the School to be drawn with a single Draw call.  If the model contains more than one mesh, then the entire school will be drawn in a number of Draw calls equal 
+to the number of meshes in the model.</p>
+<p>Once all of the Rendering threads have completed, the resultant CommandBuffers are submitted for rendering and the render buffer is swapped to the front.</p>
+
+<h5>UI Options</h5>
+<ul>
+	<li><b>Number of Schools</b>: Changes the number of Schools currently active in the world.</li>
+	<li><b>Fish per School</b>: Changes the number of fish rendered in each School.</li>
+	<li><b>Max Roam Distance</b>: Changes the the "soft" limit of the size of the "fishbowl".</li>
+	<li><b>Draw using GLES3 AEP</b>: Only available on NVIDIA devices, switches live from rendering using Vulkan to rendering using OpenGL ES.</li>
+	<li><b>Threaded Rendering</b>: In Vulkan mode, changes whether the command buffers for rendering are generated per animation thread, or all on the main thread.</li>
+	<li><b>Number of worker threads</b>: Changes the number of OS threads used by the app to animate and render.</li>
+	<li><b>Batch Size</b>: Sets the number of fish rendered per draw call.  Decreasing this simulates more individual fish and shows the low overhead of Vulkan better.</li>
+	<li><b>Pause Animation</b>: Pauses the animation and movement of all fish.</li>
+	<li><b>Use Avoidance</b>: Enables the more expensive, O(N^2) CPU animation mode.</li>
+	<li><b>Flocking complexity</b>: Trades off between smoother flocking and low CPU overhead in animation.</li>
+	<li><b>Reset</b>: Selecting a type of reset from this dropdown will set all active schools (and the camera) to the state indicated.
+		<ul>
+		<li><i>Fish Fireworks</i>: Chooses a random location for each school and moves all of its fish to that spot.  Also sets the camera to the center of the aquarium.</li>
+		<li><i>Fishsplosion</i>: Moves all of Fish in all Schools to the center of the aquarium and places the camera at a point looking at that location.</li>
+		</ul>
+	</li>
+	<li><b>Cycle Stats</b>: Cycles through minimal, detailed and no stats in the upper-right corner of the screen.</li>
+</ul>
+</div>
+	</div>
+	
+
+		
+	
+</div>
+</div>
+
+</div> <!--content-->
+<!-- footer block-->
+<div id="footer" class="container">
+	<div class="seperator"></div>
+	<div class="seperator"></div>
+	<footer>
+		<div class="row">
+			<div class="text-center">&copy;2016 NVIDIA Corporation.</div>
+			<div class="seperator"></div>
+		</div>
+	</footer>
+</div> <!--footer-->
+
+</body>
+</html>
