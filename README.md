@@ -16,6 +16,9 @@ Moving forward, the most frequent releases will be made to this GitHub repositor
 
 What to Read Next:
 ------------------
+
+Note: a table of contents for the linked documents is forthcoming...
+
 * [Release Notes](http://nvidiagameworks.github.io/GraphicsSamples/gfx_release.htm)
 ** What's new in this release, along with any known issues.
 * [Prerequisites](http://nvidiagameworks.github.io/GraphicsSamples/gfx_prereq.htm)
