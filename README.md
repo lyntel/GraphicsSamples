@@ -16,17 +16,17 @@ Moving forward, the most frequent releases will be made to this GitHub repositor
 
 What to Read Next:
 ------------------
-* [Release Notes](http://nvidiagameworks.github.io/graphicssamples/gfx_release.htm)
+* [Release Notes](http://nvidiagameworks.github.io/GraphicsSamples/gfx_release.htm)
 ** What's new in this release, along with any known issues.
-* [Prerequisites](http://nvidiagameworks.github.io/graphicssamples/gfx_prereq.htm)
+* [Prerequisites](http://nvidiagameworks.github.io/GraphicsSamples/gfx_prereq.htm)
 ** Details the per-platform requirements for developing with the samples.
-* [Setup Guide](http://nvidiagameworks.github.io/graphicssamples/gfx_setup.htm)
+* [Setup Guide](http://nvidiagameworks.github.io/GraphicsSamples/gfx_setup.htm)
 ** Details the per-platform steps needed to set up your PC for building and running the samples.
-* [Overview of Vulkan Samples](http://nvidiagameworks.github.io/graphicssamples/gfx_samples_vk.htm)
+* [Overview of Vulkan Samples](http://nvidiagameworks.github.io/GraphicsSamples/gfx_samples_vk.htm)
 ** Describes each of the Vulkan samples in the pack, what they demonstrate, and in some cases further detailed analysis of how they work.
-* [Overview of OpenGL Samples](http://nvidiagameworks.github.io/graphicssamples/gfx_samples_gl.htm)
+* [Overview of OpenGL Samples](http://nvidiagameworks.github.io/GraphicsSamples/gfx_samples_gl.htm)
 ** Describes each of the OpenGL samples in the pack, what they demonstrate, and in some cases further detailed analysis of how they work.
-* [Overview of App Framework and Libraries](http://nvidiagameworks.github.io/graphicssamples/index_framework.htm)
+* [Overview of App Framework and Libraries](http://nvidiagameworks.github.io/GraphicsSamples/index_framework.htm)
 ** Details the cross-platform application framework and other support libraries, along with links to class/structure documentation.
 
 Providing Pull Requests:
